@@ -1,15 +1,22 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+neofetch
+
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR='nvim'
 
 [[ -s /home/jamesjilhaney/.autojump/etc/profile.d/autojump.sh ]] && source /home/jamesjilhaney/.autojump/etc/profile.d/autojump.sh
 
 	autoload -U compinit && compinit -u
 
 
-ZSH_THEME="jonathan"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 
 plugins=(
@@ -27,6 +34,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR=vim
+alias la='ls -la'
 alias df='df -h'
 alias stdwn='shutdown now'
 alias rbt='reboot'
@@ -138,8 +146,17 @@ if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
 fi
 
 
-neofetch
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval $(thefuck --alias)
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
