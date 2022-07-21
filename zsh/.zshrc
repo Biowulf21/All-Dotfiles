@@ -38,7 +38,7 @@ alias la='ls -la'
 alias df='df -h'
 alias stdwn='shutdown now'
 alias rbt='reboot'
-alias cod='code -a .'
+alias dupdate=' sudo dnf update -y && sudo flatpak update -y'
 # Turn on Bluetooth
 alias bton='systemctl start bluetooth'
 # Turn off Bluetooth

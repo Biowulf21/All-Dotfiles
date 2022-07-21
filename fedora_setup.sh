@@ -2,8 +2,14 @@ echo ===============WELCOME TO FEDORA SETUP===============
 echo Updating system...
 sudo dnf upgrade --refresh -y
 
+echo Installing XClip
+sudo dnf install xclip -y
+
 # Remove vim lite
-sudo dnf remove vi
+sudo dnf remove vi -y
+
+echo Installing NCDU Disk Manager
+sudo dnf install ncdu -y
 
 echo Installing Theme
 # Installing Theme
@@ -16,10 +22,10 @@ sudo dnf install neovim
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 
 # Installing ranger
-sudo dnf install ranger
+sudo dnf install ranger -y
 
 # Installing vlc
-sudo dng install ranger
+sudo dnf install vlc -y
 
 # Installing neofetch
 sudo dnf install neofetch
@@ -67,21 +73,21 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 
 # Install vscode
-flatpak install flathub com.visualstudio.code
+flatpak install flathub com.visualstudio.code -y
 
 # Install Telegram
-flatpak install flathub org.telegram.desktop
+flatpak install flathub org.telegram.desktop -y
 
 # Install Joplin
-flatpak install flathub net.cozic.joplin_desktop
+flatpak install flathub net.cozic.joplin_desktop -y
 
 # Install qBittorrent
-flatpak install flathub org.qbittorrent.qBittorrent
+flatpak install flathub org.qbittorrent.qBittorrent -y
 
 # Installing KDE
-sudo dnf groupinstall "KDE Plasma Workspaces"
+sudo dnf groupinstall "KDE Plasma Workspaces" -y
 
 # Setup SSH
 ssh-keygen
-cat ~/.ssh/id_rsa.pub
+cat ~/.ssh/id_rsa.pub | xclip -selection c 
 read -q "REPLY?Do you want to finish system installation?"
