@@ -33,11 +33,18 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# copy with progress bar
+alias cp='cp --progress-bar'
+alias mv='mv --progress-bar'
+
 export EDITOR=vim
 alias la='ls -la'
+alias setclip='xclip -selection c'
+alias getclip='xclip -selection -o'
 alias df='df -h'
 alias stdwn='shutdown now'
 alias rbt='reboot'
+alias suu='sudo dnf update -y && sudo flatpak update -y'
 alias dupdate=' sudo dnf update -y && sudo flatpak update -y'
 # Turn on Bluetooth
 alias bton='systemctl start bluetooth'
@@ -46,11 +53,10 @@ alias btoff='systemctl stop bluetooth'
 alias r='. ranger'
 alias nc='ncdu'
 alias sa='sudo apt'
-alias suu='sudo apt update && sudo apt upgrade'
-alias sapt='sudo apt install'
-alias sar='sudo apt remove'
-alias sap='sudo apt purge'
-alias ser='apt search'
+alias sapt='sudo dnf install'
+alias sar='sudo dnf remove'
+alias sap='sudo dnf purge'
+alias ser='dnf search'
 alias c='clear'
 alias h='history'
 alias b='cd ..'

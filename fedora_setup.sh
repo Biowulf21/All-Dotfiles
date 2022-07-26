@@ -28,10 +28,10 @@ sudo dnf install ranger -y
 sudo dnf install vlc -y
 
 # Installing neofetch
-sudo dnf install neofetch
+sudo dnf install neofetch -y
 
 # Install and setup zsh
-sudo dnf install zsh
+sudo dnf install zsh -y
 zsh --version
 sudo chsh -s $(which zsh)
 
@@ -53,6 +53,7 @@ dnf install zsh-syntax-highlighting -y
 git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/oh-my-zsh/plugins/you-should-use
 
 #Install oh-my-zsh
+rm -rf ~/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Setup dotfiles
