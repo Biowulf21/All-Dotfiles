@@ -34,8 +34,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # copy with progress bar
-alias cp='cp --progress-bar'
-alias mv='mv --progress-bar'
+#alias cp='cp --progress-bar'
+#alias mv='mv --progress-bar'
 
 export EDITOR=vim
 alias la='ls -la'
@@ -166,3 +166,4 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+source /home/biowulf21/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
