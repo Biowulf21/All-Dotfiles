@@ -11,12 +11,9 @@ neofetch
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='nvim'
 
-[[ -s /home/jamesjilhaney/.autojump/etc/profile.d/autojump.sh ]] && source /home/jamesjilhaney/.autojump/etc/profile.d/autojump.sh
-
-	autoload -U compinit && compinit -u
 
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 
 plugins=(
@@ -25,6 +22,7 @@ plugins=(
 	bgnotify
 	you-should-use $plugins
 	copybuffer
+  copypath
 	dirhistory
 	history
 	sudo
@@ -53,14 +51,17 @@ alias btoff='systemctl stop bluetooth'
 alias r='. ranger'
 alias nc='ncdu'
 alias sa='sudo apt'
-alias sapt='sudo dnf install'
-alias sar='sudo dnf remove'
-alias sap='sudo dnf purge'
+alias sdnf='sudo dnf install'
+alias sdr='sudo dnf remove'
+alias sdp='sudo dnf purge'
 alias ser='dnf search'
+alias fin='sudo flatpak install'
+alias frm='sudo flatpak remove'
 alias c='clear'
 alias h='history'
 alias b='cd ..'
 alias tree='tree --dirsfirst -F'
+alias cssh='cat ~/.ssh/id_rsa.pub | xclip -sel clip'
 
 
 # calendar
@@ -147,10 +148,29 @@ function _update_ps1() {
     PS1=$(powerline-shell $?)
 }
 
+cdir (){
+  mkdir $1
+  cd $1
+}
+
 if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
+# Emulators and android studio
+elist(){
+/home/biowulf21/Android/Sdk/tools/emulator -list-avds
+
+}
+
+erun(){
+ cd /home/biowulf21/Android/Sdk/tools/
+ ./emulator -avd $1
+}
+
+as(){
+  /usr/local/android-studio-2021.2.1.15-linux/android-studio/bin/studio.sh
+}
 
 
 export NVM_DIR="$HOME/.nvm"
@@ -167,3 +187,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 source /home/biowulf21/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+[[ -s /home/biowulf21/.autojump/etc/profile.d/autojump.sh ]] && source /home/biowulf21/.autojump/etc/profile.d/autojump.sh
+
+	autoload -U compinit && compinit -u
+
