@@ -107,6 +107,10 @@ alias gd='git diff'
 # git push origin master
 alias gpoms='git push origin master'
 
+gpocb(){
+BRANCH = git symbolic-ref --short -q HEAD
+git push origin master $BRANCH }
+
 # git push
 alias gp='git push'
 

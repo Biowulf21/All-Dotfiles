@@ -63,15 +63,16 @@ sudo dnf install flameshot -y
 # Steam
 sudo dnf install steam -y
 
+
 # Setup flatpaks
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 
-# Install vscode
-flatpak install flathub com.visualstudio.code -y
-
 # Install Telegram
 flatpak install flathub org.telegram.desktop -y
+
+# Heroic Games launcher
+flatpak install heroic -y
 
 # Install Joplin
 flatpak install flathub net.cozic.joplin_desktop -y
