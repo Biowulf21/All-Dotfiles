@@ -68,6 +68,9 @@ sudo dnf install steam -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 
+# Planner
+flatpak install flatpak run com.github.alainm23.planner -y
+
 # Install Telegram
 flatpak install flathub org.telegram.desktop -y
 

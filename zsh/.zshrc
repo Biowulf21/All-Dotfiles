@@ -27,6 +27,7 @@ plugins=(
 	history
 	sudo
 	git
+  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -155,6 +156,7 @@ function _update_ps1() {
 cdir (){
   mkdir $1
   cd $1
+  la
 }
 
 if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
