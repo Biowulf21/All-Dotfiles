@@ -10,6 +10,8 @@ sudo dnf remove vi -y
 
 # ZSH
 sudo dnf install zsh -y
+rm ~/.zshrc
+ln -s ~/All-Dotfiles/zsh/.zshrc ~/.zshrc
 
 echo Installing NCDU Disk Manager
 sudo dnf install ncdu -y
@@ -71,8 +73,8 @@ sudo dnf install steam -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 
-# Planner
-flatpak install com.github.alainm23.planner -y
+# Todoist
+flatpak install flathub com.todoist.Todoist
 
 # Discord
 flatpak install flathub com.discordapp.Discord -y
