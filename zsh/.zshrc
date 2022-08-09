@@ -193,3 +193,4 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 	autoload -U compinit && compinit -u
 
+source ~/powerlevel10k/powerlevel10k.zsh-theme

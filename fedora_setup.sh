@@ -8,6 +8,9 @@ sudo dnf install xclip -y
 # Remove vim lite
 sudo dnf remove vi -y
 
+# ZSH
+sudo dnf install zsh -y
+
 echo Installing NCDU Disk Manager
 sudo dnf install ncdu -y
 
@@ -69,10 +72,10 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 
 # Planner
-flatpak install flatpak run com.github.alainm23.planner -y
+flatpak install com.github.alainm23.planner -y
 
 # Discord
-flatpak install flatpak install flathub com.discordapp.Discord -y
+flatpak install flathub com.discordapp.Discord -y
 
 # Install Telegram
 flatpak install flathub org.telegram.desktop -y
