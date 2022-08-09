@@ -13,6 +13,10 @@ sudo dnf install zsh -y
 rm ~/.zshrc
 ln -s ~/All-Dotfiles/zsh/.zshrc ~/.zshrc
 
+echo Installing Gnome Tweaks and Extensions
+sudo dnf install gnome-shell-extensions -y
+sudo dnf install gnome-tweaks -y 
+
 echo Installing NCDU Disk Manager
 sudo dnf install ncdu -y
 
