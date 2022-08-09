@@ -1,12 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
 neofetch
-
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='nvim'
@@ -32,9 +24,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# copy with progress bar
-#alias cp='cp --progress-bar'
-#alias mv='mv --progress-bar'
 
 export EDITOR=vim
 alias la='ls -la'
@@ -53,6 +42,7 @@ alias r='. ranger'
 alias nc='ncdu'
 alias sa='sudo apt'
 alias sdnf='sudo dnf install'
+alias sd='sudo dnf'
 alias sdr='sudo dnf remove'
 alias sdp='sudo dnf purge'
 alias ser='dnf search'
@@ -64,6 +54,10 @@ alias b='cd ..'
 alias tree='tree --dirsfirst -F'
 alias cssh='cat ~/.ssh/id_rsa.pub | xclip -sel clip'
 
+cl(){
+  cd $@
+  ls
+}
 
 # calendar
 alias jan='cal -m 01'
@@ -116,7 +110,10 @@ alias gp='git push'
 alias gpomn='git push origin main'
 
 # git push origin
-alias gpo='git push origin "$(git symbolic-ref --short HEAD)
+alias gpo='git push origin "$(git symbolic-ref --short HEAD)"'
+
+# echo current branch
+alias cb='echo "$(git symbolic-ref --short HEAD)"'
 
 # git pull
 alias gpl='git pull'
