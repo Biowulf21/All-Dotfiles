@@ -1,4 +1,10 @@
+printf "\n\n"
 echo ===============WELCOME TO FEDORA SETUP===============
+printf "\n\n"
+
+echo Adding parallel downloads to DNF
+sudo cat max_parallel_downloads=10 >> /etc/dnf/dnf.conf
+
 echo Updating system...
 sudo dnf upgrade --refresh -y
 
@@ -24,53 +30,64 @@ echo Installing Theme
 # Installing Theme
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k\n
 echo Theme Installed
+printf '\n\n\n'
 
 echo Installing system applications
 # Installing neovim
 sudo dnf install -y libstdc++-static
 sudo dnf install neovim -y
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+printf '\n\n\n'
 
 # Installing ranger
 sudo dnf install ranger -y
+printf '\n\n\n'
 
 # Installing vlc
 sudo dnf install vlc -y
+printf '\n\n\n'
 
 # Installing neofetch
 sudo dnf install neofetch -y
+printf '\n\n\n'
 
 
 echo Installing Fuck
 # Fuck
 sudo dnf install fuck -y
+printf '\n\n\n'
 
 #oh-my-zsh plugins
 
 # Autosuggestions
-cd ~
-dnf config-manager --add-repo https://download.opensuse.org/repositories/shells:zsh-users:zsh-autosuggestions/Fedora_35/shells:zsh-users:zsh-autosuggestions.repo
-dnf install zsh-autosuggestions -y
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+printf '\n\n\n'
 
 # Syntax Highlighting
-dnf config-manager --add-repo https://download.opensuse.org/repositories/shells:zsh-users:zsh-syntax-highlighting/Fedora_Rawhide/shells:zsh-users:zsh-syntax-highlighting.repo
-dnf install zsh-syntax-highlighting -y
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+printf '\n\n\n'
 
 # You should use
-git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/oh-my-zsh/plugins/you-should-use
+git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $ZSH_CUSTOM/plugins/you-should-use
+printf '\n\n\n'
 
+#Setup autojump
+git clone https://github.com/wting/autojump.git ~
+autojump/install.py
 # Setup dotfiles
 sudo rm ~/.zshrc
-ln -s ~/.Dotfiles/zsh/.zshrc .zshrc
-omz reload
+ln -s ~/.All-Dotfiles/zsh/.zshrc .zshrc
+#omz reload
 
 # Installing applications
 
 # Flameshot
 sudo dnf install flameshot -y
+printf '\n\n\n'
 
 # Steam
 sudo dnf install steam -y
+printf '\n\n\n'
 
 
 # Setup flatpaks
@@ -79,24 +96,31 @@ flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 
 # Todoist
 flatpak install flathub com.todoist.Todoist
+printf '\n\n\n'
 
 # Discord
 flatpak install flathub com.discordapp.Discord -y
+printf '\n\n\n'
 
 # Install Telegram
 flatpak install flathub org.telegram.desktop -y
+printf '\n\n\n'
 
 # Heroic Games launcher
 flatpak install heroic -y
+printf '\n\n\n'
 
 # Install Joplin
 flatpak install flathub net.cozic.joplin_desktop -y
+printf '\n\n\n'
 
 # Install qBittorrent
 flatpak install flathub org.qbittorrent.qBittorrent -y
+printf '\n\n\n'
 
 # Installing KDE
 sudo dnf groupinstall "KDE Plasma Workspaces" -y
+printf '\n\n\n'
 
 # Setup SSH
 ssh-keygen
@@ -110,6 +134,7 @@ cat ~/.ssh/id_rsa.pub | xclip -selection c
 #Install oh-my-zsh
 rm -rf ~/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+printf '\n\n\n'
 
 
 read -q "REPLY?Do you want to finish system installation?"

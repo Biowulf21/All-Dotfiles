@@ -2,6 +2,8 @@ neofetch
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='nvim'
+export PATH="$PATH:/home/biowulf21/.development/flutter/bin"
+export PATH="$PATH:~/.development/android-studio/bin"
 
 
 
@@ -26,7 +28,14 @@ source $ZSH/oh-my-zsh.sh
 
 
 export EDITOR=vim
-alias la='ls -la'
+
+# systemctl
+alias ss='systemctl status'
+alias sst='systemctl start'
+alias ssr='systemctl restart'
+
+alias n='nautilus .'
+alias la='ls -lah'
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection -o'
 alias df='df -h'
@@ -187,10 +196,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 source /home/biowulf21/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 [[ -s /home/biowulf21/.autojump/etc/profile.d/autojump.sh ]] && source /home/biowulf21/.autojump/etc/profile.d/autojump.sh
 
 	autoload -U compinit && compinit -u
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+source /home/biowulf21/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
