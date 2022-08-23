@@ -1,0 +1,105 @@
+#!/bin/bash
+
+# systemctl
+alias ss='systemctl status'
+alias sst='systemctl start'
+alias ssr='systemctl restart'
+
+alias n='nautilus .'
+alias la='ls -lah'
+alias setclip='xclip -selection c'
+alias getclip='xclip -selection -o'
+alias df='df -h'
+alias stdwn='shutdown now'
+alias rbt='reboot'
+alias suu='sudo dnf update -y && sudo flatpak update -y'
+alias dupdate=' sudo dnf update -y && sudo flatpak update -y'
+# Turn on Bluetooth
+alias bton='systemctl start bluetooth'
+# Turn off Bluetooth
+alias btoff='systemctl stop bluetooth'
+alias r='. ranger'
+alias nc='ncdu'
+alias sa='sudo apt'
+alias sdnf='sudo dnf install'
+alias sd='sudo dnf'
+alias sdr='sudo dnf remove'
+alias sdp='sudo dnf purge'
+alias ser='dnf search'
+alias fin='sudo flatpak install'
+alias frm='sudo flatpak remove'
+alias c='clear'
+alias h='history'
+alias b='cd ..'
+alias tree='tree --dirsfirst -F'
+alias cssh='cat ~/.ssh/id_rsa.pub | xclip -sel clip'
+
+cl(){
+  cd $@
+  ls
+}
+
+# calendar
+alias jan='cal -m 01'
+alias feb='cal -m 02'
+alias mar='cal -m 03'
+alias apr='cal -m 04'
+alias may='cal -m 05'
+alias jun='cal -m 06'
+alias jul='cal -m 07'
+alias aug='cal -m 08'
+alias sep='cal -m 09'
+alias oct='cal -m 10'
+alias nov='cal -m 11'
+alias dec='cal -m 12'
+
+# speedtest
+alias sp='speedtest-cli'
+
+
+# git
+# View Git status.
+alias gs='git status'
+
+# Add a file to Git.
+alias ga='git add'
+
+# Add all files to Git.
+alias gaa='git add --all'
+
+# Commit changes to the code.
+alias gc='git commit'
+
+# View the Git log.
+alias gl='git log --oneline'
+
+# Create a new Git branch and move to the new branch at the same time.
+alias gb='git checkout -b'
+
+# View the difference.
+alias gd='git diff'
+
+# git push origin master
+alias gpoms='git push origin master'
+
+
+# git push
+alias gp='git push'
+
+#git push origin main
+alias gpomn='git push origin main'
+
+# git push origin
+alias gpo='git push origin "$(git symbolic-ref --short HEAD)"'
+
+# echo current branch
+alias cb='echo "$(git symbolic-ref --short HEAD)"'
+
+# git pull
+alias gpl='git pull'
+
+# flutter
+alias frc='flutter run -d chrome'
+alias few='flutter config --enable-web'
+
+
