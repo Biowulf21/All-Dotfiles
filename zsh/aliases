@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# sudo
+alias sudo='sudo'
+
+# copypath
+alias cpth='copypath'
+
 # systemctl
 alias ss='systemctl status'
 alias sst='systemctl start'
