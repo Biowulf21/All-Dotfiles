@@ -5,8 +5,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export PATH="$PATH:/home/biowulf21/.development/flutter/bin"
 export PATH="$PATH:~/.development/android-studio/bin"
-
-# ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
 	zsh-autosuggestions
@@ -14,6 +13,7 @@ plugins=(
 	bgnotify
 	you-should-use $plugins
 	copybuffer
+  copyfile
   copypath
 	dirhistory
 	history
@@ -90,13 +90,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source /home/biowulf21/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-[[ -s /home/biowulf21/.autojump/etc/profile.d/autojump.sh ]] && source /home/biowulf21/.autojump/etc/profile.d/autojump.sh
+[[ -s /home/Biowulf21/.autojump/etc/profile.d/autojump.sh ]] && source /home/Biowulf21/.autojump/etc/profile.d/autojump.sh
 
-	autoload -U compinit && compinit -u
-
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-source /home/biowulf21/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+autoload -U compinit && compinit -u

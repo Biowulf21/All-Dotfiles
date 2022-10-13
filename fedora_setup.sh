@@ -1,9 +1,13 @@
+#!/bin/bash
 printf "\n\n"
 echo ===============WELCOME TO FEDORA SETUP===============
 printf "\n\n"
 
 echo Adding parallel downloads to DNF
 sudo cat max_parallel_downloads=10 >> /etc/dnf/dnf.conf
+
+# Installing fira code font
+sudo dnf install fira-code-fonts
 
 echo Updating system...
 sudo dnf upgrade --refresh -y
@@ -13,6 +17,8 @@ sudo dnf install xclip -y
 
 # Remove vim lite
 sudo dnf remove vi -y
+
+sudo dnf install mysql
 
 # ZSH
 sudo dnf install zsh -y
