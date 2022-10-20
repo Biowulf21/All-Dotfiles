@@ -25,6 +25,11 @@ sudo dnf install zsh -y
 rm ~/.zshrc
 ln -s ~/All-Dotfiles/zsh/.zshrc ~/.zshrc
 
+# Kitty Terminal
+sudo dnf install kitty -y
+rm ~/.config/kitty/
+ln -s ~/All-Dotfiles/kitty ~/.config/kitty/
+
 echo Installing Gnome Tweaks and Extensions
 sudo dnf install gnome-shell-extensions -y
 sudo dnf install gnome-tweaks -y 
@@ -82,7 +87,6 @@ git clone https://github.com/wting/autojump.git ~
 autojump/install.py
 # Setup dotfiles
 sudo rm ~/.zshrc
-ln -s ~/.All-Dotfiles/zsh/.zshrc .zshrc
 #omz reload
 
 # Installing applications
