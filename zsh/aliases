@@ -108,4 +108,7 @@ alias gpl='git pull'
 alias frc='flutter run -d chrome'
 alias few='flutter config --enable-web'
 
-
+#laravel
+alias lr='php artisan serve'
+alias lrl='php artisan migrate:fresh --seed'
+alias lmss='php artisan migrate:fresh --seed && php artisan serve'
