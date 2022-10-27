@@ -1,0 +1,11 @@
+{"timestamp":63390,"category":"nimbus_events","name":"enroll_failed","extra":{"reason":"feature-conflict","experiment":"tcp-rollout-phase-iii-tcp-on-by-default-for-95-existing-release-profiles"}}
+{"timestamp":71537,"category":"perf","name":"page_load","extra":{"load_type":"NORMAL","load_time":"7883","response_time":"3921","fcp_time":"7532","js_exec_time":"142"}}
+{"timestamp":74040,"category":"perf","name":"page_load","extra":{"js_exec_time":"91","load_type":"NORMAL","load_time":"2424","fcp_time":"1803","response_time":"827"}}
+{"timestamp":94926,"category":"perf","name":"page_load","extra":{"fcp_time":"877","response_time":"513","load_type":"RELOAD","js_exec_time":"62","load_time":"952"}}
+{"timestamp":105375,"category":"perf","name":"page_load","extra":{"load_time":"7644","load_type":"LINK","js_exec_time":"806","fcp_time":"0","response_time":"3758"}}
+{"timestamp":111953,"category":"perf","name":"page_load","extra":{"fcp_time":"0","load_time":"2179","response_time":"1040","load_type":"NORMAL","js_exec_time":"284"}}
+{"timestamp":137384,"category":"perf","name":"page_load","extra":{"response_time":"551","js_exec_time":"38","load_time":"852","load_type":"LINK","fcp_time":"703"}}
+{"timestamp":212262,"category":"nimbus_events","name":"enroll_failed","extra":{"experiment":"tcp-rollout-phase-iii-tcp-on-by-default-for-95-existing-release-profiles","reason":"feature-conflict"}}
+{"timestamp":22379680,"category":"perf","name":"page_load","extra":{"fcp_time":"1434","js_exec_time":"50","load_type":"LINK","load_time":"1470","response_time":"994"}}
+{"timestamp":22510948,"category":"perf","name":"page_load","extra":{"response_time":"505","load_time":"4992","fcp_time":"2432","js_exec_time":"2439","load_type":"NORMAL"}}
+{"timestamp":22770125,"category":"perf","name":"page_load","extra":{"js_exec_time":"274","load_time":"2560","load_type":"LINK","fcp_time":"1634","response_time":"697"}}

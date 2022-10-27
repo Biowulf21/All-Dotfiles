@@ -1,0 +1,32 @@
+1666302622997	Sync.SyncScheduler	DEBUG	Next sync in 3600000 ms. (why=schedule)
+1666302641396	Sync.SyncScheduler	DEBUG	Going to sleep, doing a quick sync.
+1666302641397	Sync.Service	DEBUG	User-Agent: Firefox/105.0.2 (Linux x86_64) FxSync/1.107.0.20221005092643.desktop
+1666302641397	Sync.Service	INFO	Starting sync at 2022-10-21 05:50:41 in browser session FlBoly_7P4Lp
+1666302641397	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1666302641400	Sync.Status	INFO	Resetting Status.
+1666302641400	Sync.Status	DEBUG	Status.service: success.status_ok => success.status_ok
+1666302641401	FirefoxAccounts	TRACE	not checking freshness of profile as it remains recent
+1666308019853	Sync.SyncScheduler	DEBUG	Network link status changed to "down". Offline?: false
+1666308019853	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1666308019857	Sync.SyncScheduler	DEBUG	Next sync in 3600000 ms. (why=schedule)
+1666308019868	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1666308019976	Sync.SyncScheduler	DEBUG	Woke from sleep.
+1666308019977	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1666308025070	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1666308026099	Sync.SyncScheduler	DEBUG	Network link status changed to "up". Offline?: false
+1666308026100	Sync.SyncScheduler	DEBUG	Network link looks up. Syncing.
+1666308026107	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1666308026110	Sync.Service	DEBUG	User-Agent: Firefox/105.0.2 (Linux x86_64) FxSync/1.107.0.20221005092643.desktop
+1666308026111	Sync.Service	INFO	Starting sync at 2022-10-21 07:20:26 in browser session FlBoly_7P4Lp
+1666308026111	Sync.Service	DEBUG	Exception calling anonymous function: LockException: Could not acquire lock. Label: "service.js: sync".(resource://services-sync/util.js:54:5) JS Stack trace: LockException@util.js:54:5
+throwLockException@util.js:138:11
+WrappedLock@util.js:152:15
+_lockedSync@service.js:1371:6
+sync/<@service.js:1335:18
+WrappedCatch@util.js:123:27
+sync@service.js:1336:7
+1666308026112	Sync.Service	INFO	Cannot start sync: already syncing?
+1666308027876	Sync.Resource	WARN	GET request to https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/198175302/info/collections failed: [Exception... "Abort"  nsresult: "0x80004004 (NS_ERROR_ABORT)"  location: "<unknown>"  data: no] No traceback available
+1666308027877	Sync.ErrorHandler	ERROR	Sync encountered an error: [Exception... "Abort"  nsresult: "0x80004004 (NS_ERROR_ABORT)"  location: "<unknown>"  data: no] No traceback available
+1666308027878	Sync.SyncScheduler	DEBUG	Next sync in 3600000 ms. (why=reschedule)
+1666308027880	Sync.Service	DEBUG	Exception calling anonymous function: [Exception... "Abort"  nsresult: "0x80004004 (NS_ERROR_ABORT)"  location: "<unknown>"  data: no] No traceback available
