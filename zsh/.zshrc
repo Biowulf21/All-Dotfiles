@@ -3,7 +3,7 @@ neofetch
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
 export VISUAL=nvim
-export PATH="$PATH:/home/biowulf21/.development/flutter/bin"
+export PATH="$PATH:/home/$USER/flutter/bin"
 export PATH="$PATH:~/.development/android-studio/bin"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
