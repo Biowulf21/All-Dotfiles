@@ -111,10 +111,4 @@ alias few='flutter config --enable-web'
 #laravel
 alias lr='php artisan serve'
 alias lrl='php artisan migrate:fresh --seed'
-
-function lmss(){
-php artisan migrate:fresh --seed 
-php artisan optimize
-php artisan key:generate
-php artisan serve
-}
+alias lmss='php artisan migrate:fresh --seed && php artisan serve'

@@ -1,0 +1,30 @@
+1666747518039	Sync.SyncScheduler	DEBUG	Next sync in 3600000 ms. (why=schedule)
+1666749517591	Sync.RemoteTabs	INFO	Generating tab list with filter
+1666749517591	Sync.RemoteTabs	INFO	Final tab list has 0 clients with 0 tabs.
+1666749993626	Sync.SyncScheduler	DEBUG	Going to sleep, doing a quick sync.
+1666749993629	Sync.Service	DEBUG	User-Agent: Firefox/105.0.2 (Linux x86_64) FxSync/1.107.0.20221005092643.desktop
+1666749993629	Sync.Service	INFO	Starting sync at 2022-10-26 10:06:33 in browser session huWJV0TWykeJ
+1666749993630	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1666749993647	Sync.Status	INFO	Resetting Status.
+1666749993647	Sync.Status	DEBUG	Status.service: success.status_ok => success.status_ok
+1666749993648	FirefoxAccounts	DEBUG	FxAccountsProfileClient: Requested profile
+1666749993648	FirefoxAccounts	DEBUG	getOAuthToken enter
+1666749993650	FirefoxAccounts	TRACE	getCachedToken returning cached token
+1666749993650	FirefoxAccounts	DEBUG	getOAuthToken returning a cached token
+1666749993651	Services.Common.RESTRequest	DEBUG	GET request to https://profile.accounts.firefox.com/v1/profile
+1666749993692	Services.Common.RESTRequest	DEBUG	GET https://profile.accounts.firefox.com/v1/profile failed: 2152398878 - NS_ERROR_UNKNOWN_HOST
+1666749993692	FirefoxAccounts	ERROR	Background refresh of profile failed: {"name":"FxAccountsProfileClientError","code":null,"errno":998,"error":"NETWORK_ERROR","message":"[Exception... \"NS_ERROR_UNKNOWN_HOST\"  nsresult: \"0x804b001e (NS_ERROR_UNKNOWN_HOST)\"  location: \"JS frame :: resource://services-common/rest.js :: onStopRequest :: line 489\"  data: no]"}
+1666750701878	Sync.SyncScheduler	DEBUG	Network link status changed to "down". Offline?: false
+1666750701878	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1666750701881	Sync.SyncScheduler	DEBUG	Next sync in 3600000 ms. (why=schedule)
+1666750701882	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1666750702003	Sync.SyncScheduler	DEBUG	Woke from sleep.
+1666750702003	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1666750997875	Sync.Resource	ERROR	Request timed out after 300000ms. Aborting.
+1666750997875	Sync.Resource	WARN	GET request to https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/198175302/info/collections failed: AbortError: The operation was aborted.  Stack trace: _doRequest/timeoutId<()@resource://services-sync/resource.js:187
+notify()@resource://gre/modules/Timer.jsm:62
+1666750997876	Sync.Status	DEBUG	Status.sync: success.sync => error.login.reason.network
+1666750997876	Sync.Status	DEBUG	Status.service: success.status_ok => error.sync.failed
+1666750997876	Sync.ErrorHandler	ERROR	Sync encountered an error: [Exception... "Request aborted (timeout)"  nsresult: "0x804b000e (NS_ERROR_NET_TIMEOUT)"  location: "JS frame :: resource://services-sync/resource.js :: _doRequest :: line 197"  data: no] Stack trace: _doRequest()@resource://services-sync/resource.js:197
+1666750997877	Sync.SyncScheduler	DEBUG	Next sync in 3600000 ms. (why=reschedule)
+1666750997880	Sync.Service	DEBUG	Exception calling anonymous function: [Exception... "Request aborted (timeout)"  nsresult: "0x804b000e (NS_ERROR_NET_TIMEOUT)"  location: "JS frame :: resource://services-sync/resource.js :: _doRequest :: line 197"  data: no] Stack trace: _doRequest()@resource://services-sync/resource.js:197

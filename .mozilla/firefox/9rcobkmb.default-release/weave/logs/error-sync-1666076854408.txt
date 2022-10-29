@@ -1,0 +1,40 @@
+1666074366317	Sync.SyncScheduler	DEBUG	Next sync in 3600000 ms. (why=schedule)
+1666075733159	Sync.SyncScheduler	DEBUG	Going to sleep, doing a quick sync.
+1666075733160	Sync.Service	DEBUG	User-Agent: Firefox/105.0.1 (Linux x86_64) FxSync/1.107.0.20220930102636.desktop
+1666075733160	Sync.Service	INFO	Starting sync at 2022-10-18 14:48:53 in browser session PZKouXnoaA-U
+1666075733160	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1666075733163	Sync.Status	INFO	Resetting Status.
+1666075733163	Sync.Status	DEBUG	Status.service: success.status_ok => success.status_ok
+1666075733164	FirefoxAccounts	DEBUG	FxAccountsProfileClient: Requested profile
+1666075733164	FirefoxAccounts	DEBUG	getOAuthToken enter
+1666075733164	FirefoxAccounts	TRACE	getCachedToken returning cached token
+1666075733164	FirefoxAccounts	DEBUG	getOAuthToken returning a cached token
+1666075733164	Services.Common.RESTRequest	DEBUG	GET request to https://profile.accounts.firefox.com/v1/profile
+1666075733176	Services.Common.RESTRequest	DEBUG	GET https://profile.accounts.firefox.com/v1/profile failed: 2152398878 - NS_ERROR_UNKNOWN_HOST
+1666075733176	FirefoxAccounts	ERROR	Background refresh of profile failed: {"name":"FxAccountsProfileClientError","code":null,"errno":998,"error":"NETWORK_ERROR","message":"[Exception... \"NS_ERROR_UNKNOWN_HOST\"  nsresult: \"0x804b001e (NS_ERROR_UNKNOWN_HOST)\"  location: \"JS frame :: resource://services-common/rest.js :: onStopRequest :: line 489\"  data: no]"}
+1666076843813	Sync.SyncScheduler	DEBUG	Network link status changed to "down". Offline?: false
+1666076843813	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1666076843832	Sync.SyncScheduler	DEBUG	Next sync in 3600000 ms. (why=schedule)
+1666076843836	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1666076843891	Sync.SyncScheduler	DEBUG	Woke from sleep.
+1666076843897	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1666076848861	Sync.SyncScheduler	DEBUG	Network link status changed to "up". Offline?: false
+1666076848862	Sync.SyncScheduler	DEBUG	Network link looks up. Syncing.
+1666076848869	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1666076848871	Sync.Service	DEBUG	User-Agent: Firefox/105.0.1 (Linux x86_64) FxSync/1.107.0.20220930102636.desktop
+1666076848872	Sync.Service	INFO	Starting sync at 2022-10-18 15:07:28 in browser session PZKouXnoaA-U
+1666076848872	Sync.Service	DEBUG	Exception calling anonymous function: LockException: Could not acquire lock. Label: "service.js: sync".(resource://services-sync/util.js:54:5) JS Stack trace: LockException@util.js:54:5
+throwLockException@util.js:138:11
+WrappedLock@util.js:152:15
+_lockedSync@service.js:1371:6
+sync/<@service.js:1335:18
+WrappedCatch@util.js:123:27
+sync@service.js:1336:7
+1666076848872	Sync.Service	INFO	Cannot start sync: already syncing?
+1666076850588	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1666076854398	Sync.Resource	WARN	GET request to https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/198175302/info/collections failed: [Exception... "The connection has timed out"  nsresult: "0x804b000e (NS_ERROR_NET_TIMEOUT)"  location: "<unknown>"  data: no] No traceback available
+1666076854398	Sync.Status	DEBUG	Status.sync: success.sync => error.login.reason.network
+1666076854398	Sync.Status	DEBUG	Status.service: success.status_ok => error.sync.failed
+1666076854399	Sync.ErrorHandler	ERROR	Sync encountered an error: [Exception... "The connection has timed out"  nsresult: "0x804b000e (NS_ERROR_NET_TIMEOUT)"  location: "<unknown>"  data: no] No traceback available
+1666076854401	Sync.SyncScheduler	DEBUG	Next sync in 3600000 ms. (why=reschedule)
+1666076854407	Sync.Service	DEBUG	Exception calling anonymous function: [Exception... "The connection has timed out"  nsresult: "0x804b000e (NS_ERROR_NET_TIMEOUT)"  location: "<unknown>"  data: no] No traceback available

@@ -1,0 +1,67 @@
+1666217117156	Sync.SyncScheduler	DEBUG	Next sync in 3600000 ms. (why=schedule)
+1666217118175	Sync.RemoteTabs	INFO	Generating tab list with filter
+1666217118176	Sync.RemoteTabs	INFO	Final tab list has 0 clients with 0 tabs.
+1666218340073	Sync.SyncScheduler	DEBUG	Going to sleep, doing a quick sync.
+1666218340073	Sync.Service	DEBUG	User-Agent: Firefox/105.0.1 (Linux x86_64) FxSync/1.107.0.20220930102636.desktop
+1666218340073	Sync.Service	INFO	Starting sync at 2022-10-20 06:25:40 in browser session WujMWWMDsB-f
+1666218340073	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1666218340076	Sync.Status	INFO	Resetting Status.
+1666218340076	Sync.Status	DEBUG	Status.service: success.status_ok => success.status_ok
+1666218340077	FirefoxAccounts	DEBUG	FxAccountsProfileClient: Requested profile
+1666218340077	FirefoxAccounts	DEBUG	getOAuthToken enter
+1666218340078	FirefoxAccounts	TRACE	getCachedToken returning cached token
+1666218340078	FirefoxAccounts	DEBUG	getOAuthToken returning a cached token
+1666218340078	Services.Common.RESTRequest	DEBUG	GET request to https://profile.accounts.firefox.com/v1/profile
+1666218340088	Services.Common.RESTRequest	DEBUG	GET https://profile.accounts.firefox.com/v1/profile failed: 2152398878 - NS_ERROR_UNKNOWN_HOST
+1666218340088	FirefoxAccounts	ERROR	Background refresh of profile failed: {"name":"FxAccountsProfileClientError","code":null,"errno":998,"error":"NETWORK_ERROR","message":"[Exception... \"NS_ERROR_UNKNOWN_HOST\"  nsresult: \"0x804b001e (NS_ERROR_UNKNOWN_HOST)\"  location: \"JS frame :: resource://services-common/rest.js :: onStopRequest :: line 489\"  data: no]"}
+1666218341171	Sync.SyncScheduler	DEBUG	Network link status changed to "down". Offline?: false
+1666218341172	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1666218341177	Sync.SyncScheduler	DEBUG	Next sync in 3600000 ms. (why=schedule)
+1666218341180	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1666222674924	Sync.SyncScheduler	DEBUG	Woke from sleep.
+1666222674925	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1666222680002	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1666222681401	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1666222683045	Sync.SyncScheduler	DEBUG	Network link status changed to "up". Offline?: false
+1666222683045	Sync.SyncScheduler	DEBUG	Network link looks up. Syncing.
+1666222683049	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1666222685893	Sync.Resource	DEBUG	GET success 200 https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/198175302/info/collections
+1666222685894	Sync.Service	DEBUG	Fetching global metadata record
+1666222685894	Sync.Service	DEBUG	Weave Version: 1.107.0 Local Storage: 5 Remote Storage: 5
+1666222685894	Sync.Service	DEBUG	Fetching and verifying -- or generating -- symmetric keys.
+1666222685894	Sync.Service	INFO	Testing info/collections: {"addons":1663885464.84,"extension-storage":1666217116.92,"tabs":1666217116.53,"bookmarks":1663893905.2,"passwords":1665479992.41,"meta":1657727145.31,"clients":1666217115.77,"prefs":1663541291.87,"crypto":1657727138.88}
+1666222685894	Sync.CollectionKeyManager	INFO	Testing for updateNeeded. Last modified: 1657727138.88
+1666222685895	Sync.Synchronizer	INFO	Updating enabled engines: 1 clients.
+1666222685897	Sync.Synchronizer	INFO	Syncing specified engines: ["tabs"]
+1666222685899	Sync.Engine.Tabs	INFO	Records: 0 applied, 0 successfully, 0 failed to apply, 0 newly failed to apply, 0 reconciled.
+1666222685900	Sync.Engine.Tabs	INFO	Uploading 1 outgoing records
+1666222685904	Sync.Engine.Tabs	INFO	Posting 1 records of 614 bytes with batch=true
+1666222685905	FirefoxAccounts	DEBUG	FxAccountsProfileClient: Requested profile
+1666222685905	FirefoxAccounts	DEBUG	getOAuthToken enter
+1666222685906	FirefoxAccounts	TRACE	getCachedToken returning cached token
+1666222685906	FirefoxAccounts	DEBUG	getOAuthToken returning a cached token
+1666222685906	Services.Common.RESTRequest	DEBUG	GET request to https://profile.accounts.firefox.com/v1/profile
+1666222685908	Sync.SyncAuthManager	INFO	Getting sync key
+1666222685908	Sync.SyncAuthManager	INFO	Getting a sync token from: https://token.services.mozilla.com/1.0/sync/1.5
+1666222685909	Sync.SyncAuthManager	DEBUG	Getting a token using OAuth
+1666222685909	FirefoxAccounts	DEBUG	getOAuthToken enter
+1666222685909	FirefoxAccounts	TRACE	getCachedToken returning cached token
+1666222685909	FirefoxAccounts	DEBUG	getOAuthToken returning a cached token
+1666222685910	Services.Common.TokenServerClient	DEBUG	Beginning OAuth token exchange: https://token.services.mozilla.com/1.0/sync/1.5
+1666222685910	Services.Common.RESTRequest	DEBUG	GET request to https://token.services.mozilla.com/1.0/sync/1.5
+1666222686453	Services.Common.RESTRequest	DEBUG	GET https://token.services.mozilla.com/1.0/sync/1.5 200
+1666222686453	Services.Common.TokenServerClient	DEBUG	Got token response: 200
+1666222686453	Services.Common.TokenServerClient	DEBUG	Successful token response
+1666222686453	Sync.Status	DEBUG	Status.login: success.login => success.login
+1666222686453	Sync.Status	DEBUG	Status.service: success.status_ok => success.status_ok
+1666222686457	Sync.Collection	DEBUG	POST Length: 614
+1666222686805	Sync.Collection	DEBUG	POST success 200 https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/198175302/storage/tabs?batch=true&commit=true
+1666222686806	Sync.Status	DEBUG	Status.sync: success.sync => success.sync
+1666222686806	Sync.Status	DEBUG	Status.service: success.status_ok => success.status_ok
+1666222686807	Sync.Synchronizer	INFO	Sync completed at 2022-10-20 07:38:06 after 4346.73 secs.
+1666222686807	Sync.Declined	DEBUG	Handling remote declined: ["history"]
+1666222686807	Sync.Declined	DEBUG	Handling local declined: ["history"]
+1666222686807	Sync.Declined	DEBUG	Declined changed? false
+1666222686807	Sync.Service	INFO	No change to declined engines. Not reuploading meta/global.
+1666222686808	Sync.SyncScheduler	DEBUG	Next sync in 3600000 ms. (why=schedule)
+1666222686809	Sync.Telemetry	INFO	Early submission of sync telemetry due to changed IDs/NodeType
