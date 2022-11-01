@@ -135,7 +135,7 @@ printf '\n\n\n'
 # Setup SSH
 
 #Github
-ssh-keygen -t ed25519 -f /home/Biowulf21/.ssh/github -c "Github key"
+ssh-keygen -t ed25519 -f /home/Biowulf21/.ssh/github -C "Github key"
 
 cat ~/.ssh/github | xclip -selection c 
 
