@@ -133,8 +133,11 @@ sudo dnf groupinstall "KDE Plasma Workspaces" -y
 printf '\n\n\n'
 
 # Setup SSH
-ssh-keygen
-cat ~/.ssh/id_rsa.pub | xclip -selection c 
+
+#Github
+ssh-keygen -t ed25519 -f /home/Biowulf21/.ssh/github -c "Github key"
+
+cat ~/.ssh/github | xclip -selection c 
 
 # Install and setup zsh
 #sudo dnf install zsh -y
