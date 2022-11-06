@@ -152,3 +152,4 @@ printf '\n\n\n'
 
 read -q "REPLY?Do you want to finish system installation?"
 
+dnf install fira-code-fonts
