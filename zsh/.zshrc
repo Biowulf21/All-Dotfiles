@@ -94,3 +94,5 @@ fi
 [[ -s /home/Biowulf21/.autojump/etc/profile.d/autojump.sh ]] && source /home/Biowulf21/.autojump/etc/profile.d/autojump.sh
 
 autoload -U compinit && compinit -u
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
