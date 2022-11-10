@@ -9,6 +9,10 @@ sudo cat max_parallel_downloads=10 >> /etc/dnf/dnf.conf
 # Installing fira code font
 sudo dnf install fira-code-fonts
 
+# Krita
+
+sudo dnf install krita -y
+
 echo Updating system...
 sudo dnf upgrade --refresh -y
 
