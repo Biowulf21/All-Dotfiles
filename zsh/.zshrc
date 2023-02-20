@@ -4,6 +4,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 export PATH="$PATH:/home/$USER/flutter/bin"
 export PATH="$PATH:~/.development/android-studio/bin"
+export PATH="$PATH:$HOME/.pub-cache/bin"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
@@ -95,3 +96,7 @@ fi
 autoload -U compinit && compinit -u
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
