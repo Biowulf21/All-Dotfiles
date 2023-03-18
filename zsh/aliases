@@ -107,6 +107,7 @@ alias gpl='git pull'
 # flutter
 alias frc='flutter run -d chrome'
 alias few='flutter config --enable-web'
+alias ft='flutter test'
 
 #laravel
 alias lr='php artisan serve'
