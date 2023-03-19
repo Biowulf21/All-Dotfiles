@@ -1,7 +1,7 @@
 require("toggleterm").setup({
     size = 20,
-    direction="floating",
-    open_mapping = [[<leader>cc]],
+    direction="horizontal",
+    open_mapping = [[<c-\>]],
     hide_numbers = true,
     shade_filetypes = {},
     shade_terminals = true,
@@ -20,5 +20,3 @@ require("toggleterm").setup({
         }
     }
 })
-
-
