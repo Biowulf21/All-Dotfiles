@@ -87,4 +87,7 @@ use {
   requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 }
 
+
+use("akinsho/toggleterm.nvim")
+
 end)

@@ -52,6 +52,7 @@ echo Installing system applications
 sudo dnf install -y libstdc++-static
 sudo dnf install neovim -y
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+ln -s  ~/All-Dotfiles/nvim ~/.config/nvim
 printf '\n\n\n'
 
 # Installing ranger
