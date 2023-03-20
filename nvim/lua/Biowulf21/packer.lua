@@ -93,7 +93,8 @@ use("akinsho/toggleterm.nvim")
 use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
 use 'NvChad/nvim-colorizer.lua'
 
-use({'nvim-tree/nvim-web-devicons'})
+use({'nvim-tree/nvim-web-devicons'});
+
 use {
   'glepnir/dashboard-nvim',
   event = 'VimEnter',
@@ -132,4 +133,10 @@ use {
   end,
   requires = {'nvim-tree/nvim-web-devicons'}
 }
+use({"rcarriga/nvim-notify"})
+-- mkdir
+use {
+  'jghauser/mkdir.nvim'
+}
+
 end)
