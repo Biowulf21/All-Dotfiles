@@ -1,0 +1,59 @@
+return {
+  "ThePrimeagen/harpoon",
+  keys = {
+    {
+      "<leader>a",
+      function()
+        require("harpoon.mark").add_file()
+      end,
+      desc = "Add file to harpoon",
+    },
+    {
+      "<C-e>",
+      function()
+        require("harpoon.ui").toggle_quick_menu()
+      end,
+      desc = "Toggle harpoon",
+    },
+
+    {
+      "<A-1>",
+      function()
+        require("harpoon.ui").nav_file(1)
+      end,
+      desc = "Nav to file 1",
+    },
+    {
+      "<A-2>",
+      function()
+        require("harpoon.ui").nav_file(2)
+      end,
+      desc = "Nav to file 2",
+    },
+    {
+      "<A-3>",
+      function()
+        require("harpoon.ui").nav_file(3)
+      end,
+      desc = "Nav to file 3",
+    },
+    {
+      "<A-4>",
+      function()
+        require("harpoon.ui").nav_file(4)
+      end,
+      desc = "Nav to file 4",
+    },
+
+    {
+      "<A-5>",
+      function()
+        require("harpoon.ui").nav_file(5)
+      end,
+      desc = "Nav to file 5",
+    },
+  },
+  config = function()
+    require("nvim-lua/plenary.nvim").load_extension("harpoon")
+  end,
+}
