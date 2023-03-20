@@ -1,11 +1,9 @@
 return {
-  "akinsho/flutter-tools.nvim",
-  lazy = false,
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "stevearc/dressing.nvim", -- optional for vim.ui.select
+  {
+    "akinsho/flutter-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("flutter-tools").setup({})
+    end,
   },
-  config = function()
-    require("flutter-tools").setup({}) -- use defaults
-  end,
 }

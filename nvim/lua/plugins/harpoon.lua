@@ -53,7 +53,4 @@ return {
       desc = "Nav to file 5",
     },
   },
-  config = function()
-    require("nvim-lua/plenary.nvim").load_extension("harpoon")
-  end,
 }
