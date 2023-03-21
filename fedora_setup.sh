@@ -4,7 +4,7 @@ echo ===============WELCOME TO FEDORA SETUP===============
 printf "\n\n"
 
 echo Adding parallel downloads to DNF
-sudo cat max_parallel_downloads=10 >> /etc/dnf/dnf.conf
+sudo cat max_parallel_downloads=10 >>/etc/dnf/dnf.conf
 
 # Installing fira code font
 sudo dnf install fira-code-fonts
@@ -36,7 +36,7 @@ ln -s ~/All-Dotfiles/kitty ~/.config/kitty/
 
 echo Installing Gnome Tweaks and Extensions
 sudo dnf install gnome-shell-extensions -y
-sudo dnf install gnome-tweaks -y 
+sudo dnf install gnome-tweaks -y
 
 echo Installing NCDU Disk Manager
 sudo dnf install ncdu -y
@@ -51,8 +51,9 @@ echo Installing system applications
 # Installing neovim
 sudo dnf install -y libstdc++-static
 sudo dnf install neovim -y
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
-ln -s  ~/All-Dotfiles/nvim ~/.config/nvim
+sudo dnf copr enable atim/lazygit -y
+sudo dnf install lazygit
+ln -s ~/All-Dotfiles/nvim ~/.config/nvim
 printf '\n\n\n'
 
 # Installing ranger
@@ -66,7 +67,6 @@ printf '\n\n\n'
 # Installing neofetch
 sudo dnf install neofetch -y
 printf '\n\n\n'
-
 
 echo Installing Fuck
 # Fuck
@@ -103,7 +103,6 @@ printf '\n\n\n'
 # Steam
 sudo dnf install steam -y
 printf '\n\n\n'
-
 
 # Setup flatpaks
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -142,7 +141,7 @@ printf '\n\n\n'
 #Github
 ssh-keygen -t ed25519 -f /home/Biowulf21/.ssh/github -C "Github key"
 
-cat ~/.ssh/github | xclip -selection c 
+cat ~/.ssh/github | xclip -selection c
 
 # Install and setup zsh
 #sudo dnf install zsh -y
@@ -153,7 +152,6 @@ cat ~/.ssh/github | xclip -selection c
 rm -rf ~/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 printf '\n\n\n'
-
 
 read -q "REPLY?Do you want to finish system installation?"
 
