@@ -51,6 +51,10 @@ echo Installing system applications
 # Installing neovim
 sudo dnf install -y libstdc++-static
 sudo dnf install neovim -y
+
+sudo dnf install fira-code-fonts
+sudo dnf install ripgrep
+
 sudo dnf copr enable atim/lazygit -y
 sudo dnf install lazygit
 ln -s ~/All-Dotfiles/nvim ~/.config/nvim
@@ -154,5 +158,3 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 printf '\n\n\n'
 
 read -q "REPLY?Do you want to finish system installation?"
-
-dnf install fira-code-fonts
