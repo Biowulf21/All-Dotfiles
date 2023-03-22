@@ -1,3 +1,5 @@
+vim.cmd("highlight Normal guibg=#00000050")
+
 return {
   {
     "mcchrish/zenbones.nvim",
@@ -8,7 +10,25 @@ return {
     name = "zenbones",
   },
 
-  { "catppuccin/nvim", name = "catppuccin" },
+  { "catppuccin/nvim", name = "catppuccin", lazy = false },
   { "ful1e5/onedark.nvim", name = "onedark" },
-  { "rebelot/kanagawa.nvim", name = "kanagawa" },
+  {
+    "rebelot/kanagawa.nvim",
+    name = "kanagawa",
+    opts = {
+      tranparent = true,
+    },
+    config = function()
+      require("kanagawa").setup({
+        transparent = true,
+        theme = "dragon",
+      })
+    end,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "kanagawa-dragon",
+    },
+  },
 }
