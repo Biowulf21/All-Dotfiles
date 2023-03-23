@@ -140,10 +140,6 @@ printf '\n\n\n'
 flatpak install flathub org.qbittorrent.qBittorrent -y
 printf '\n\n\n'
 
-# Installing KDE
-sudo dnf groupinstall "KDE Plasma Workspaces" -y
-printf '\n\n\n'
-
 # Setup SSH
 
 #Github
