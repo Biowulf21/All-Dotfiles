@@ -51,7 +51,10 @@ echo Installing system applications
 # Installing neovim
 sudo dnf install -y libstdc++-static
 sudo dnf install neovim -y
+
+# Installing i3 and dependencies
 sudo dnf install i3 i3status dmenu i3lock brightnessctl rofi
+git clone https://github.com/tobi-wan-kenobi/bumblebee-status.git .config/i3/bumblebee-status
 
 sudo dnf install fira-code-fonts
 sudo dnf install ripgrep
