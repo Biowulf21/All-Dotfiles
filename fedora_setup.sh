@@ -51,6 +51,7 @@ echo Installing system applications
 # Installing neovim
 sudo dnf install -y libstdc++-static
 sudo dnf install neovim -y
+sudo dnf install i3 i3status dmenu i3lock brightnessctl rofi
 
 sudo dnf install fira-code-fonts
 sudo dnf install ripgrep
