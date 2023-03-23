@@ -196,8 +196,9 @@ bindsym $mod+r mode "resize"
 #
 bar {
   position top
-	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m cpu memory \
-		pasink pasource -p time.format="%H:%M" battery time -p interval=0.5 -t solarized-powerline
+  font pango:JetBrainsMono Nerd Font 12
+	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m cpu memory  \
+		pasink pasource battery time -p time.format="%H:%M" -p interval=0.5 -t solarized-powerline
 }
 
 gaps outer 10
