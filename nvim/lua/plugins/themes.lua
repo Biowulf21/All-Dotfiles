@@ -1,4 +1,4 @@
-vim.cmd("highlight Normal guibg=#00000050")
+vim.cmd("highlight Normal guibg=#00000090")
 
 return {
   {
