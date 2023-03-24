@@ -198,9 +198,9 @@ exec --no-startup-id nitrogen --restore
 
 bar {
   position top
-  font pango:JetBrainsMono Nerd Font 12
+  font pango:JetBrainsMono Nerd Font 10
 	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m cpu memory  \
-		pasink pasource battery datetime -p time.format="%H:%M" -p interval=0.5 -t solarized-powerline
+		pasink pasource battery battery_upower datetime -p time.format="%H:%M" -p interval=0.5 -t solarized-powerline
 }
 
 gaps outer 10
