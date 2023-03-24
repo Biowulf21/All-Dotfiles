@@ -53,8 +53,17 @@ sudo dnf install -y libstdc++-static
 sudo dnf install neovim -y
 
 # Installing i3 and dependencies
-sudo dnf install i3 i3status dmenu i3lock brightnessctl rofi
+sudo dnf install i3 i3status dmenu i3lock brightnessctl rofi compton
+# Installing i3-lock-color
+sudo dnf install -y autoconf automake cairo-devel fontconfig gcc libev-devel libjpeg-turbo-devel libXinerama libxkbcommon-devel libxkbcommon-x11-devel libXrandr pam-devel pkgconf xcb-util-image-devel xcb-util-xrm-devel
+git clone https://github.com/Raymo111/i3lock-color.git ~/
+./~/i3lock-color/install-i3lock-color.sh
+
+# Installing Bumblebee Status
 git clone https://github.com/tobi-wan-kenobi/bumblebee-status.git .config/i3/bumblebee-status
+
+# Installing Compton
+ln -s ~/All-Dotfiles/compton/compton.conf .
 
 sudo dnf install fira-code-fonts
 sudo dnf install ripgrep
