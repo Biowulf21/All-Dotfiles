@@ -68,7 +68,7 @@ sudo dnf install rofimoji
 ln -s ~/All-Dotfiles/rofi/ ~/.config/rofi/
 
 # Installing Compton
-ln -s ~/All-Dotfiles/compton/compton.conf .
+ln -s ~/All-Dotfiles/compton/compton.conf ~/.config/compton.conf
 
 sudo dnf install fira-code-fonts
 sudo dnf install ripgrep
