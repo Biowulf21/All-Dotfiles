@@ -62,6 +62,9 @@ git clone https://github.com/Raymo111/i3lock-color.git ~/
 # Installing Bumblebee Status
 git clone https://github.com/tobi-wan-kenobi/bumblebee-status.git .config/i3/bumblebee-status
 
+# Installing rofimoji
+sudo dnf install rofimoji
+
 # Installing Compton
 ln -s ~/All-Dotfiles/compton/compton.conf .
 
