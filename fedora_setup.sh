@@ -65,6 +65,8 @@ git clone https://github.com/tobi-wan-kenobi/bumblebee-status.git .config/i3/bum
 # Installing rofimoji
 sudo dnf install rofimoji
 
+ln -s ~/All-Dotfiles/rofi/ ~/.config/rofi/
+
 # Installing Compton
 ln -s ~/All-Dotfiles/compton/compton.conf .
 
