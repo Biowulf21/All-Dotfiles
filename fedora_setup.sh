@@ -64,6 +64,10 @@ sudo dnf install cmatrix -y
 git clone https://github.com/tobi-wan-kenobi/bumblebee-status.git .config/i3/bumblebee-status
 ln -s ~/All-Dotfiles/i3/rice.json ~/bumblebee-status/themes/rice.json
 
+# Installing polybar
+sudo dnf install polybar -y
+ln -s ~/All-Dotfiles/polybar/ .config/polybar
+
 # Installing rofimoji
 sudo dnf install rofimoji
 
