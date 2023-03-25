@@ -204,7 +204,7 @@ bar {
   position top
   font pango:JetBrainsMono Nerd Font 10
 	status_command ~/bumblebee-status/bumblebee-status -m  sensors cpu memory disk  \
-		pomodoro pasink pasource brightness  bluetooth2  datetime battery battery_upower system -p time.format="%H:%M" -p interval=0.5s -t rice
+		pomodoro pasink pasource brightness  bluetooth2  datetime  battery_upower battery system -p time.format="%H:%M" -p interval=0.5s -t rice
 
     colors {
         background #000000
