@@ -55,8 +55,9 @@ sudo dnf install neovim -y
 # Installing i3 and dependencies
 sudo dnf install i3 i3status dmenu i3lock brightnessctl rofi compton blueman-manager
 # Installing i3-lock-color
-sudo dnf install -y autoconf automake cairo-devel fontconfig gcc libev-devel libjpeg-turbo-devel libXinerama libxkbcommon-devel libxkbcommon-x11-devel libXrandr pam-devel pkgconf xcb-util-image-devel xcb-util-xrm-devel
+sudo dnf install -y autoconf automake cairo-devel fontconfig gcc libev-devel libjpeg-turbo-devel libXinerama libxkbcommon-devel libxkbcommon-x11-devel libXrandr pam-devel pkgconf xcb-util-image-devel xcb-util-xrm-devel -y
 git clone https://github.com/Raymo111/i3lock-color.git ~/
+sudo dnf install cmatrix -y
 ./~/i3lock-color/install-i3lock-color.sh
 
 # Installing Bumblebee Status
@@ -70,8 +71,8 @@ ln -s ~/All-Dotfiles/rofi/ ~/.config/rofi/
 # Installing Compton
 ln -s ~/All-Dotfiles/compton/compton.conf ~/.config/compton.conf
 
-sudo dnf install fira-code-fonts
-sudo dnf install ripgrep
+sudo dnf install fira-code-fonts -y
+sudo dnf install ripgrep -y
 
 sudo dnf copr enable atim/lazygit -y
 sudo dnf install lazygit
