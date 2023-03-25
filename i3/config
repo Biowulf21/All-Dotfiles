@@ -15,7 +15,6 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango: JetBrainsMono Nerd Font 10
 
-exec --no-startup-id nitrogen --restore
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -30,7 +29,11 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id nitrogen --restore
+
+# Border size
+# default_border pixel 0
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -195,31 +198,35 @@ bindsym $mod+Escape exec betterlockscreen -l blur
 
 
 bindsym Print exec flameshot gui
+bindsym Shift+Print exec flameshot full -c -p ~/Pictures/Screenshots/
 exec_always --no-startup-id compton --config ~/.config/compton.conf
 bindsym $mod+Shift+d exec rofimoji --action copy
 
 
-bar {
-  workspace_min_width 50
-  position top
-  font pango:JetBrainsMono Nerd Font 10
-	status_command ~/bumblebee-status/bumblebee-status -m  sensors cpu memory disk  \
-		pomodoro pasink pasource brightness  bluetooth2  datetime  battery_upower battery system -p time.format="%H:%M" -p interval=0.5s -t rice
+# bar {
+#   workspace_min_width 50
+#   position top
+#   font pango:JetBrainsMono Nerd Font 10
+# 	status_command ~/bumblebee-status/bumblebee-status -m  sensors cpu memory disk  \
+# 		pomodoro pasink pasource brightness  bluetooth2  datetime  battery_upower battery system -p time.format="%H:%M" -p interval=0.5s -t rice
+#
+#     colors {
+#         background #000000
+#         statusline #ffffff
+#         separator #666666
+#
+# #                          border   bg     text
+#         focused_workspace  #4c7899 #7E9CD8 #285577
+#         active_workspace   #333333 #5f676a #ffffff
+#         inactive_workspace #54546D #16161D #888888
+#         urgent_workspace   #2f343a #900000 #ffffff
+#         binding_mode       #2f343a #900000 #ffffff
+#     }
+# }
 
-    colors {
-        background #000000
-        statusline #ffffff
-        separator #666666
 
-#                          border   bg     text
-        focused_workspace  #4c7899 #7E9CD8 #285577
-        active_workspace   #333333 #5f676a #ffffff
-        inactive_workspace #54546D #16161D #888888
-        urgent_workspace   #2f343a #900000 #ffffff
-        binding_mode       #2f343a #900000 #ffffff
-    }
-}
 
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #7E9CD8 #7E9CD8 #000000 #FF9E3B   #7E9CD8
