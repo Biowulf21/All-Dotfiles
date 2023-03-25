@@ -203,8 +203,8 @@ bar {
   workspace_min_width 50
   position top
   font pango:JetBrainsMono Nerd Font 10
-	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m  sensors cpu memory disk  \
-		pomodoro pasink pasource brightness  bluetooth2  datetime battery_upower system -p time.format="%H:%M" -p interval=0.5s -t greyish-powerline
+	status_command ~/bumblebee-status/bumblebee-status -m  sensors cpu memory disk  \
+		pomodoro pasink pasource brightness  bluetooth2  datetime battery battery_upower system -p time.format="%H:%M" -p interval=0.5s -t rice
 
     colors {
         background #000000
@@ -222,7 +222,7 @@ bar {
 
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #7E9CD8 #7E9CD8 #000000 #E82424   #7E9CD8
+client.focused          #7E9CD8 #7E9CD8 #000000 #FF9E3B   #7E9CD8
 client.focused_inactive #333333 #16161D #ffffff #E82424   #5f676a
 client.unfocused        #333333 #16161D #888888 #E82424   #222222
 client.urgent           #2f343a #E82424 #ffffff #900000   #900000
