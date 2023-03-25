@@ -13,6 +13,18 @@
       "bg": "#dc322f"
     }
   },
+  "cpu": {
+    "fg": "#002b36",
+    "bg": "#7E9CD8"
+  },
+  "disk": {
+    "fg": "#002b36",
+    "bg": "#7E9CD8"
+  },
+  "battery_upower": {
+    "fg": "#002b36",
+    "bg": "#7E9CD8"
+  },
   "cycle": [
     {
       "fg": "#EFEFEF",
