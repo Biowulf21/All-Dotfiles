@@ -27,7 +27,7 @@ sudo dnf install mysql
 # ZSH
 sudo dnf install zsh -y
 rm ~/.zshrc
-ln -s ~/All-Dotfiles/zsh/.zshrc ~/.zshrc
+ln -s ~/All-Dotfiles/zsh/.zshrc ~/
 
 # Kitty Terminal
 sudo dnf install kitty -y
@@ -66,15 +66,16 @@ ln -s ~/All-Dotfiles/i3/rice.json ~/bumblebee-status/themes/rice.json
 
 # Installing polybar
 sudo dnf install polybar -y
-ln -s ~/All-Dotfiles/polybar/ .config/polybar
+ln -s ~/All-Dotfiles/polybar/config.ini ~/.config/polybar/
+ln -s ~/All-Dotfiles/polybar/launch.sh ~/.config/polybar/
 
 # Installing rofimoji
 sudo dnf install rofimoji
 
-ln -s ~/All-Dotfiles/rofi/ ~/.config/rofi/
+ln -s ~/All-Dotfiles/rofi/config.rasi ~/.config/rofi/
 
 # Installing Compton
-ln -s ~/All-Dotfiles/compton/compton.conf ~/.config/compton.conf
+ln -s ~/All-Dotfiles/compton/compton.conf ~/.config/
 
 sudo dnf install fira-code-fonts -y
 sudo dnf install ripgrep -y
