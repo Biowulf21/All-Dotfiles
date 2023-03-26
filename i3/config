@@ -205,7 +205,6 @@ bindsym $mod+Escape exec betterlockscreen -l blur
 bindsym Print exec flameshot gui
 bindsym Shift+Print exec flameshot full -c -p ~/Pictures/Screenshots/
 exec_always --no-startup-id compton --config ~/.config/compton.conf
-bindsym $mod+Shift+d exec rofimoji --action copy
 
 
 # bar {
