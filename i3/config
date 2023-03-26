@@ -52,6 +52,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 floating_modifier $mod
 
 exec_always xset s off -dpms
+
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
@@ -67,6 +68,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+space exec --no-startup-id rofi -show drun combi -run-command "i3-msg exec '{cmd}'" -show-icons
 bindsym $mod+Shift+d exec rofimoji --action copy
 bindsym $mod+Shift+c exec rofi -show calc -quiet
+
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -162,7 +164,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Alt+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
