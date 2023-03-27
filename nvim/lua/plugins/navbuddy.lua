@@ -6,8 +6,11 @@ return {
     "MunifTanjim/nui.nvim",
   },
   keys = {
-    { "<leader>nn", "<cmd>Navbuddy<cr>", desc = "NavBuddy" },
+    { "<leader>nv", function() end, desc = "NavBuddy" },
+    { "<leader>nv", "<cmd>Navbuddy<cr>", desc = "NavBuddy" },
   },
+  lazy = false,
+  enabled = true,
   config = function()
     local actions = require("nvim-navbuddy.actions")
     local navbuddy = require("nvim-navbuddy")
@@ -16,12 +19,13 @@ return {
         border = "double",
       },
       mappings = {
-        ["k"] = actions.next_sibling,
-        ["i"] = actions.previous_sibling,
-        ["j"] = actions.parent,
-        ["l"] = actions.children,
+        ["j"] = actions.next_sibling, -- down
+        ["k"] = actions.previous_sibling, -- up
+
+        ["h"] = actions.parent, -- Move to left panel
+        ["l"] = actions.children, -- Move to right panel
       },
-      lsp = { auto_attach = true },
+      lsp = { auto_attach = true, preference = "nvim_lsp" },
     })
   end,
 }
