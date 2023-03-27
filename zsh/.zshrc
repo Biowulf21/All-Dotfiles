@@ -5,7 +5,7 @@ export VISUAL=nvim
 export PATH="$PATH:/home/$USER/flutter/bin"
 export PATH="$PATH:~/.development/android-studio/bin"
 export PATH="$PATH:$HOME/.pub-cache/bin"
-export PATH="$PATH:/home/$USER/clipster/"
+export PATH="$PATH:$HOME/$USER/clipster/"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
