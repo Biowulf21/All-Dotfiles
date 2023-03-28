@@ -57,6 +57,9 @@ exec_always xset s off -dpms
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
+
+######################################################################################################################################
+
 # start a terminal
 bindsym $mod+Return exec kitty
 
@@ -65,11 +68,34 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
+
+# Rofi related commands
 bindsym $mod+space exec --no-startup-id rofi -show drun combi -run-command "i3-msg exec '{cmd}'" -show-icons
 bindsym $mod+Shift+d exec rofimoji --action copy
 bindsym $mod+Shift+c exec rofi -show calc -quiet
-bindsym $mod+c exec ~/All-Dotfiles/rofi/scripts/clipboard.sh
+bindsym $mod+c exec rofi-copyq
+
+
+# firefox
 bindsym $mod+Shift+f exec firefox
+
+
+# Flameshot
+bindsym Print exec flameshot gui
+bindsym Shift+Print exec flameshot full -c -p ~/Pictures/Screenshots/
+
+# Compton compositor
+exec_always --no-startup-id compton --config ~/.config/compton.conf
+
+# betterlockscreen
+bindsym $mod+Escape exec betterlockscreen -l blur 
+
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+
+######################################################################################################################################
+
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -179,42 +205,6 @@ bindsym $mod+i resize grow height 10 px or 10 ppt
 bindsym $mod+u resize shrink height 10 px or 10 ppt
 bindsym $mod+y resize grow width 10 px or 10 ppt
 
-
-# bindsym $mod+Escape exec i3lock -c 000000
-
-bindsym $mod+Escape exec betterlockscreen -l blur 
-
-
-bindsym Print exec flameshot gui
-bindsym Shift+Print exec flameshot full -c -p ~/Pictures/Screenshots/
-bindsym $mod+Shift+y exec --no-startup-id clipster/clipster -d
-exec_always --no-startup-id compton --config ~/.config/compton.conf
-
-
-# bar {
-#   workspace_min_width 50
-#   position top
-#   font pango:JetBrainsMono Nerd Font 10
-# 	status_command ~/bumblebee-status/bumblebee-status -m  sensors cpu memory disk  \
-# 		pomodoro pasink pasource brightness  bluetooth2  datetime  battery_upower battery system -p time.format="%H:%M" -p interval=0.5s -t rice
-#
-#     colors {
-#         background #000000
-#         statusline #ffffff
-#         separator #666666
-#
-# #                          border   bg     text
-#         focused_workspace  #4c7899 #7E9CD8 #285577
-#         active_workspace   #333333 #5f676a #ffffff
-#         inactive_workspace #54546D #16161D #888888
-#         urgent_workspace   #2f343a #900000 #ffffff
-#         binding_mode       #2f343a #900000 #ffffff
-#     }
-# }
-
-
-
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #7E9CD8 #7E9CD8 #000000 #FF9E3B   #7E9CD8
