@@ -69,6 +69,7 @@ bindsym $mod+space exec --no-startup-id rofi -show drun combi -run-command "i3-m
 bindsym $mod+Shift+d exec rofimoji --action copy
 bindsym $mod+Shift+c exec rofi -show calc -quiet
 bindsym $mod+c exec ~/All-Dotfiles/rofi/scripts/clipboard.sh
+bindsym $mod+Shift+f exec firefox
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
