@@ -73,7 +73,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+space exec --no-startup-id rofi -show drun combi -run-command "i3-msg exec '{cmd}'" -show-icons
 bindsym $mod+Shift+d exec rofimoji --action copy
 bindsym $mod+Shift+c exec rofi -show calc -quiet
-bindsym $mod+c exec rofi-copyq
+bindsym $mod+c exec ~/.local/bin/rofi-copyq
 
 
 # firefox
