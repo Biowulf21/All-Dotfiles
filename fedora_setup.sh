@@ -60,8 +60,9 @@ git clone https://github.com/Raymo111/i3lock-color.git ~/
 sudo dnf install cmatrix -y
 ./~/i3lock-color/install-i3lock-color.sh
 
-#Installing clipster
-git clone https://github.com/mrichar1/clipster.git ~/
+# Installin rofi-copyq
+sudo dnf install copyq -y
+pip install --user git+https://github.com/cjbassi/rofi-copyq
 
 # Installing Bumblebee Status
 git clone https://github.com/tobi-wan-kenobi/bumblebee-status.git .config/i3/bumblebee-status
