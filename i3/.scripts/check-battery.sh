@@ -14,7 +14,7 @@ Batt_Percent=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep per
 
 if [[ $Batt_Percent -le 50 ]]; then
 	displayDunst "BATTERY GETTING LOW" "Battery is getting low. You might want to keep a charger nearby."
-if [[ $Batt_Percent -le 20 ]]; then
+elif [[ $Batt_Percent -le 20 ]]; then
 	displayDunst "LOW BATTERY" "Please plug in your charger."
 	enablePowerSaving
 elif [[ $Batt_Percent -le 10 ]]; then
