@@ -64,6 +64,10 @@ sudo dnf install cmatrix -y
 sudo dnf install copyq -y
 pip install --user git+https://github.com/cjbassi/rofi-copyq
 
+# Install i3-battery-notify
+mkdir ~/.scripts/
+cp ~/All-Dotfiles/i3/i3-battery-notify/* ~/.scripts/
+
 # Installing Bumblebee Status
 git clone https://github.com/tobi-wan-kenobi/bumblebee-status.git .config/i3/bumblebee-status
 ln -s ~/All-Dotfiles/i3/rice.json ~/bumblebee-status/themes/rice.json
