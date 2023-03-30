@@ -219,4 +219,5 @@ gaps outer 10
 gaps top 35
 
 exec_always --no-startup-id copyq
+exec_always --no-startup-id i3-battery-popup -L 20 -t 1m -s ~/.scripts/i3-battery-popup.wav
 
