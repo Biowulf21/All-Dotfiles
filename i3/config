@@ -76,6 +76,11 @@ bindsym $mod+Shift+c exec rofi -show calc -quiet
 bindsym $mod+c exec ~/.local/bin/rofi-copyq
 
 
+# Joplin
+bindsym $mod+Shift+n exec kitty -e joplin
+bindsym $mod+Shift+u exec kitty -e ranger
+
+
 # firefox
 bindsym $mod+Shift+f exec firefox
 
