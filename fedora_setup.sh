@@ -64,6 +64,12 @@ sudo dnf install cmatrix -y
 sudo dnf install copyq -y
 pip install --user git+https://github.com/cjbassi/rofi-copyq
 
+# Install npm
+sudo dnf install npm nodejs
+
+# Install joplin cli
+NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin\nsudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin\n
+
 # Install i3-battery-notify
 mkdir ~/.scripts/
 cp ~/All-Dotfiles/i3/i3-battery-notify/* ~/.scripts/
