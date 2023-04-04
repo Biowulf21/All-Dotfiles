@@ -201,6 +201,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
     # Move the currently focused window to the scratchpad
     bindsym $mod+Shift+minus move scratchpad
+    bindsym $mod+minus scratchpad show
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
@@ -253,7 +254,7 @@ bar {
 }
 
 # Scripts
-
+exec "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP" 
 exec_always --no-startup-id copyq
 exec_always --no-startup-id i3-battery-popup -L 20 -t 1m -s ~/.scripts/i3-battery-popup.wav
 
