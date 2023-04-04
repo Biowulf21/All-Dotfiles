@@ -38,8 +38,10 @@
 }
 
 #tray {
-  margin-right: 20px;
-  border-radius: 12px;
+  background-color: #7E9CD8;
+  border-radius: 20px;
+  margin: 5px 5px 5px 0px;
+  padding: 3px 15px;
 }
 
 #tray * {
