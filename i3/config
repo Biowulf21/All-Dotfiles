@@ -75,15 +75,19 @@ bindsym $mod+Shift+d exec rofimoji --action copy
 bindsym $mod+Shift+c exec rofi -show calc -quiet
 bindsym $mod+c exec ~/.local/bin/rofi-copyq
 
+# Ranger
+bindsym $mod+Shift+n exec kitty --no-startup-id -e ranger
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
 
-# Joplin
-bindsym $mod+Shift+n exec kitty -e joplin
-bindsym $mod+Shift+u exec kitty -e ranger
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
 
+# Show the sup-mail scratchpad window, if any.
+bindsym $mod+Shift+s [title="^Sup ::"] scratchpad show
 
 # firefox
 bindsym $mod+Shift+f exec firefox
-
 
 # Flameshot
 bindsym Print exec flameshot gui
