@@ -10,10 +10,22 @@ enablePowerSaving() {
 	brightnessctl set $brightness
 }
 
+checkIsCharging() {
+	state=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/state/ {print $NF}')
+	if [[ "$state" == "charging" ]]; then
+		echo true
+	else
+		echo false
+	fi
+}
+
 Batt_Percent=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}' | tr -d '%')
 
-# if [[ $Batt_Percent -le 50 ]]; then
-# 	displayDunst "BATTERY GETTING LOW" "Battery is getting low. You might want to keep a charger nearby."
+isCharging=$(checkIsCharging)
+if [[ $isCharging == true ]]; then
+	exit 0
+fi
+
 if [[ $Batt_Percent -le 20 ]]; then
 	displayDunst "LOW BATTERY" "Please plug in your charger."
 	enablePowerSaving
