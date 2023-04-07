@@ -224,9 +224,9 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
-gaps outer 10
+gaps outer 5
 gaps inner 10
-gaps top 35
+gaps top 25
 
 exec_always --no-startup-id copyq
 exec_always --no-startup-id i3-battery-popup -L 20 -t 1m -s ~/.scripts/i3-battery-popup.wav
