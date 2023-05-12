@@ -43,9 +43,9 @@ alias b='cd ..'
 alias tree='tree --dirsfirst -F'
 alias cssh='cat ~/.ssh/id_rsa.pub | xclip -sel clip'
 
-cl(){
-  cd $@
-  ls
+cl() {
+	cd $@
+	ls
 }
 
 # calendar
@@ -64,7 +64,6 @@ alias dec='cal -m 12'
 
 # speedtest
 alias sp='speedtest-cli'
-
 
 # git
 # View Git status.
@@ -90,7 +89,6 @@ alias gd='git diff'
 
 # git push origin master
 alias gpoms='git push origin master'
-
 
 # git push
 alias gp='git push'
@@ -118,8 +116,9 @@ alias lrl='php artisan migrate:fresh --seed'
 alias lmss='php artisan migrate:fresh --seed && php artisan optimize && php artisan serve'
 
 # unzipping
-function rezip(){
-  unzip $1
-  mv $1 $2
+function rezip() {
+	unzip $1
+	mv $1 $2
 }
 
+alias lrp='grep -E "^\[.*]" /etc/yum.repos.d/*'
