@@ -6,10 +6,12 @@
 #
 
 # i3 config file (v4)
-#
+
+
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -165,6 +167,10 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
+
+# Set monitor variables
+set $fm HDMI-2
+
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -225,9 +231,10 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 gaps outer 5
-gaps inner 10
-gaps top 25
+gaps inner 5
+gaps top 30
 
 exec_always --no-startup-id copyq
 exec_always --no-startup-id i3-battery-popup -L 20 -t 1m -s ~/.scripts/i3-battery-popup.wav
+exec_always --no-startup-id ~/.scripts/update_xinput.sh
 
