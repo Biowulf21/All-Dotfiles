@@ -26,13 +26,13 @@ sudo dnf install mysql
 
 # ZSH
 sudo dnf install zsh -y
-rm ~/.zshrc
-ln -s ~/All-Dotfiles/zsh/.zshrc ~/
+rm $HOME/.zshrc
+ln -s /All-Dotfiles/zsh/.zshrc $HOME/
 
 # Kitty Terminal
 sudo dnf install kitty -y
-rm ~/.config/kitty/
-ln -s ~/All-Dotfiles/kitty ~/.config/kitty/
+rm $HOME/.config/kitty/
+ln -s $HOME/All-Dotfiles/kitty $HOME/.config/kitty/
 
 echo Installing Gnome Tweaks and Extensions
 sudo dnf install gnome-shell-extensions -y
@@ -56,9 +56,9 @@ sudo dnf install neovim -y
 sudo dnf install i3 i3status dmenu i3lock brightnessctl rofi compton blueman-manager lm_sensors -y
 # Installing i3-lock-color
 sudo dnf install -y autoconf automake cairo-devel fontconfig gcc libev-devel libjpeg-turbo-devel libXinerama libxkbcommon-devel libxkbcommon-x11-devel libXrandr pam-devel pkgconf xcb-util-image-devel xcb-util-xrm-devel -y
-git clone https://github.com/Raymo111/i3lock-color.git ~/
+git clone https://github.com/Raymo111/i3lock-color.git $HOME/
 sudo dnf install cmatrix -y
-./~/i3lock-color/install-i3lock-color.sh
+./$HOME/i3lock-color/install-i3lock-color.sh
 
 # Installin rofi-copyq
 sudo dnf install copyq -y
@@ -68,35 +68,35 @@ pip install --user git+https://github.com/cjbassi/rofi-copyq
 sudo dnf install npm nodejs
 
 # Install joplin cli
-NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin\nsudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin\n
+NPM_CONFIG_PREFIX=$HOME/.joplin-bin npm install -g joplin\nsudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin\n
 
 # Install i3-battery-notify
-mkdir ~/.scripts/
-cp ~/All-Dotfiles/i3/i3-battery-notify/* ~/.scripts/
+mkdir $HOME/.scripts/
+cp $HOME/All-Dotfiles/i3/i3-battery-notify/* $HOME/.scripts/
 
 # Installing Bumblebee Status
 git clone https://github.com/tobi-wan-kenobi/bumblebee-status.git .config/i3/bumblebee-status
-ln -s ~/All-Dotfiles/i3/rice.json ~/bumblebee-status/themes/rice.json
+ln -s $HOME/All-Dotfiles/i3/rice.json $HOME/bumblebee-status/themes/rice.json
 
 # Installing polybar
 sudo dnf install polybar -y
-ln -s ~/All-Dotfiles/polybar/config.ini ~/.config/polybar/
-ln -s ~/All-Dotfiles/polybar/launch.sh ~/.config/polybar/
+ln -s $HOME/All-Dotfiles/polybar/config.ini $HOME/.config/polybar/
+ln -s $HOME/All-Dotfiles/polybar/launch.sh $HOME/.config/polybar/
 
 # Installing rofimoji
 sudo dnf install rofimoji
 
-ln -s ~/All-Dotfiles/rofi/config.rasi ~/.config/rofi/
+ln -s $HOME/All-Dotfiles/rofi/config.rasi $HOME/.config/rofi/
 
 # Installing Compton
-ln -s ~/All-Dotfiles/compton/compton.conf ~/.config/
+ln -s $HOME/All-Dotfiles/compton/compton.conf $HOME/.config/
 
 sudo dnf install fira-code-fonts -y
 sudo dnf install ripgrep -y
 
 sudo dnf copr enable atim/lazygit -y
 sudo dnf install lazygit
-ln -s ~/All-Dotfiles/nvim ~/.config/nvim
+ln -s $HOME/All-Dotfiles/nvim $HOME/.config/nvim
 printf '\n\n\n'
 
 # Installing ranger
@@ -119,11 +119,11 @@ printf '\n\n\n'
 #oh-my-zsh plugins
 
 # Autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 printf '\n\n\n'
 
 # Syntax Highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 printf '\n\n\n'
 
 # You should use
@@ -134,7 +134,7 @@ printf '\n\n\n'
 git clone https://github.com/wting/autojump.git ~
 autojump/install.py
 # Setup dotfiles
-sudo rm ~/.zshrc
+sudo rm $HOME/.zshrc
 #omz reload
 
 # Installing applications
@@ -180,7 +180,7 @@ printf '\n\n\n'
 #Github
 ssh-keygen -t ed25519 -f /home/Biowulf21/.ssh/github -C "Github key"
 
-cat ~/.ssh/github | xclip -selection c
+cat $HOME/.ssh/github | xclip -selection c
 
 # Install and setup zsh
 #sudo dnf install zsh -y
@@ -188,7 +188,7 @@ cat ~/.ssh/github | xclip -selection c
 #sudo chsh -s $(which zsh)
 
 #Install oh-my-zsh
-rm -rf ~/.oh-my-zsh
+rm -rf $HOME/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 printf '\n\n\n'
 
