@@ -110,6 +110,9 @@ alias frc='flutter run -d chrome'
 alias few='flutter config --enable-web'
 alias ft='flutter test'
 
+# Firebase
+alias est='firebase emulators:start --import=./saved-data --export-on-exit=./saved-data'
+
 #laravel
 alias lr='php artisan serve'
 alias lrl='php artisan migrate:fresh --seed'
