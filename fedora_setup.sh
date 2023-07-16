@@ -53,7 +53,7 @@ sudo dnf install -y libstdc++-static
 sudo dnf install neovim -y
 
 # Installing i3 and dependencies
-sudo dnf install i3 i3status dmenu i3lock brightnessctl rofi compton blueman-manager lm_sensors -y
+sudo dnf install i3 i3status dmenu i3lock brightnessctl rofi compton blueman-manager lm_sensors dunst -y
 # Installing i3-lock-color
 sudo dnf install -y autoconf automake cairo-devel fontconfig gcc libev-devel libjpeg-turbo-devel libXinerama libxkbcommon-devel libxkbcommon-x11-devel libXrandr pam-devel pkgconf xcb-util-image-devel xcb-util-xrm-devel -y
 git clone https://github.com/Raymo111/i3lock-color.git $HOME/
