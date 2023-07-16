@@ -41,19 +41,14 @@ sudo dnf install gnome-tweaks -y
 echo Installing NCDU Disk Manager
 sudo dnf install ncdu -y
 
-echo Installing Theme
-# Installing Theme
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k\n
-echo Theme Installed
-printf '\n\n\n'
-
 echo Installing system applications
 # Installing neovim
 sudo dnf install -y libstdc++-static
 sudo dnf install neovim -y
 
 # Installing autojump
-sudo dnf install autojump -y
+git clone https://github.com/wting/autojump.git
+./home/biowulf21/autojump/install.py
 
 # Installing i3 and dependencies
 sudo dnf install i3 i3status dmenu i3lock brightnessctl rofi compton blueman-manager lm_sensors dunst -y
@@ -120,6 +115,12 @@ sudo dnf install fuck -y
 printf '\n\n\n'
 
 #oh-my-zsh plugins
+
+echo Installing Theme
+# Installing Theme
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k\n
+echo Theme Installed
+printf '\n\n\n'
 
 # Autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
