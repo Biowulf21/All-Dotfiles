@@ -52,6 +52,9 @@ echo Installing system applications
 sudo dnf install -y libstdc++-static
 sudo dnf install neovim -y
 
+# Installing autojump
+sudo dnf install autojump -y
+
 # Installing i3 and dependencies
 sudo dnf install i3 i3status dmenu i3lock brightnessctl rofi compton blueman-manager lm_sensors dunst -y
 # Installing i3-lock-color

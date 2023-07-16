@@ -62,6 +62,9 @@ alias oct='cal -m 10'
 alias nov='cal -m 11'
 alias dec='cal -m 12'
 
+# autojump
+alias j='autojump'
+
 # speedtest
 alias sp='speedtest-cli'
 
