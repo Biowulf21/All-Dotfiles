@@ -238,3 +238,4 @@ exec_always --no-startup-id copyq
 exec_always --no-startup-id i3-battery-popup -L 20 -t 1m -s ~/.scripts/i3-battery-popup.wav
 exec_always --no-startup-id ~/.scripts/update_xinput.sh
 
+for_window [title="^Android Emulator.+:[0-9]+$"] floating enable
