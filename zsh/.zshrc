@@ -2,6 +2,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
 export VISUAL=nvim
+export PATH="usr/local/sbin:/usr/local/bin:/usr/sbin:/usr:/bin:/sbin:/bin"
 export PATH="$PATH:/home/$USER/flutter/bin"
 export PATH="$PATH:~/.development/android-studio/bin"
 export PATH="$PATH:$HOME/.pub-cache/bin"
@@ -93,13 +94,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 
-[[ -s /home/Biowulf21/.autojump/etc/profile.d/autojump.sh ]] && source /home/Biowulf21/.autojump/etc/profile.d/autojump.sh
-
-autoload -U compinit && compinit -u
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
+[[ -s /home/biowulf21/.autojump/etc/profile.d/autojump.sh ]] && source /home/biowulf21/.autojump/etc/profile.d/autojump.sh
 
+	autoload -U compinit && compinit -u
