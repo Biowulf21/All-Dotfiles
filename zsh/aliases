@@ -3,6 +3,9 @@
 # sudo
 alias sudo='sudo'
 
+#lazygit
+alias lg='lazygit'
+
 #vim
 alias vim='nvim'
 
