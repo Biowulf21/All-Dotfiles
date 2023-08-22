@@ -4,7 +4,7 @@ echo ===============WELCOME TO FEDORA SETUP===============
 printf "\n\n"
 
 echo Adding parallel downloads to DNF
-sudo cat max_parallel_downloads=10 >>/etc/dnf/dnf.conf
+sudo cat max_parallel_downloads=10 >>/ec/dnf/dnf.conf
 
 # Installing fira code font
 sudo dnf install fira-code-fonts
@@ -33,6 +33,13 @@ ln -s /All-Dotfiles/zsh/.zshrc $HOME/
 sudo dnf install kitty -y
 rm $HOME/.config/kitty/
 ln -s $HOME/All-Dotfiles/kitty $HOME/.config/kitty/
+
+# Tmux
+sudo dnf install tmux -y
+ln -s /$HOME/All-Dotfiles/tmux/.tmux.conf $HOME/
+
+# clone repo for tmux Plugin Manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo Installing Gnome Tweaks and Extensions
 sudo dnf install gnome-shell-extensions -y
