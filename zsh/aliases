@@ -8,6 +8,7 @@ alias lg='lazygit'
 
 #vim
 alias vim='nvim'
+alias vsd='rm /home/biowulf21/.local/state/nvim/swap/*'
 
 # copypath
 alias cpth='copypath'
