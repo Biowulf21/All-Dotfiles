@@ -102,7 +102,7 @@ bindsym Shift+Print exec flameshot full -c -p ~/Pictures/Screenshots/
 exec_always --no-startup-id compton --config ~/.config/compton.conf
 
 # betterlockscreen
-bindsym $mod+Escape exec betterlockscreen -l blur 
+bindsym $mod+Escape exec ~/All-Dotfiles/i3/scripts/pretty_lock.sh
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
