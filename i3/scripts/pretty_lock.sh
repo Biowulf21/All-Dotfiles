@@ -16,6 +16,7 @@ pkill -u $USER -USR1 dunst
 
 # Capture errors in a variable
 BLANK='#00000000'
+WHITE='#ffffff'
 CLEAR='#ffffff22'
 KANAGAWA_BLUE='#7E9CD8'
 BG='#282A2E'
@@ -25,7 +26,7 @@ VERIFYING='#FF9E3B'
 SPRING_GREEN='#98BB6C'
 
 errors=$(
-	i3lock -n -i /home/biowulf21/Wallpapers/Random/dogfight.jpg \
+	i3lock -n -i /home/biowulf21/Wallpapers/Gundam/gundam.jpg \
 		--insidever-color=$CLEAR \
 		--ringver-color=$VERIFYING \
 		\
@@ -38,17 +39,21 @@ errors=$(
 		--separator-color=$DEFAULT \
 		\
 		--verif-color=$DEFAULT \
-		--wrong-color=$BG \
-		--time-color=$BG \
-		--date-color=$BG \
-		--layout-color=$BG \
+		--wrong-color=$WHITE \
+		--time-color=$WHITE \
+		--date-color=$WHITE \
+		--layout-color=$WHITE \
 		--keyhl-color=$KANAGAWA_BLUE \
 		--bshl-color=$SPRING_GREEN \
 		\
 		--screen 1 \
-		--blur 5 \
+		--beep \
+		--blur 8 \
 		--clock \
 		--indicator \
+		--ignore-empty-password \
+		--show-failed-attempts \
+		--time-font="Noto Sans Mono" \
 		--time-str="%H:%M:%S" \
 		--date-str="%A, %Y-%m-%d" \
 		--keylayout 1 \
