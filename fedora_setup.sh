@@ -34,7 +34,8 @@ sudo dnf install kitty -y
 rm $HOME/.config/kitty/
 ln -s $HOME/All-Dotfiles/kitty $HOME/.config/kitty/
 
-# Tmux
+# Tmux and fzf
+sudo dnf install fzf -y
 sudo dnf install tmux -y
 rm -r $HOME/.tmux
 ln -s /$HOME/All-Dotfiles/tmux/.tmux.conf $HOME/.tmux/
