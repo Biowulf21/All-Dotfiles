@@ -36,7 +36,8 @@ ln -s $HOME/All-Dotfiles/kitty $HOME/.config/kitty/
 
 # Tmux
 sudo dnf install tmux -y
-ln -s /$HOME/All-Dotfiles/tmux/.tmux.conf $HOME/
+rm -r $HOME/.tmux
+ln -s /$HOME/All-Dotfiles/tmux/.tmux.conf $HOME/.tmux/
 
 # clone repo for tmux Plugin Manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
