@@ -61,6 +61,8 @@ git clone https://github.com/wting/autojump.git
 
 # Installing i3 and dependencies
 sudo dnf install i3 i3status dmenu i3lock brightnessctl rofi compton blueman-manager lm_sensors dunst -y
+# adds rofi copy from clipboard
+pip install --user git+https://github.com/cjbassi/rofi-copyq
 # Installing i3-lock-color
 sudo dnf install -y autoconf automake cairo-devel fontconfig gcc libev-devel libjpeg-turbo-devel libXinerama libxkbcommon-devel libxkbcommon-x11-devel libXrandr pam-devel pkgconf xcb-util-image-devel xcb-util-xrm-devel -y
 git clone https://github.com/Raymo111/i3lock-color.git $HOME/

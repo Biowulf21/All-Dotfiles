@@ -71,11 +71,14 @@ bindsym $mod+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
 
-# Rofi related commands
 bindsym $mod+space exec --no-startup-id rofi -show drun combi -run-command "i3-msg exec '{cmd}'" -show-icons
+# Rofi related commands
 bindsym $mod+Shift+d exec rofimoji --action copy
 bindsym $mod+Shift+c exec rofi -show calc -quiet
 bindsym $mod+c exec ~/.local/bin/rofi-copyq
+bindsym $mod+p exec  ~/All-Dotfiles/rofi/scripts/powermenu.sh
+bindsym $mod+w exec ~/All-Dotfiles/rofi/scripts/wifimenu.sh
+bindsym $mod+b exec ~/All-Dotfiles/rofi/scripts/bluetoothmenu.sh
 
 # Ranger
 bindsym $mod+Shift+n exec kitty --no-startup-id -e ranger
@@ -149,7 +152,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 
