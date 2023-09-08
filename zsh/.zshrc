@@ -8,6 +8,7 @@ export PATH="$PATH:~/.development/android-studio/bin"
 export PATH="$PATH:$HOME/.pub-cache/bin"
 export PATH="$PATH:$HOME/.local/bin/"
 export PATH="$PATH:$HOME/.scripts/"
+export PATH="$PATH:$HOME/.composer//"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
