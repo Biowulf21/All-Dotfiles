@@ -31,6 +31,9 @@ vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = "Go to right window", remap = tr
 -- Reload config
 vim.keymap.set("n", "<leader>sv", ":luafile $MYVIMRC", { desc = "Reload lua config file" })
 
+-- Run DBUI
+vim.keymap.set("n", "<leader>vb", ":DBUIToggle", { desc = "Toggle DBUI" })
+
 vim.keymap.set("n", "<leader>fl", function()
   require("telescope").extensions.flutter.commands()
 end)
