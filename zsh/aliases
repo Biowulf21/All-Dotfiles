@@ -121,6 +121,8 @@ alias est='firebase emulators:start --import=./saved-data --export-on-exit=./sav
 alias lr='php artisan serve'
 alias lrl='php artisan migrate:fresh --seed'
 alias lmss='php artisan migrate:fresh --seed && php artisan optimize && php artisan serve'
+alias loms='php artisan optimize && php artisan migrate:fresh && php artisan serve'
+alias lomss='php artisan optimize && php artisan migrate:fresh && php artisan db:seed && php artisan serve'
 
 # unzipping
 function rezip() {
