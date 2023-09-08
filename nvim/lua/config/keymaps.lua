@@ -22,10 +22,11 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move down half page centered" 
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- -- Map Control + U to switch to the left window
-vim.api.nvim_set_keymap("n", "<C-g>", "<C-w>h", { noremap = true, silent = true })
--- -- Map Control + P to switch to the right window
-vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>l", { noremap = true, silent = true })
+-- Move to window using the <ctrl> hjkl keys
+vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = "Go to left window", remap = true })
+vim.keymap.set("n", "<A-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
+vim.keymap.set("n", "<A-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
+vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 
 -- Reload config
 vim.keymap.set("n", "<leader>sv", ":luafile $MYVIMRC", { desc = "Reload lua config file" })
