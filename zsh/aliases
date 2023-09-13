@@ -113,6 +113,7 @@ alias gpl='git pull'
 alias frc='flutter run -d chrome'
 alias few='flutter config --enable-web'
 alias ft='flutter test'
+alias vg='very_good'
 
 # Firebase
 alias est='firebase emulators:start --import=./saved-data --export-on-exit=./saved-data'
