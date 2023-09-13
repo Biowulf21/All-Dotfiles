@@ -103,3 +103,9 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [[ -s /home/biowulf21/.autojump/etc/profile.d/autojump.sh ]] && source /home/biowulf21/.autojump/etc/profile.d/autojump.sh
 
 	autoload -U compinit && compinit -u
+
+## [Completion] 
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/biowulf21/.dart-cli-completion/zsh-config.zsh ]] && . /home/biowulf21/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
