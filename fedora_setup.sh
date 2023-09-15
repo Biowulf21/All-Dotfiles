@@ -9,6 +9,9 @@ sudo cat max_parallel_downloads=10 >>/ec/dnf/dnf.conf
 # Installing fira code font
 sudo dnf install fira-code-fonts
 
+# Installing android debugging tools
+sudo dnf install android-tools -y
+
 # Krita
 
 sudo dnf install krita -y
