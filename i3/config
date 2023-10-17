@@ -98,6 +98,9 @@ bindsym $mod+Shift+f exec firefox
 bindsym Print exec flameshot gui
 bindsym Shift+Print exec flameshot full -c -p ~/Pictures/Screenshots/
 
+# Will turn off laptop monitor if more than two displays are present
+exec_always --no-startup-id ~/All-Dotfiles/i3/scripts/check_screens.sh
+
 # Compton compositor
 exec_always --no-startup-id compton --config ~/.config/compton.conf
 
