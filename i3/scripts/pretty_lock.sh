@@ -26,7 +26,7 @@ VERIFYING='#FF9E3B'
 SPRING_GREEN='#98BB6C'
 
 errors=$(
-	i3lock -n -i /home/biowulf21/Wallpapers/Gundam/gundam.jpg \
+	i3lock -n -i /home/biowulf21/Wallpapers/sunflower.jpg \
 		--insidever-color=$CLEAR \
 		--ringver-color=$VERIFYING \
 		\
