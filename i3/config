@@ -29,6 +29,10 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
+
+# Will turn off laptop monitor if more than two displays are present
+exec_always --no-startup-id ~/All-Dotfiles/i3/scripts/check_screens.sh
+
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -97,9 +101,6 @@ bindsym $mod+Shift+f exec firefox
 # Flameshot
 bindsym Print exec flameshot gui
 bindsym Shift+Print exec flameshot full -c -p ~/Pictures/Screenshots/
-
-# Will turn off laptop monitor if more than two displays are present
-exec_always --no-startup-id ~/All-Dotfiles/i3/scripts/check_screens.sh
 
 # Compton compositor
 exec_always --no-startup-id compton --config ~/.config/compton.conf
