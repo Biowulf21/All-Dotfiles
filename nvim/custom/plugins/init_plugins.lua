@@ -3,6 +3,15 @@ local plugins = {
 	"alexghergh/nvim-tmux-navigation", -- Navigate between Neovim and Tmux panes
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	"github/copilot.vim", -- GitHub Copilot integrations
+	{ -- Edit your filesystem like a normal Neovim buffer.
+		"stevearc/oil.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		keys = {
+			{ "<leader>-", ":Oil<CR>", desc = "[O]pen [I]nteractive [L]ist" },
+		},
+	},
 	"ThePrimeagen/harpoon", -- Quick navigation between projects
 	{
 		"kdheepak/lazygit.nvim", -- Lazygit for Neovim
