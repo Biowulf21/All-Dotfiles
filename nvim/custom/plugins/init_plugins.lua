@@ -1,8 +1,22 @@
 -- Define your plugins and their configurations
 local plugins = {
-	"alexghergh/nvim-tmux-navigation",
-
+	"alexghergh/nvim-tmux-navigation", -- Navigate between Neovim and Tmux panes
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+	"github/copilot.vim", -- GitHub Copilot integrations
+	"ThePrimeagen/harpoon", -- Quick navigation between projects
+	{
+		"kdheepak/lazygit.nvim", -- Lazygit for Neovim
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+		-- config = function()
+		-- 	require("lazygit").setup({})
+		-- end,
+		keys = {
+			{ "<leader>lg", ":LazyGit<CR>", desc = "[L]azy[G]it" },
+		},
+	},
+
 	{
 		"catppuccin/nvim",
 		priority = 1000,
@@ -11,6 +25,7 @@ local plugins = {
 			vim.cmd.hi("Comment gui=none")
 		end,
 	},
+
 	-- { , name = "catppuccin", priority = 1000 },
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },
@@ -137,11 +152,11 @@ local plugins = {
 					-- Select the [n]ext item
 					["<C-n>"] = cmp.mapping.select_next_item(),
 					-- Select the [p]revious item
-					["<C-p>"] = cmp.mapping.select_prev_item(),
+					["<C-b>"] = cmp.mapping.select_prev_item(),
 
 					-- Scroll the documentation window [b]ack / [f]orward
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
+					["<C-Up>"] = cmp.mapping.scroll_docs(-4),
+					["<C-Down>"] = cmp.mapping.scroll_docs(4),
 
 					-- Accept ([y]es) the completion.
 					--  This will auto-import if your LSP supports it.
