@@ -224,8 +224,8 @@ vim.opt.rtp:prepend(lazypath)
 --    :Lazy update
 --
 -- NOTE: Here is where you install your plugins.
-local plugins = require("nvim.custom.plugins.init_plugins")
-local ui = require("nvim.custom.plugins.nerd_font_ui")
+local plugins = dofile("/home/biowulf21/All-Dotfiles/nvim/custom/plugins/init_plugins.lua")
+local ui = dofile("/home/biowulf21/All-Dotfiles/nvim/custom/plugins/nerd_font_ui.lua")
 
 require("lazy").setup(plugins, ui)
 -- The line beneath this is called `modeline`. See `:help modeline`
