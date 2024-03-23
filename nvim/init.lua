@@ -1,16 +1,18 @@
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+local map = vim.keymap.set
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 
--- [[ Setting options ]]
+-- [[ Setting vim.options ]]
 -- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
+-- NOTE: You can change these vim.options as you wish!
+--  For more vim.options, you can see `:help vim.option-list`
 
 -- Make line numbers default
 vim.opt.number = true
@@ -25,7 +27,7 @@ vim.opt.mouse = "a"
 vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
+--  Remove this vim.option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.opt.clipboard = "unnamedplus"
 
@@ -69,17 +71,17 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
+--  See `:help map()`
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+map("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
+map("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
+map("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
+map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -87,27 +89,35 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+-- map('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+-- map('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+-- map('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+-- map('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set("n", "<A-S-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<A-S-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<A-S-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<A-S-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+-- map("n", "<A-S-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+-- map("n", "<A-S-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+-- map("n", "<A-S-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+-- map("n", "<A-S-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 -- Navigate between neovim and tmux splits
-vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = "Go to left window", remap = true })
-vim.keymap.set("n", "<A-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
-vim.keymap.set("n", "<A-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
-vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = "Go to right window", remap = true })
+map("n", "<A-h>", "<C-w>h", { desc = "Go to left window", remap = true })
+map("n", "<A-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
+map("n", "<A-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
+map("n", "<A-l>", "<C-w>l", { desc = "Go to right window", remap = true })
+
+-- windows
+map("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
+map("n", "<leader>wd", "<C-W>c", { desc = "Delete window", remap = true })
+map("n", "<leader>w-", "<C-W>s", { desc = "Split window below", remap = true })
+map("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap = true })
+map("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
+map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
