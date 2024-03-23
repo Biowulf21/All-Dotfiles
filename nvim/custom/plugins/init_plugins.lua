@@ -3,6 +3,14 @@ local plugins = {
 	"alexghergh/nvim-tmux-navigation", -- Navigate between Neovim and Tmux panes
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	"github/copilot.vim", -- GitHub Copilot integrations
+	{
+		"catppuccin/nvim",
+		priority = 1000,
+		init = function()
+			vim.cmd.colorscheme("catppuccin-mocha")
+			vim.cmd.hi("Comment gui=none")
+		end,
+	},
 	{ -- Edit your filesystem like a normal Neovim buffer.
 		"stevearc/oil.nvim",
 		opts = {},
@@ -21,6 +29,19 @@ local plugins = {
 			git_blame_delay = 50,
 		},
 	},
+	{
+		"Wansmer/treesj",
+		keys = {
+			{ "<space>tst", "<cmd>TSJToggle<CR>", desc = "[T]ree [S]itter [T]oggle" },
+			{ "<space>tss", "<cmd>TSJSplit<CR>", desc = "[T]ree [S]itter [S]plit" },
+			{ "<space>tsj", "<cmd>TSJJoin<CR>", desc = "[T]ree [S]itter [J]oin" },
+		},
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			require("treesj").setup({--[[ your config ]]
+			})
+		end,
+	},
 	"ThePrimeagen/harpoon", -- Quick navigation between projects
 	{
 		"kdheepak/lazygit.nvim", -- Lazygit for Neovim
@@ -33,15 +54,6 @@ local plugins = {
 		keys = {
 			{ "<leader>lg", ":LazyGit<CR>", desc = "[L]azy[G]it" },
 		},
-	},
-
-	{
-		"catppuccin/nvim",
-		priority = 1000,
-		init = function()
-			vim.cmd.colorscheme("catppuccin-mocha")
-			vim.cmd.hi("Comment gui=none")
-		end,
 	},
 
 	-- { , name = "catppuccin", priority = 1000 },
