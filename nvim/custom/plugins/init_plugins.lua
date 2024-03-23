@@ -44,6 +44,8 @@ local plugins = {
 			require("flutter-tools").setup({})
 		end,
 		keys = {
+
+			{ "<leader>frr", "<cmd>FlutterRun<CR>", desc = "[F]lutter [R]un" },
 			{
 				"<leader>fd",
 				"<cmd>FlutterRun --flavor development --target lib/main_development.dart<CR>",
@@ -55,6 +57,9 @@ local plugins = {
 				"<cmd>FlutterRun --flavor production --target lib/main_production.dart<CR>",
 				desc = "Launch production",
 			},
+			{ "<leader>fq", "<cmd>FlutterQuit<CR>", desc = "[F]lutter [Q]uit" },
+			{ "<leader>fhr", "<cmd>FlutterReload<CR>", desc = "[F]lutter [R]eload" },
+			{ "<leader>fhR", "<cmd>FlutterRestart<CR>", desc = "[F]lutter [R]estart" },
 			{ "<leader>fq", "<cmd>FlutterQuit<CR>", desc = "[F]lutter [Q]uit" },
 			{ "<leader>fe", "<cmd>FlutterEmulators<CR>", desc = "[F]lutter [E]mulators" },
 			{ "<leader>fsd", "<cmd>FlutterDevices<CR>", desc = "[F]lutter [S]how [D]evices" },
