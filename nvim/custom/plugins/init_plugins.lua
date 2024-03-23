@@ -4,11 +4,32 @@ local plugins = {
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	"github/copilot.vim", -- GitHub Copilot integrations
 	"ThePrimeagen/harpoon", -- Quick navigation between projects
+	-- Tabs for Neovim
 	{
-		"catppuccin/nvim",
+		"akinsho/nvim-bufferline.lua",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("bufferline").setup({
+				options = {
+					separator_style = "slant",
+				},
+			})
+		end,
+		keys = {
+			{ "<A-1>", "<cmd>BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
+			{ "<A-2>", "<cmd>BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
+			{ "<A-3>", "<cmd>BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
+			{ "<A-4>", "<cmd>BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
+			{ "b[", "<cmd>BufferLineCycleNext<CR>", desc = "Go to next buffer" },
+			{ "b]", "<cmd>BufferLineCyclePrev<CR>", desc = "Go to previous buffer" },
+		},
+	},
+	{
+		-- "catppuccin/nvim",
+		"rebelot/kanagawa.nvim",
 		priority = 1000,
 		init = function()
-			vim.cmd.colorscheme("catppuccin-mocha")
+			vim.cmd.colorscheme("kanagawa-dragon")
 			vim.cmd.hi("Comment gui=none")
 		end,
 	},
@@ -561,6 +582,20 @@ local plugins = {
 				topdelete = { text = "‾" },
 				changedelete = { text = "~" },
 			},
+		},
+	},
+
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+		keys = {
+
+			{ "<leader>tt", "<cmd>TroubleToggle<CR>", desc = "[T]oggle [T]rouble" },
 		},
 	},
 }
