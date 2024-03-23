@@ -16,9 +16,25 @@ local plugins = {
 		"stevearc/oil.nvim",
 		opts = {},
 		-- Optional dependencies
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			enabled = vim.g.have_nerd_font,
+		},
 		keys = {
 			{ "<leader>-", ":Oil<CR>", desc = "[O]pen [I]nteractive [L]ist" },
+		},
+	},
+	{
+		"nvim-tree/nvim-tree.lua",
+		opts = {},
+		keys = {
+			{ "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "[N]vim [T]ree [T]oggle" },
+			-- { "<leader>nr", ":NvimTreeRefresh<CR>", desc = "[N]vim [T]ree [R]efresh" },
+			-- { "<leader>nf", ":NvimTreeFindFile<CR>", desc = "[N]vim [T]ree [F]ind [F]ile" },
+		},
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			enabled = vim.g.have_nerd_font,
 		},
 	},
 	{ -- Git Blame in Neovim
