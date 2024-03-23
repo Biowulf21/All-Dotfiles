@@ -3,6 +3,7 @@ local plugins = {
 	"alexghergh/nvim-tmux-navigation", -- Navigate between Neovim and Tmux panes
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	"github/copilot.vim", -- GitHub Copilot integrations
+	"ThePrimeagen/harpoon", -- Quick navigation between projects
 	{
 		"catppuccin/nvim",
 		priority = 1000,
@@ -20,7 +21,7 @@ local plugins = {
 			{ "<leader>-", ":Oil<CR>", desc = "[O]pen [I]nteractive [L]ist" },
 		},
 	},
-	{
+	{ -- Git Blame in Neovim
 		"f-person/git-blame.nvim",
 		opts = {
 			message_template = "<summary> • <date> • <author>",
@@ -29,7 +30,7 @@ local plugins = {
 			git_blame_delay = 50,
 		},
 	},
-	{
+	{ -- Split and Toggle lines of code
 		"Wansmer/treesj",
 		keys = {
 			{ "<space>tst", "<cmd>TSJToggle<CR>", desc = "[T]ree [S]itter [T]oggle" },
@@ -42,7 +43,6 @@ local plugins = {
 			})
 		end,
 	},
-	"ThePrimeagen/harpoon", -- Quick navigation between projects
 	{
 		"kdheepak/lazygit.nvim", -- Lazygit for Neovim
 		requires = {
