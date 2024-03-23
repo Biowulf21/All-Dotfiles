@@ -101,10 +101,10 @@ map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
--- map("n", "<A-S-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
--- map("n", "<A-S-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
--- map("n", "<A-S-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
--- map("n", "<A-S-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
+map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
+map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
+map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 -- Navigate between neovim and tmux splits
 map("n", "<A-h>", "<C-w>h", { desc = "Go to left window", remap = true })
 map("n", "<A-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
@@ -118,6 +118,15 @@ map("n", "<leader>w-", "<C-W>s", { desc = "Split window below", remap = true })
 map("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap = true })
 map("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
+
+-- lazy
+map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
+
+-- new file
+map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+
+-- quit
+map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
