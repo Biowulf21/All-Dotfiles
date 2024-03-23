@@ -23,11 +23,16 @@ local plugins = {
 	},
 	{
 		"nvim-tree/nvim-tree.lua",
-		opts = {},
 		keys = {
 			{ "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "[N]vim [T]ree [T]oggle" },
 			-- { "<leader>nr", ":NvimTreeRefresh<CR>", desc = "[N]vim [T]ree [R]efresh" },
 			-- { "<leader>nf", ":NvimTreeFindFile<CR>", desc = "[N]vim [T]ree [F]ind [F]ile" },
+		},
+		opts = {
+			view = {
+				side = "left",
+				width = 40,
+			},
 		},
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
