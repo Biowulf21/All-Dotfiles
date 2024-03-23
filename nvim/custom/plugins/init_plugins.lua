@@ -12,6 +12,35 @@ local plugins = {
 			vim.cmd.hi("Comment gui=none")
 		end,
 	},
+	{
+		"akinsho/flutter-tools.nvim",
+		lazy = false,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"stevearc/dressing.nvim", -- optional for vim.ui.select
+		},
+		config = function()
+			require("flutter-tools").setup({})
+		end,
+		keys = {
+			{
+				"<leader>fd",
+				"<cmd>FlutterRun --flavor development --target lib/main_development.dart<CR>",
+				desc = "Launch development",
+			},
+			{ "<leader>fb", "<cmd>FlutterRun --flavor beta --target lib/main_beta.dart<CR>", desc = "Launch beta" },
+			{
+				"<leader>fp",
+				"<cmd>FlutterRun --flavor production --target lib/main_production.dart<CR>",
+				desc = "Launch production",
+			},
+			{ "<leader>fq", "<cmd>FlutterQuit<CR>", desc = "[F]lutter [Q]uit" },
+			{ "<leader>fe", "<cmd>FlutterEmulators<CR>", desc = "[F]lutter [E]mulators" },
+			{ "<leader>fsd", "<cmd>FlutterDevices<CR>", desc = "[F]lutter [S]how [D]evices" },
+			{ "<leader>fdt", "<cmd>FlutterDevTools<CR>", desc = "[F]lutter [D]ev [T]ools Start" },
+			{ "<leader>fda", "<cmd>FlutterDevToolsActivate<CR>", desc = "[F]lutter [D]ev Tools [A]ctivate" },
+		},
+	},
 	{ -- Edit your filesystem like a normal Neovim buffer.
 		"stevearc/oil.nvim",
 		opts = {},
@@ -22,7 +51,7 @@ local plugins = {
 		},
 	},
 	{
-		"nvim-tree/nvim-tree.lua",
+		"nvim-tree/nvim-tree.lua", -- File explorer for Neovim
 		keys = {
 			{ "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "[N]vim [T]ree [T]oggle" },
 			-- { "<leader>nr", ":NvimTreeRefresh<CR>", desc = "[N]vim [T]ree [R]efresh" },
@@ -498,7 +527,7 @@ local plugins = {
 			end, { desc = "[S]earch [N]eovim files" })
 		end,
 	},
-	{
+	{ -- Statusline for Neovim
 		"nvim-lualine/lualine.nvim",
 		config = function()
 			require("lualine").setup({--[[ your config ]]
