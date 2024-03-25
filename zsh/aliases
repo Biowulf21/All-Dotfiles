@@ -109,6 +109,10 @@ alias cb='echo "$(git symbolic-ref --short HEAD)"'
 # git pull
 alias gpl='git pull'
 
+# Git Flow - finish currently checkout out branch
+alias gff='git flow feature finish "${$(git symbolic-ref --short HEAD)#feature/}"'
+alias gfs='git flow feature start'
+
 # flutter
 alias frc='flutter run -d chrome'
 alias few='flutter config --enable-web'
@@ -118,6 +122,13 @@ alias vg='very_good'
 alias vgd='flutter run --flavor development --target lib/main_development.dart'
 alias vgs='flutter run --flavor staging --target lib/main_staging.dart'
 alias vgp='flutter run --flavor production --target lib/main_production.dart'
+
+# for flutter building in android
+alias fba='flutter build apk --flavor "${1:-beta}" --target="${2:-lib/main_beta.dart}" --release'
+
+# for flutter building in ios
+alias fbi='flutter build ios --flavor "${1:-beta}" --target="${2:-lib/main_beta.dart}" --release'
+
 
 # Firebase
 alias est='firebase emulators:start --import=./saved-data --export-on-exit=./saved-data'
