@@ -9,6 +9,14 @@ export PATH="$PATH:$HOME/.pub-cache/bin"
 export PATH="$PATH:$HOME/.local/bin/"
 export PATH="$PATH:$HOME/.scripts/"
 export PATH="$PATH:$HOME/.composer//"
+export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:${PATH}
+export PATH=/opt/homebrew/bin:$PATH
+export PATH="$PATH:/$HOME/flutter/bin"
+export PATH="$PATH:/usr/local/mysql-8.2.0-macos13-arm64/bin"
+
+
+
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
@@ -109,3 +117,4 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [[ -f /home/biowulf21/.dart-cli-completion/zsh-config.zsh ]] && . /home/biowulf21/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
