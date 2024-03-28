@@ -19,7 +19,20 @@ local plugins = {
 		},
 	},
 	"github/copilot.vim", -- GitHub Copilot integrations
-	"ThePrimeagen/harpoon", -- Quick navigation between projects
+	{
+		"ThePrimeagen/harpoon", -- Quick navigation between projects
+		setup = function()
+			require("harpoon").setup({})
+		end,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		keys = {
+			{ "<leader>hp", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", desc = "[H]arpoon [P]rojects" },
+			{ "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<CR>", desc = "[H]arpoon [A]dd [F]ile" },
+			{ "<leader>hm", ":Telescope harpoon marks<CR>", desc = "[H]arpoon [M]arks" },
+		},
+	},
 	-- Tabs for Neovim
 	{
 		"akinsho/nvim-bufferline.lua",
@@ -40,10 +53,10 @@ local plugins = {
 			})
 		end,
 		keys = {
-			{ "<A-1>", "<cmd>BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
-			{ "<A-2>", "<cmd>BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
-			{ "<A-3>", "<cmd>BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
-			{ "<A-4>", "<cmd>BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
+			-- { "<A-1>", "<cmd>BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
+			-- { "<A-2>", "<cmd>BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
+			-- { "<A-3>", "<cmd>BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
+			-- { "<A-4>", "<cmd>BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
 			{ "<C-S-L>", "<cmd>BufferLineCycleNext<CR>", desc = "Go to next buffer" },
 			{ "<C-S-H>", "<cmd>BufferLineCyclePrev<CR>", desc = "Go to previous buffer" },
 		},
