@@ -1,3 +1,5 @@
+-- ncmd k
+-- ncmd k
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -97,19 +99,11 @@ map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 -- map('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 -- map('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
-map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
-map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
-map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
-map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 -- Navigate between neovim and tmux splits
-map("n", "<A-h>", "<C-w>h", { desc = "Go to left window", remap = true })
-map("n", "<A-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
-map("n", "<A-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
-map("n", "<A-l>", "<C-w>l", { desc = "Go to right window", remap = true })
+map("n", "<c-h>", ":wincmd h<CR>", { desc = "Go to left window", remap = true })
+map("n", "<c-j>", ":wincmd j<CR>", { desc = "Go to lower window", remap = true })
+map("n", "<c-k>", ":wincmd k<CR>", { desc = "Go to upper window", remap = true })
+map("n", "<c-l>", ":wincmd l<CR>", { desc = "Go to right window", remap = true })
 
 -- windows
 map("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
