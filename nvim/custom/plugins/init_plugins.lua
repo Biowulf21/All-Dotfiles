@@ -57,6 +57,8 @@ local plugins = {
 				"<cmd>FlutterRun --flavor production --target lib/main_production.dart<CR>",
 				desc = "Launch production",
 			},
+			{ "<leader>flr", "<cmd>FLutterLSPReload<CR>", desc = "[F]lutter [L]SP [R]eload" },
+			{ "<leader>fla", "<cmd>FlutterReanalyze<CR>", desc = "[F]lutter [L]SP [A]nalyze" },
 			{ "<leader>fq", "<cmd>FlutterQuit<CR>", desc = "[F]lutter [Q]uit" },
 			{ "<leader>fhr", "<cmd>FlutterReload<CR>", desc = "[F]lutter [R]eload" },
 			{ "<leader>fhR", "<cmd>FlutterRestart<CR>", desc = "[F]lutter [R]estart" },
