@@ -53,10 +53,10 @@ local plugins = {
 			})
 		end,
 		keys = {
-			-- { "<A-1>", "<cmd>BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
-			-- { "<A-2>", "<cmd>BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
-			-- { "<A-3>", "<cmd>BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
-			-- { "<A-4>", "<cmd>BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
+			{ "<A-1>", "<cmd>BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
+			{ "<A-2>", "<cmd>BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
+			{ "<A-3>", "<cmd>BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
+			{ "<A-4>", "<cmd>BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
 			{ "<C-S-L>", "<cmd>BufferLineCycleNext<CR>", desc = "Go to next buffer" },
 			{ "<C-S-H>", "<cmd>BufferLineCyclePrev<CR>", desc = "Go to previous buffer" },
 		},
