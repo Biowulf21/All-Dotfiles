@@ -126,7 +126,7 @@ local plugins = {
 			message_template = "<summary> • <date> • <author>",
 			date_format = "%r",
 			message_when_not_committed = "Not committed yet",
-			git_blame_delay = 50,
+			git_blame_delay = 500,
 		},
 	},
 	{ -- Split and Toggle lines of code
