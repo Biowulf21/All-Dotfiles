@@ -112,6 +112,11 @@ map("n", "<leader>w-", "<C-W>s", { desc = "Split window below", remap = true })
 map("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap = true })
 map("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
+-- write a shortcut that can resize the windows
+map("n", "<C-UP>", "<cmd>resize +5<cr>", { desc = "Increase window height", remap = true })
+map("n", "<C-DOWN>", "<cmd>resize -5<cr>", { desc = "Decrease window height", remap = true })
+map("n", "<C-LEFT>", "<cmd>vertical resize +5<cr>", { desc = "Increase window width", remap = true })
+map("n", "<C-RIGHT>", "<cmd>vertical resize -5<cr>", { desc = "Decrease window width", remap = true })
 
 -- buffers
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
