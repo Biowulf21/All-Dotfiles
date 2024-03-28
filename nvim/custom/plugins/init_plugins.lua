@@ -629,6 +629,12 @@ local plugins = {
 			{ "<leader>tt", "<cmd>TroubleToggle<CR>", desc = "[T]oggle [T]rouble" },
 		},
 	},
+	{
+		"voldikss/vim-floaterm",
+		keys = {
+			{ "<leader>ft", "<cmd>FloatermToggle<CR>", desc = "[F]loat [T]erm" },
+		},
+	},
 }
 
 return plugins
