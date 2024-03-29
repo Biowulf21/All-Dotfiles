@@ -648,6 +648,7 @@ local plugins = {
 			{ "<leader>ft", "<cmd>FloatermToggle<CR>", desc = "[F]loat [T]erm" },
 		},
 	},
+	{ "moll/vim-bbye" },
 }
 
 return plugins
