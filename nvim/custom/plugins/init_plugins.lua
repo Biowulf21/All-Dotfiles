@@ -20,17 +20,84 @@ local plugins = {
 	},
 	{ "github/copilot.vim" }, -- GitHub Copilot integrations
 	{
-		"ThePrimeagen/harpoon", -- Quick navigation between projects
-		setup = function()
-			require("harpoon").setup({})
+		"theprimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("harpoon"):setup({})
 		end,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
+
 		keys = {
-			{ "<leader>hp", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", desc = "[H]arpoon [P]rojects" },
-			{ "<leader> ha", "<cmd>lua require('harpoon.mark').add_file()<CR>", desc = "[H]arpoon [A]dd [F]ile" },
-			{ "<leader>hf", ":Telescope harpoon marks<CR>", desc = "[H]arpoon [M]arks" },
+			{
+				"<leader>A",
+				function()
+					require("harpoon"):list():append()
+				end,
+				desc = "harpoon file",
+			},
+			{
+				"<leader>a",
+				function()
+					-- basic telescope configuration
+					local harpoon = require("harpoon")
+					local conf = require("telescope.config").values
+					local function toggle_telescope(harpoon_files)
+						local file_paths = {}
+						for _, item in ipairs(harpoon_files.items) do
+							table.insert(file_paths, item.value)
+						end
+
+						require("telescope.pickers")
+							.new({}, {
+								prompt_title = "Harpoon",
+								finder = require("telescope.finders").new_table({
+									results = file_paths,
+								}),
+								previewer = conf.file_previewer({}),
+								sorter = conf.generic_sorter({}),
+							})
+							:find()
+					end
+
+					toggle_telescope(harpoon:list())
+				end,
+				desc = "Open Harpoon window with Telescope",
+			},
+			{
+				"<leader>1",
+				function()
+					require("harpoon"):list():select(1)
+				end,
+				desc = "harpoon to file 1",
+			},
+			{
+				"<leader>2",
+				function()
+					require("harpoon"):list():select(2)
+				end,
+				desc = "harpoon to file 2",
+			},
+			{
+				"<leader>3",
+				function()
+					require("harpoon"):list():select(3)
+				end,
+				desc = "harpoon to file 3",
+			},
+			{
+				"<leader>4",
+				function()
+					require("harpoon"):list():select(4)
+				end,
+				desc = "harpoon to file 4",
+			},
+			{
+				"<leader>5",
+				function()
+					require("harpoon"):list():select(5)
+				end,
+				desc = "harpoon to file 5",
+			},
 		},
 	},
 	-- Tabs for Neovim
@@ -296,7 +363,10 @@ local plugins = {
 						"s",
 					}),
 					-- Select the [p]revious item
-					["S-Tab"] = cmp.mapping.select_prev_item(),
+					["<S-Tab>"] = cmp.mapping.select_prev_item({
+						behavior = cmp.SelectBehavior.Insert,
+						select = true,
+					}),
 
 					-- Scroll the documentation window [b]ack / [f]orward
 					["<C-Up>"] = cmp.mapping.scroll_docs(-4),
