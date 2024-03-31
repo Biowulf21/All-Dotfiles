@@ -18,7 +18,7 @@ local plugins = {
 			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
 		},
 	},
-	"github/copilot.vim", -- GitHub Copilot integrations
+	{ "github/copilot.vim" }, -- GitHub Copilot integrations
 	{
 		"ThePrimeagen/harpoon", -- Quick navigation between projects
 		setup = function()
@@ -274,9 +274,28 @@ local plugins = {
 				-- No, but seriously. Please read `:help ins-completion`, it is really good!
 				mapping = cmp.mapping.preset.insert({
 					-- Select the [n]ext item
-					["<C-n>"] = cmp.mapping.select_next_item(),
+					["<Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_next_item()
+						elseif require("luasnip").expand_or_jumpable() then
+							vim.fn.feedkeys(
+								vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
+								""
+							)
+						elseif vim.b._copilot_suggestion ~= nil then
+							vim.fn.feedkeys(
+								vim.api.nvim_replace_termcodes(vim.fn["copilot#Accept"](), true, true, true),
+								""
+							)
+						else
+							fallback()
+						end
+					end, {
+						"i",
+						"s",
+					}),
 					-- Select the [p]revious item
-					["<C-b>"] = cmp.mapping.select_prev_item(),
+					["S-Tab"] = cmp.mapping.select_prev_item(),
 
 					-- Scroll the documentation window [b]ack / [f]orward
 					["<C-Up>"] = cmp.mapping.scroll_docs(-4),
