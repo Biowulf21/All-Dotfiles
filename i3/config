@@ -42,7 +42,7 @@ exec_always --no-startup-id nitrogen --restore &
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
 
 # Border size
-default_border pixel 5
+default_border pixel 2
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -230,7 +230,7 @@ bindsym $mod+y resize grow width 10 px or 10 ppt
 
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #7E9CD8 #7E9CD8 #000000 #FF9E3B   #7E9CD8
+client.focused          #5a79b8 #5a79b8 #000000 #FF9E3B   #5a79b8
 client.focused_inactive #333333 #16161D #ffffff #E82424   #5f676a
 client.unfocused        #333333 #16161D #888888 #E82424   #222222
 client.urgent           #2f343a #E82424 #ffffff #900000   #900000
@@ -238,8 +238,8 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
-gaps outer 5
-gaps inner 5
+gaps outer 8
+gaps inner 8
 gaps top 30
 
 exec_always --no-startup-id copyq

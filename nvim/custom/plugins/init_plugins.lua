@@ -42,12 +42,13 @@ local plugins = {
 				options = {
 					separator_style = "slant",
 					always_show_bufferline = true,
-				},
-				offsets = {
-					{
-						filetype = "NvimTree",
-						text = "File Explorer",
-						text_align = "center",
+
+					offsets = {
+						{
+							filetype = "NvimTree",
+							text = "File Explorer",
+							text_align = "center",
+						},
 					},
 				},
 			})
