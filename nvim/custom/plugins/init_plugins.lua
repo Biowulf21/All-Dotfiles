@@ -131,6 +131,7 @@ local plugins = {
 				},
 			})
 		end,
+		lazy = false,
 		keys = {
 			{ "<A-1>", "<cmd>BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
 			{ "<A-2>", "<cmd>BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
