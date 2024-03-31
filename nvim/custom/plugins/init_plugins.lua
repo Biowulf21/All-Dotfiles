@@ -29,8 +29,8 @@ local plugins = {
 		},
 		keys = {
 			{ "<leader>hp", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", desc = "[H]arpoon [P]rojects" },
-			{ "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<CR>", desc = "[H]arpoon [A]dd [F]ile" },
-			{ "<leader>hm", ":Telescope harpoon marks<CR>", desc = "[H]arpoon [M]arks" },
+			{ "<leader> ha", "<cmd>lua require('harpoon.mark').add_file()<CR>", desc = "[H]arpoon [A]dd [F]ile" },
+			{ "<leader>hf", ":Telescope harpoon marks<CR>", desc = "[H]arpoon [M]arks" },
 		},
 	},
 	-- Tabs for Neovim
