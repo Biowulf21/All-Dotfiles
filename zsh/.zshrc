@@ -103,9 +103,9 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-[[ -s /home/biowulf21/.autojump/etc/profile.d/autojump.sh ]] && source /home/biowulf21/.autojump/etc/profile.d/autojump.sh
-
-	autoload -U compinit && compinit -u
+#[[ -s /home/biowulf21/.autojump/etc/profile.d/autojump.sh ]] && source /home/biowulf21/.autojump/etc/profile.d/autojump.sh
+#
+#	autoload -U compinit && compinit -u
 
 ## [Completion] 
 ## Completion scripts setup. Remove the following line to uninstall
@@ -120,3 +120,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
  export PATH="$PATH":"$HOME/.puro/shared/pub_cache/bin"
 
+
+eval "$(zoxide init zsh)"
