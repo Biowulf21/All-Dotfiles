@@ -1,154 +1,21 @@
--- Define your plugins and their configurations
-local plugins = {
-	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-	{
-		"christoomey/vim-tmux-navigator",
-		cmd = {
-			"TmuxNavigateLeft",
-			"TmuxNavigateDown",
-			"TmuxNavigateUp",
-			"TmuxNavigateRight",
-			"TmuxNavigatePrevious",
-		},
-		keys = {
-			{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-			{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-			{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-		},
-	},
+return {
 	{ "github/copilot.vim" }, -- GitHub Copilot integrations
 	{
-		"theprimeagen/harpoon",
-		branch = "harpoon2",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("harpoon"):setup({})
-		end,
 
-		keys = {
-			{
-				"<leader>A",
-				function()
-					require("harpoon"):list():append()
-				end,
-				desc = "harpoon file",
-			},
-
-			{
-				"<leader>ha",
-				function()
-					local harpoon = require("harpoon")
-					harpoon.ui:toggle_quick_menu(harpoon:list())
-				end,
-				desc = "harpoon quick menu",
-			},
-
-			-- vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-			{
-				"<leader>a",
-				function()
-					-- basic telescope configuration
-					local harpoon = require("harpoon")
-					local conf = require("telescope.config").values
-					local function toggle_telescope(harpoon_files)
-						local file_paths = {}
-						for _, item in ipairs(harpoon_files.items) do
-							table.insert(file_paths, item.value)
-						end
-
-						require("telescope.pickers")
-							.new({}, {
-								prompt_title = "Harpoon",
-								finder = require("telescope.finders").new_table({
-									results = file_paths,
-								}),
-								previewer = conf.file_previewer({}),
-								sorter = conf.generic_sorter({}),
-							})
-							:find()
-					end
-
-					toggle_telescope(harpoon:list())
-				end,
-				desc = "Open Harpoon window with Telescope",
-			},
-			{
-				"<leader>1",
-				function()
-					require("harpoon"):list():select(1)
-				end,
-				desc = "harpoon to file 1",
-			},
-			{
-				"<leader>2",
-				function()
-					require("harpoon"):list():select(2)
-				end,
-				desc = "harpoon to file 2",
-			},
-			{
-				"<leader>3",
-				function()
-					require("harpoon"):list():select(3)
-				end,
-				desc = "harpoon to file 3",
-			},
-			{
-				"<leader>4",
-				function()
-					require("harpoon"):list():select(4)
-				end,
-				desc = "harpoon to file 4",
-			},
-			{
-				"<leader>5",
-				function()
-					require("harpoon"):list():select(5)
-				end,
-				desc = "harpoon to file 5",
-			},
+		"CopilotC-Nvim/CopilotChat.nvim",
+		branch = "canary",
+		dependencies = {
+			{ "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
 		},
-	},
-	-- Tabs for Neovim
-	{
-		"akinsho/nvim-bufferline.lua",
-		requires = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("bufferline").setup({
-				options = {
-					separator_style = "slant",
-					always_show_bufferline = true,
-
-					offsets = {
-						{
-							filetype = "NvimTree",
-							text = "File Explorer",
-							text_align = "center",
-						},
-					},
-				},
-			})
-		end,
+		opts = {
+			debug = true, -- Enable debugging
+			-- See Configuration section for rest
+		},
 		lazy = false,
 		keys = {
-			{ "<A-1>", "<cmd>BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
-			{ "<A-2>", "<cmd>BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
-			{ "<A-3>", "<cmd>BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
-			{ "<A-4>", "<cmd>BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
-			{ "<C-S-L>", "<cmd>BufferLineCycleNext<CR>", desc = "Go to next buffer" },
-			{ "<C-S-H>", "<cmd>BufferLineCyclePrev<CR>", desc = "Go to previous buffer" },
+			{ "<leader>cc", "<cmd>CopilotChatToggle<CR>", desc = "[C]opilot [C]hat" },
 		},
-	},
-	{
-		-- "catppuccin/nvim",
-		"rebelot/kanagawa.nvim",
-		priority = 1000,
-		init = function()
-			vim.cmd.colorscheme("kanagawa-dragon")
-			vim.cmd.hi("Comment gui=none")
-		end,
 	},
 	{
 		"akinsho/flutter-tools.nvim",
@@ -186,71 +53,6 @@ local plugins = {
 			{ "<leader>fda", "<cmd>FlutterDevToolsActivate<CR>", desc = "[F]lutter [D]ev Tools [A]ctivate" },
 		},
 	},
-	{ -- Edit your filesystem like a normal Neovim buffer.
-		"stevearc/oil.nvim",
-		opts = {},
-		-- Optional dependencies
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		keys = {
-			{ "<leader>-", ":Oil<CR>", desc = "[O]pen [I]nteractive [L]ist" },
-		},
-	},
-	{
-		"nvim-tree/nvim-tree.lua", -- File explorer for Neovim
-		keys = {
-			{ "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "[N]vim [T]ree [T]oggle" },
-			-- { "<leader>nr", ":NvimTreeRefresh<CR>", desc = "[N]vim [T]ree [R]efresh" },
-			-- { "<leader>nf", ":NvimTreeFindFile<CR>", desc = "[N]vim [T]ree [F]ind [F]ile" },
-		},
-		opts = {
-			view = {
-				side = "left",
-				width = 40,
-			},
-		},
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-			enabled = vim.g.have_nerd_font,
-		},
-	},
-	{ -- Git Blame in Neovim
-		"f-person/git-blame.nvim",
-		opts = {
-			message_template = "<summary> • <date> • <author>",
-			date_format = "%r",
-			message_when_not_committed = "Not committed yet",
-			git_blame_delay = 500,
-		},
-	},
-	{ -- Split and Toggle lines of code
-		"Wansmer/treesj",
-		keys = {
-			{ "<space>tst", "<cmd>TSJToggle<CR>", desc = "[T]ree [S]itter [T]oggle" },
-			{ "<space>tss", "<cmd>TSJSplit<CR>", desc = "[T]ree [S]itter [S]plit" },
-			{ "<space>tsj", "<cmd>TSJJoin<CR>", desc = "[T]ree [S]itter [J]oin" },
-		},
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		config = function()
-			require("treesj").setup({--[[ your config ]]
-			})
-		end,
-	},
-	{
-		"kdheepak/lazygit.nvim", -- Lazygit for Neovim
-		requires = {
-			"nvim-lua/plenary.nvim",
-		},
-		-- config = function()
-		-- 	require("lazygit").setup({})
-		-- end,
-		keys = {
-			{ "<leader>lg", ":LazyGit<CR>", desc = "[L]azy[G]it" },
-		},
-	},
-
-	-- { , name = "catppuccin", priority = 1000 },
-	-- "gc" to comment visual regions/lines
-	{ "numToStr/Comment.nvim", opts = {} },
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -271,33 +73,24 @@ local plugins = {
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
-	{ -- Collection of various small independent plugins/modules
-		"echasnovski/mini.nvim",
-		config = function()
-			-- Better Around/Inside textobjects
-			--
-			-- Examples:
-			--  - va)  - [V]isually select [A]round [)]paren
-			--  - yinq - [Y]ank [I]nside [N]ext [']quote
-			--  - ci'  - [C]hange [I]nside [']quote
-			require("mini.ai").setup({ n_lines = 500 })
-
-			-- Add/delete/replace surroundings (brackets, quotes, etc.)
-			--
-			-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-			-- - sd'   - [S]urround [D]elete [']quotes
-			-- - sr)'  - [S]urround [R]eplace [)] [']
-			require("mini.surround").setup()
-		end,
-	},
-	-- Highlight todo, notes, etc in comments
 	{
-		"folke/todo-comments.nvim",
-		event = "VimEnter",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = { signs = false },
+		"nvim-tree/nvim-tree.lua", -- File explorer for Neovim
+		keys = {
+			{ "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "[N]vim [T]ree [T]oggle" },
+			-- { "<leader>nr", ":NvimTreeRefresh<CR>", desc = "[N]vim [T]ree [R]efresh" },
+			-- { "<leader>nf", ":NvimTreeFindFile<CR>", desc = "[N]vim [T]ree [F]ind [F]ile" },
+		},
+		opts = {
+			view = {
+				side = "left",
+				width = 40,
+			},
+		},
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			enabled = vim.g.have_nerd_font,
+		},
 	},
-
 	{ -- Autocompletion
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -563,7 +356,6 @@ local plugins = {
 			})
 		end,
 	},
-
 	{ -- Autoformat
 		"stevearc/conform.nvim",
 		opts = {
@@ -589,148 +381,6 @@ local plugins = {
 			},
 		},
 	},
-
-	{ -- Fuzzy Finder (files, lsp, etc)
-		"nvim-telescope/telescope.nvim",
-		event = "VimEnter",
-		branch = "0.1.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			{ -- If encountering errors, see telescope-fzf-native README for installation instructions
-				"nvim-telescope/telescope-fzf-native.nvim",
-
-				-- `build` is used to run some command when the plugin is installed/updated.
-				-- This is only run then, not every time Neovim starts up.
-				build = "make",
-
-				-- `cond` is a condition used to determine whether this plugin should be
-				-- installed and loaded.
-				cond = function()
-					return vim.fn.executable("make") == 1
-				end,
-			},
-			{ "nvim-telescope/telescope-ui-select.nvim" },
-
-			-- Useful for getting pretty icons, but requires a Nerd Font.
-			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
-		},
-		config = function()
-			-- Telescope is a fuzzy finder that comes with a lot of different things that
-			-- it can fuzzy find! It's more than just a "file finder", it can search
-			-- many different aspects of Neovim, your workspace, LSP, and more!
-			--
-			-- The easiest way to use Telescope, is to start by doing something like:
-			--  :Telescope help_tags
-			--
-			-- After running this command, a window will open up and you're able to
-			-- type in the prompt window. You'll see a list of `help_tags` options and
-			-- a corresponding preview of the help.
-			--
-			-- Two important keymaps to use while in Telescope are:
-			--  - Insert mode: <c-/>
-			--  - Normal mode: ?
-			--
-			-- This opens a window that shows you all of the keymaps for the current
-			-- Telescope picker. This is really useful to discover what Telescope can
-			-- do as well as how to actually do it!
-
-			-- [[ Configure Telescope ]]
-			-- See `:help telescope` and `:help telescope.setup()`
-			require("telescope").setup({
-				-- You can put your default mappings / updates / etc. in here
-				--  All the info you're looking for is in `:help telescope.setup()`
-				--
-				-- defaults = {
-				--   mappings = {
-				--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-				--   },
-				-- },
-				-- pickers = {}
-				extensions = {
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown(),
-					},
-				},
-			})
-
-			-- Enable Telescope extensions if they are installed
-			pcall(require("telescope").load_extension, "fzf")
-			pcall(require("telescope").load_extension, "ui-select")
-
-			-- See `:help telescope.builtin`
-			local builtin = require("telescope.builtin")
-			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
-			vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
-			vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
-			vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
-			vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-			vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
-			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-			vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
-			vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
-
-			-- Slightly advanced example of overriding default behavior and theme
-			vim.keymap.set("n", "<leader>/", function()
-				-- You can pass additional configuration to Telescope to change the theme, layout, etc.
-				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-					winblend = 10,
-					previewer = false,
-				}))
-			end, { desc = "[/] Fuzzily search in current buffer" })
-
-			-- It's also possible to pass additional configuration options.
-			--  See `:help telescope.builtin.live_grep()` for information about particular keys
-			vim.keymap.set("n", "<leader>s/", function()
-				builtin.live_grep({
-					grep_open_files = true,
-					prompt_title = "Live Grep in Open Files",
-				})
-			end, { desc = "[S]earch [/] in Open Files" })
-
-			-- Shortcut for searching your Neovim configuration files
-			vim.keymap.set("n", "<leader>sn", function()
-				builtin.find_files({ cwd = vim.fn.stdpath("config") })
-			end, { desc = "[S]earch [N]eovim files" })
-		end,
-	},
-	{ -- Statusline for Neovim
-		"nvim-lualine/lualine.nvim",
-		config = function()
-			require("lualine").setup({--[[ your config ]]
-			})
-		end,
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
-	{ -- Useful plugin to show you pending keybinds.
-		"folke/which-key.nvim",
-		event = "VimEnter", -- Sets the loading event to 'VimEnter'
-		config = function() -- This is the function that runs, AFTER loading
-			require("which-key").setup()
-
-			-- Document existing key chains
-			require("which-key").register({
-				["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
-				["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
-				["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
-				["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
-			})
-		end,
-	},
-	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
-		"lewis6991/gitsigns.nvim",
-		opts = {
-			signs = {
-				add = { text = "+" },
-				change = { text = "~" },
-				delete = { text = "_" },
-				topdelete = { text = "‾" },
-				changedelete = { text = "~" },
-			},
-		},
-	},
-
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -744,39 +394,6 @@ local plugins = {
 			{ "<leader>tt", "<cmd>TroubleToggle<CR>", desc = "[T]oggle [T]rouble" },
 		},
 	},
-	{
-		"voldikss/vim-floaterm",
-		keys = {
-			{ "<leader>ft", "<cmd>FloatermToggle<CR>", desc = "[F]loat [T]erm" },
-		},
-	},
-	{ "moll/vim-bbye" }, -- Better closing of buffers
-	{
-
-		"CopilotC-Nvim/CopilotChat.nvim",
-		branch = "canary",
-		dependencies = {
-			{ "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-		},
-		opts = {
-			debug = true, -- Enable debugging
-			-- See Configuration section for rest
-		},
-		lazy = false,
-		keys = {
-			{ "<leader>cc", "<cmd>CopilotChatToggle<CR>", desc = "[C]opilot [C]hat" },
-		},
-		-- config = function()
-		-- 	require("copilot").setup({
-		-- 		keys = {
-		-- 			{ "n", "<leader>cc", "<cmd>CopilotChatToggle<CR>", desc = "[C]opilot [C]hat" },
-		-- 		},
-		-- 	})
-		-- end,
-
-		-- See Commands section for default commands if you want to lazy load on them
-	},
+	-- "gc" to comment visual regions/lines
+	{ "numToStr/Comment.nvim", opts = {} },
 }
-
-return plugins

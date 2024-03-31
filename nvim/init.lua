@@ -110,8 +110,7 @@ map("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
 map("n", "<leader>wd", "<C-W>c", { desc = "Delete window", remap = true })
 map("n", "<leader>w-", "<C-W>s", { desc = "Split window below", remap = true })
 map("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap = true })
-map("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
-map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
+
 -- write a shortcut that can resize the windows
 map("n", "<C-UP>", "<cmd>resize +5<cr>", { desc = "Increase window height", remap = true })
 map("n", "<C-DOWN>", "<cmd>resize -5<cr>", { desc = "Decrease window height", remap = true })
@@ -167,20 +166,4 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- [[ Configure and install plugins ]]
---
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins you can run
---    :Lazy update
---
--- NOTE: Here is where you install your plugins.
-local plugins = dofile("/home/biowulf21/All-Dotfiles/nvim/custom/plugins/init_plugins.lua")
-local ui = dofile("/home/biowulf21/All-Dotfiles/nvim/custom/plugins/nerd_font_ui.lua")
-
-require("lazy").setup(plugins, ui)
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+require("lazy").setup("plugins")
