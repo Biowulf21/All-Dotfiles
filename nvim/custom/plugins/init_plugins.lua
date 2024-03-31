@@ -35,6 +35,17 @@ local plugins = {
 				end,
 				desc = "harpoon file",
 			},
+
+			{
+				"<leader>ha",
+				function()
+					local harpoon = require("harpoon")
+					harpoon.ui:toggle_quick_menu(harpoon:list())
+				end,
+				desc = "harpoon quick menu",
+			},
+
+			-- vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 			{
 				"<leader>a",
 				function()
