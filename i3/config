@@ -36,7 +36,10 @@ exec_always --no-startup-id ~/All-Dotfiles/i3/scripts/check_screens.sh
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id nitrogen --restore &
+exec_always --no-startup-id nitrogen --restore &
+
+# Compton compositor
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
 
 # Border size
 default_border pixel 5
@@ -102,8 +105,6 @@ bindsym $mod+Shift+f exec firefox
 bindsym Print exec flameshot gui
 bindsym Shift+Print exec flameshot full -c -p ~/Pictures/Screenshots/
 
-# Compton compositor
-exec_always --no-startup-id compton --config ~/.config/compton.conf
 
 # betterlockscreen
 bindsym $mod+Escape exec ~/All-Dotfiles/i3/scripts/pretty_lock.sh
