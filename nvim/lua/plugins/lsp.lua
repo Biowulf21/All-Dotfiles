@@ -81,13 +81,7 @@ return {
 			-- { "<leader>nf", ":NvimTreeFindFile<CR>", desc = "[N]vim [T]ree [F]ind [F]ile" },
 		},
 		config = function()
-			require("nvim-tree").setup({
-				filesystem = {
-					filtered_items = {
-						hide_dotfiles = false,
-					},
-				},
-			})
+			require("nvim-tree").setup({})
 		end,
 		opts = {
 			view = {
