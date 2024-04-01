@@ -20,8 +20,15 @@ return {
 				inc_rename = false, -- enables an input dialog for inc-rename.nvim
 				lsp_doc_border = false, -- add a border to hover docs and signature help
 			},
+			routes = {
+				{
+					view = "notify",
+					filter = { event = "msg_showmode" },
+				},
+			},
+
 			notify = {
-				enabled = false,
+				enabled = true,
 			},
 			views = {
 				cmdline_popup = {
@@ -64,6 +71,6 @@ return {
 		-- OPTIONAL:
 		--   `nvim-notify` is only needed, if you want to use the notification view.
 		--   If not available, we use `mini` as the fallback
-		-- "rcarriga/nvim-notify",
+		"rcarriga/nvim-notify",
 	},
 }
