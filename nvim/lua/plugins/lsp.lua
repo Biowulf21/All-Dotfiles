@@ -80,6 +80,15 @@ return {
 			-- { "<leader>nr", ":NvimTreeRefresh<CR>", desc = "[N]vim [T]ree [R]efresh" },
 			-- { "<leader>nf", ":NvimTreeFindFile<CR>", desc = "[N]vim [T]ree [F]ind [F]ile" },
 		},
+		config = function()
+			require("nvim-tree").setup({
+				filesystem = {
+					filtered_items = {
+						hide_dotfiles = false,
+					},
+				},
+			})
+		end,
 		opts = {
 			view = {
 				side = "left",
