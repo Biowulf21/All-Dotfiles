@@ -36,10 +36,13 @@ exec_always --no-startup-id ~/All-Dotfiles/i3/scripts/check_screens.sh
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id nitrogen --restore &
+
+# Compton compositor
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
 
 # Border size
-default_border pixel 5
+default_border pixel 2
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -102,8 +105,6 @@ bindsym $mod+Shift+f exec firefox
 bindsym Print exec flameshot gui
 bindsym Shift+Print exec flameshot full -c -p ~/Pictures/Screenshots/
 
-# Compton compositor
-exec_always --no-startup-id compton --config ~/.config/compton.conf
 
 # betterlockscreen
 bindsym $mod+Escape exec ~/All-Dotfiles/i3/scripts/pretty_lock.sh
@@ -229,7 +230,7 @@ bindsym $mod+y resize grow width 10 px or 10 ppt
 
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #7E9CD8 #7E9CD8 #000000 #FF9E3B   #7E9CD8
+client.focused          #5a79b8 #5a79b8 #000000 #FF9E3B   #5a79b8
 client.focused_inactive #333333 #16161D #ffffff #E82424   #5f676a
 client.unfocused        #333333 #16161D #888888 #E82424   #222222
 client.urgent           #2f343a #E82424 #ffffff #900000   #900000
