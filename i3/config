@@ -36,7 +36,7 @@ exec_always --no-startup-id ~/All-Dotfiles/i3/scripts/check_screens.sh
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec_always --no-startup-id nitrogen --restore &
+exec --no-startup-id nitrogen --restore &
 
 # Compton compositor
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
@@ -238,8 +238,8 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
-gaps outer 8
-gaps inner 8
+gaps outer 5
+gaps inner 5
 gaps top 30
 
 exec_always --no-startup-id copyq

@@ -1,6 +1,8 @@
 return { -- Edit your filesystem like a normal Neovim buffer.
 	"stevearc/oil.nvim",
-	opts = {},
+	opts = {
+		columns = { "permissions", "size", "mtime" },
+	},
 	-- Optional dependencies
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	keys = {
