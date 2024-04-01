@@ -76,9 +76,9 @@ return {
 	{
 		"nvim-tree/nvim-tree.lua", -- File explorer for Neovim
 		keys = {
-			{ "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "[N]vim [T]ree [T]oggle" },
+			-- { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "[N]vim [T]ree [T]oggle" },
 			-- { "<leader>nr", ":NvimTreeRefresh<CR>", desc = "[N]vim [T]ree [R]efresh" },
-			-- { "<leader>nf", ":NvimTreeFindFile<CR>", desc = "[N]vim [T]ree [F]ind [F]ile" },
+			{ "<leader>e", ":NvimTreeFindFileToggle<CR>", desc = "[N]vim [T]ree [F]ind [F]ile" },
 		},
 		config = function()
 			require("nvim-tree").setup({})
