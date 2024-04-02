@@ -139,6 +139,7 @@ return {
   -- add more treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
+    commit = "33eb472b459f1d2bf49e16154726743ab3ca1c6d",
     opts = {
       ensure_installed = {
         "bash",
@@ -168,8 +169,8 @@ return {
     opts = function(_, opts)
       -- add tsx and treesitter
       vim.list_extend(opts.ensure_installed, {
-          "tsx",
-          "typescript",
+        "tsx",
+        "typescript",
       })
     end,
   },
