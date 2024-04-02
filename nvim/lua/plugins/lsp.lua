@@ -51,6 +51,9 @@ return {
 			{ "<leader>fsd", "<cmd>FlutterDevices<CR>", desc = "[F]lutter [S]how [D]evices" },
 			{ "<leader>fdt", "<cmd>FlutterDevTools<CR>", desc = "[F]lutter [D]ev [T]ools Start" },
 			{ "<leader>fda", "<cmd>FlutterDevToolsActivate<CR>", desc = "[F]lutter [D]ev Tools [A]ctivate" },
+			{ "<leader>flc", "<cmd>FlutterLogClear<CR>", desc = "[F]lutter [L]og [C]lear" },
+			-- {"<leader>fls", "<cmd>FlutterLogShow<CR>", desc = "[F]lutter [L]og [S]how"},
+			-- {"<leader>flh", "<cmd>FlutterLogHide<CR>", desc = "[F]lutter [L]og [H]ide"},
 		},
 	},
 	{ -- Highlight, edit, and navigate code
