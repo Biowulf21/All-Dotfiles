@@ -41,7 +41,7 @@ return {
 				"<cmd>FlutterRun --flavor production --target lib/main_production.dart<CR>",
 				desc = "Launch production",
 			},
-			{ "<leader>flr", "<cmd>FLutterLSPRestart<CR>", desc = "[F]lutter [L]SP [R]estart" },
+			{ "<leader>flr", "<cmd>FLutterLspRestart<CR>", desc = "[F]lutter [L]SP [R]estart" },
 			{ "<leader>fla", "<cmd>FlutterReanalyze<CR>", desc = "[F]lutter [L]SP [A]nalyze" },
 			{ "<leader>fq", "<cmd>FlutterQuit<CR>", desc = "[F]lutter [Q]uit" },
 			{ "<leader>fhr", "<cmd>FlutterReload<CR>", desc = "[F]lutter [R]eload" },
