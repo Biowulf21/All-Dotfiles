@@ -30,6 +30,10 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 # they are included here as an example. Modify as you see fit.
 
 
+
+# Compton compositor
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
+
 # Will turn off laptop monitor if more than two displays are present
 exec_always --no-startup-id ~/All-Dotfiles/i3/scripts/check_screens.sh
 
@@ -38,8 +42,6 @@ exec_always --no-startup-id ~/All-Dotfiles/i3/scripts/check_screens.sh
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nitrogen --restore &
 
-# Compton compositor
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
 
 # Border size
 default_border pixel 2
