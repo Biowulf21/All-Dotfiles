@@ -25,7 +25,12 @@ return {
 			"stevearc/dressing.nvim", -- optional for vim.ui.select
 		},
 		config = function()
-			require("flutter-tools").setup({})
+			require("flutter-tools").setup({
+				dev_tools = {
+					autostart = false, -- autostart devtools server if not detected
+					auto_open_browser = false, -- Automatically opens devtools in the browser
+				},
+			})
 		end,
 		keys = {
 
