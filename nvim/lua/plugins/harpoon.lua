@@ -5,7 +5,7 @@ return {
 	config = function()
 		require("harpoon"):setup({})
 	end,
-
+	lazy = false,
 	keys = {
 		{
 			"<leader>A",
