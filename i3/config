@@ -72,7 +72,7 @@ tiling_drag modifier titlebar
 ######################################################################################################################################
 
 # start a terminal
-bindsym $mod+Return exec kitty -e tmux
+bindsym $mod+Return exec kitty 
 
 # kill focused window
 bindsym $mod+q kill
