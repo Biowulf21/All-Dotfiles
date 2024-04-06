@@ -68,6 +68,9 @@ exec_always xset s off -dpms
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
+# start the GNOME settings daemon
+exec --no-startup-id /usr/lib/gsd-xsettings
+
 
 ######################################################################################################################################
 
