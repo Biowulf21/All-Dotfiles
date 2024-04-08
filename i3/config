@@ -30,6 +30,10 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 # they are included here as an example. Modify as you see fit.
 
 
+
+# Compton compositor
+exec_always --no-startup-id picom -b
+
 # Will turn off laptop monitor if more than two displays are present
 exec_always --no-startup-id ~/All-Dotfiles/i3/scripts/check_screens.sh
 
@@ -38,10 +42,9 @@ exec_always --no-startup-id ~/All-Dotfiles/i3/scripts/check_screens.sh
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nitrogen --restore &
 
-# Compton compositor
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
 
-# Border size
+# # Border size
+# border pixel 3
 default_border pixel 2
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -70,7 +73,7 @@ tiling_drag modifier titlebar
 ######################################################################################################################################
 
 # start a terminal
-bindsym $mod+Return exec kitty -e tmux
+bindsym $mod+Return exec kitty 
 
 # kill focused window
 bindsym $mod+q kill
@@ -230,13 +233,13 @@ bindsym $mod+y resize grow width 10 px or 10 ppt
 
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #5a79b8 #5a79b8 #000000 #FF9E3B   #5a79b8
+client.focused          #79B85A #79B85A #000000 #79B85A    #B8995A
 client.focused_inactive #333333 #16161D #ffffff #E82424   #5f676a
 client.unfocused        #333333 #16161D #888888 #E82424   #222222
 client.urgent           #2f343a #E82424 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
-client.background       #ffffff
+# client.background       #ffffff
 
 gaps outer 5
 gaps inner 5

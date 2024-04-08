@@ -117,7 +117,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [[ -f /home/biowulf21/.dart-cli-completion/zsh-config.zsh ]] && . /home/biowulf21/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
