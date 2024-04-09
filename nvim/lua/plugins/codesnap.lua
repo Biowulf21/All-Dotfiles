@@ -9,7 +9,7 @@ return {
 	end,
 
 	keys = {
-		{ "<leader>cc", "<cmd>CodeSnap<CR>", desc = "[C]opy [C]ode" },
+		{ "<leader>CC", "<cmd>CodeSnap<CR>", desc = "[C]opy [C]ode" },
 	},
 	lazy = false,
 }

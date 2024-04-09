@@ -2,7 +2,7 @@ return {
 	{ -- Git Blame in Neovim
 		"f-person/git-blame.nvim",
 		opts = {
-			message_template = "<summary> • <date> • <author>",
+			message_template = "<author> • <summary> • <date>",
 			date_format = "%r",
 			message_when_not_committed = "Not committed yet",
 			git_blame_delay = 500,
