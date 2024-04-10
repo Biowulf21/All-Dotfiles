@@ -52,6 +52,7 @@ alias sep='cal -m 09'
 alias oct='cal -m 10'
 alias nov='cal -m 11'
 alias dec='cal -m 12'
+alias hs='history | fzf --cycle --border --tac --bind=tab:toggle-up,btab:toggle-down | awk '\''{sub($1 FS, ""); gsub(/^ *| *$/, ""); print $0}'\'' | wl-copy'
 
 # speedtest
 alias sp='speedtest-cli'
