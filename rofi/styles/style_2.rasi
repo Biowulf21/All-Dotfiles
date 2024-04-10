@@ -17,8 +17,8 @@ configuration {
 
 // Main //
 window {
-    height:                      30em;
-    width:                       37em;
+    height:                      35em;
+    width:                       56em;
     transparency:                "real";
     fullscreen:                  false;
     enabled:                     true;
@@ -33,23 +33,28 @@ mainbox {
     spacing:                     0em;
     padding:                     0em;
     orientation:                 vertical;
-    children:                    [ "inputbar" , "dummybox" ];
+    children:                    [ "inputbar" , "listbox" ];
     background-color:            transparent;
     background-image:            url("~/.config/swww/wall.blur", height);
-}
-dummybox {
-    padding:                     0.5em;
-    spacing:                     0em;
-    orientation:                 horizontal;
-    children:                    [ "mode-switcher" , "listbox" ];
-    background-color:            transparent;
-    background-image:            transparent;
 }
 
 
 // Inputs //
 inputbar {
-    enabled:                     false;
+    enabled:                     true;
+    spacing:                     0em;
+    padding:                     5em;
+    children:                    [ "entry" ];
+    background-color:            transparent;
+    background-image:            url("~/.config/swww/wall.rofi", width);
+}
+entry {
+    border-radius:               2em;
+    enabled:                     true;
+    spacing:                     1em;
+    padding:                     1em;
+    text-color:                  @main-fg;
+    background-color:            @main-bg;
 }
 
 
@@ -57,48 +62,43 @@ inputbar {
 listbox {
     padding:                     0em;
     spacing:                     0em;
-    children:                    [ "dummy" , "listview" , "dummy" ];
-    background-color:            transparent;
-    background-image:            transparent;
+    orientation:                 horizontal;
+    children:                    [ "listview" , "mode-switcher" ];
+    background-color:            @main-bg;
 }
 listview {
-    padding:                     1em;
-    spacing:                     0em;
+    padding:                     1.5em;
+    spacing:                     0.5em;
     enabled:                     true;
-    columns:                     1;
-    lines:                       7;
+    columns:                     2;
+    lines:                       3;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
-    expand:                      false;
     fixed-height:                true;
     fixed-columns:               true;
     cursor:                      "default";
-    background-color:            @main-bg;
-    text-color:                  @main-fg;
-    border-radius:               1.5em;
-}
-dummy {
     background-color:            transparent;
+    text-color:                  @main-fg;
 }
 
 
 // Modes //
 mode-switcher {
     orientation:                 vertical;
-    width:                       6.8em;
+    width:                       6.6em;
     enabled:                     true;
-    padding:                     3.2em 1em 3.2em 1em;
-    spacing:                     1em;
+    padding:                     1.5em;
+    spacing:                     1.5em;
     background-color:            transparent;
 }
 button {
     cursor:                      pointer;
     vertical-align:              0.50;
     horizontal-align:            0.45;
-    border-radius:               3em;
+    border-radius:               2em;
     background-color:            @main-bg;
     text-color:                  @main-fg;
 }
@@ -111,8 +111,8 @@ button selected {
 // Elements //
 element {
     enabled:                     true;
-    spacing:                     1em;
-    padding:                     0.4em;
+    spacing:                     0em;
+    padding:                     0.5em;
     cursor:                      pointer;
     background-color:            transparent;
     text-color:                  @main-fg;

@@ -31,42 +31,32 @@ window {
 mainbox {
     enabled:                     true;
     spacing:                     0em;
-    padding:                     0em;
-    orientation:                 vertical;
-    children:                    [ "inputbar" , "dummybox" ];
-    background-color:            transparent;
-    background-image:            url("~/.config/swww/wall.blur", height);
-}
-dummybox {
-    padding:                     0.5em;
-    spacing:                     0em;
     orientation:                 horizontal;
-    children:                    [ "mode-switcher" , "listbox" ];
+    children:                    [ "listmode" , "inputbar" ];
     background-color:            transparent;
-    background-image:            transparent;
-}
-
-
-// Inputs //
-inputbar {
-    enabled:                     false;
+    background-image:            url("~/.config/swww/wall.rofi", height);
 }
 
 
 // Lists //
+listmode {
+    enabled:                     true;
+    children:                    [ "listbox" , "mode-switcher" ];
+    background-color:            transparent;
+    background-image:            url("~/.config/swww/wall.blur", height);
+}
 listbox {
-    padding:                     0em;
     spacing:                     0em;
+    padding:                     1em;
     children:                    [ "dummy" , "listview" , "dummy" ];
     background-color:            transparent;
-    background-image:            transparent;
 }
 listview {
-    padding:                     1em;
-    spacing:                     0em;
     enabled:                     true;
+    spacing:                     0em;
+    padding:                     0.5em;
     columns:                     1;
-    lines:                       7;
+    lines:                       6;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -78,7 +68,7 @@ listview {
     cursor:                      "default";
     background-color:            @main-bg;
     text-color:                  @main-fg;
-    border-radius:               1.5em;
+    border-radius:               1em;
 }
 dummy {
     background-color:            transparent;
@@ -86,18 +76,18 @@ dummy {
 
 
 // Modes //
-mode-switcher {
-    orientation:                 vertical;
-    width:                       6.8em;
+mode-switcher{
+    orientation:                 horizontal;
     enabled:                     true;
-    padding:                     3.2em 1em 3.2em 1em;
     spacing:                     1em;
+    padding:                     0em 9.5em 2em 2em;
     background-color:            transparent;
 }
 button {
-    cursor:                      pointer;
+    padding:                     1em;
     vertical-align:              0.50;
-    horizontal-align:            0.45;
+    horizontal-align:            0.35;
+    cursor:                      pointer;
     border-radius:               3em;
     background-color:            @main-bg;
     text-color:                  @main-fg;
@@ -108,11 +98,23 @@ button selected {
 }
 
 
+// Inputs //
+inputbar {
+    enabled:                     true;
+    width:                       10em;
+    children:                    [ "entry" ];
+    background-color:            transparent;
+}
+entry {
+    enabled:                     false;
+}
+
+
 // Elements //
 element {
     enabled:                     true;
     spacing:                     1em;
-    padding:                     0.4em;
+    padding:                     0.3em;
     cursor:                      pointer;
     background-color:            transparent;
     text-color:                  @main-fg;

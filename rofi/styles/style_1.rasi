@@ -17,8 +17,8 @@ configuration {
 
 // Main //
 window {
-    height:                      30em;
-    width:                       37em;
+    height:                      33em;
+    width:                       63em;
     transparency:                "real";
     fullscreen:                  false;
     enabled:                     true;
@@ -32,41 +32,70 @@ mainbox {
     enabled:                     true;
     spacing:                     0em;
     padding:                     0em;
+    orientation:                 horizontal;
+    children:                    [ "dummywall" , "listbox" ];
+    background-color:            transparent;
+}
+dummywall {
+    spacing:                     0em;
+    padding:                     0em;
+    width:                       37em;
+    expand:                      false;
+    orientation:                 horizontal;
+    children:                    [ "mode-switcher" , "inputbar" ];
+    background-color:            transparent;
+    background-image:            url("~/.config/swww/wall.rofi", height);
+}
+
+
+// Modes //
+mode-switcher{
     orientation:                 vertical;
-    children:                    [ "inputbar" , "dummybox" ];
+    enabled:                     true;
+    width:                       3.8em;
+    padding:                     9.2em 0.5em 9.2em 0.5em;
+    spacing:                     1.2em;
     background-color:            transparent;
     background-image:            url("~/.config/swww/wall.blur", height);
 }
-dummybox {
-    padding:                     0.5em;
-    spacing:                     0em;
-    orientation:                 horizontal;
-    children:                    [ "mode-switcher" , "listbox" ];
-    background-color:            transparent;
-    background-image:            transparent;
+button {
+    cursor:                      pointer;
+    vertical-align:              0.50;
+    horizontal-align:            0.45;
+    border-radius:               2em;
+    background-color:            @main-bg;
+    text-color:                  @main-fg;
+}
+button selected {
+    background-color:            @main-fg;
+    text-color:                  @main-bg;
 }
 
 
 // Inputs //
 inputbar {
+    enabled:                     true;
+    children:                    [ "entry" ];
+    background-color:            transparent;
+}
+entry {
     enabled:                     false;
 }
 
 
 // Lists //
 listbox {
-    padding:                     0em;
     spacing:                     0em;
+    padding:                     2em;
     children:                    [ "dummy" , "listview" , "dummy" ];
     background-color:            transparent;
-    background-image:            transparent;
 }
 listview {
-    padding:                     1em;
-    spacing:                     0em;
     enabled:                     true;
+    spacing:                     0em;
+    padding:                     0em;
     columns:                     1;
-    lines:                       7;
+    lines:                       8;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -76,35 +105,11 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     cursor:                      "default";
-    background-color:            @main-bg;
+    background-color:            transparent;
     text-color:                  @main-fg;
-    border-radius:               1.5em;
 }
 dummy {
     background-color:            transparent;
-}
-
-
-// Modes //
-mode-switcher {
-    orientation:                 vertical;
-    width:                       6.8em;
-    enabled:                     true;
-    padding:                     3.2em 1em 3.2em 1em;
-    spacing:                     1em;
-    background-color:            transparent;
-}
-button {
-    cursor:                      pointer;
-    vertical-align:              0.50;
-    horizontal-align:            0.45;
-    border-radius:               3em;
-    background-color:            @main-bg;
-    text-color:                  @main-fg;
-}
-button selected {
-    background-color:            @main-fg;
-    text-color:                  @main-bg;
 }
 
 
@@ -117,17 +122,12 @@ element {
     background-color:            transparent;
     text-color:                  @main-fg;
 }
-@media(max-aspect-ratio: 1.8) {
-    element {
-        orientation:             vertical;
-    }
-}
 element selected.normal {
     background-color:            @select-bg;
     text-color:                  @select-fg;
 }
 element-icon {
-    size:                        3em;
+    size:                        2.8em;
     cursor:                      inherit;
     background-color:            transparent;
     text-color:                  inherit;
