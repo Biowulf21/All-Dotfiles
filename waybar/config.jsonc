@@ -14,9 +14,9 @@
 
 // positions generated based on config.ctl //
 
-	"modules-left": ["custom/padd","custom/l_end","custom/power","custom/cliphist","custom/wbar","custom/theme","custom/wallchange","custom/r_end","custom/l_end", "hyprland/workspaces","custom/spotify","custom/r_end","","custom/padd"],
-	"modules-center": ["custom/padd","custom/l_end","idle_inhibitor","clock","custom/r_end","custom/padd"],
-	"modules-right": ["custom/padd","custom/l_end","tray","battery", "battery#bat2", "custom/r_end","custom/l_end","backlight","network","bluetooth","pulseaudio","pulseaudio#microphone","custom/keybindhint","custom/r_end","custom/padd"],
+	"modules-left": ["custom/padd","custom/l_end","custom/power","custom/cliphist","custom/wbar","custom/theme","custom/wallchange","custom/r_end","custom/l_end", "idle_inhibitor","custom/r_end"],
+	"modules-center": ["custom/padd","custom/l_end","hyprland/workspaces", "custom/r_end","custom/padd"],
+	"modules-right": ["custom/padd","custom/l_end","tray","battery", "battery#bat2", "cpu", "memory", "temperature", "custom/r_end","custom/l_end","backlight","network","bluetooth","pulseaudio","pulseaudio#microphone","custom/keybindhint", "clock", "custom/r_end","custom/padd"],
 
 
 // sourced from modules based on config.ctl //
@@ -141,6 +141,12 @@
         }
     },
 
+    "cpu": {
+        "interval": 2,
+        "format": "{}% ",
+        "max-length": 10
+    },
+
     "tray": {
         "icon-size": 18,
         "rotate": 0,
@@ -204,6 +210,12 @@
         "format-alt": " ",
         "interval": 2,
     },
+    "backlight/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal",
+        "device": "intel_backlight"
+    },
 
     "bluetooth": {
         "format": "",
@@ -220,6 +232,21 @@
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{icon} {device_battery_percentage}%"
     },
 
+    "memory": {
+        "interval": 2,
+        "format": "{}% ",
+        "max-length": 10
+    },
+
+
+     "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        // "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C ",
+        "format": "{temperatureC}°C "
+    },
+
     "pulseaudio": {
         "format": "{icon} {volume}",
         "rotate": 0,
@@ -228,7 +255,7 @@
         "on-click-middle": "/home/biowulf21/.config/hyprdots/scripts/volumecontrol.sh -o m",
         "on-scroll-up": "/home/biowulf21/.config/hyprdots/scripts/volumecontrol.sh -o i",
         "on-scroll-down": "/home/biowulf21/.config/hyprdots/scripts/volumecontrol.sh -o d",
-        "tooltip-format": "{icon} {desc} // {volume}%",
+        "tooltip-format": "{icon} {desc} // {volume} %",
         "scroll-step": 5,
         "format-icons": {
             "headphone": "",
@@ -303,7 +330,8 @@
         "format": "  ",
         "interval" : "once",
         "tooltip": false
-    }
+    },
+
 
 }
 
