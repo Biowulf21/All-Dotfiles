@@ -116,6 +116,9 @@ alias fba='flutter build apk --flavor "${1:-beta}" --target="${2:-lib/main_beta.
 # for flutter building in ios
 alias fbi='flutter build ios --flavor "${1:-beta}" --target="${2:-lib/main_beta.dart}" --release'
 
+# ranger
+alias r='ranger'
+
 
 # Firebase
 alias est='firebase emulators:start --import=./saved-data --export-on-exit=./saved-data'
