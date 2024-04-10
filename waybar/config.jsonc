@@ -17,7 +17,7 @@
 	// "modules-left": ["custom/padd","custom/l_end","custom/power","custom/cliphist","custom/wbar","custom/theme","custom/wallchange","custom/r_end","custom/l_end", "idle_inhibitor","custom/r_end"],
         "modules-left": ["custom/padd","custom/l_end","custom/power","custom/cliphist", "idle_inhibitor", "custom/r_end", "custom/padd", "custom/l_end", "tray","battery", "battery#bat2", "cpu", "memory", "temperature", "custom/r_end","custom/padd"],
 	"modules-center": ["custom/padd","custom/l_end","hyprland/workspaces", "custom/r_end", "custom/padd"],
-	"modules-right": ["custom/l_end","backlight","network","bluetooth","pulseaudio","pulseaudio#microphone","custom/keybindhint", "clock", "custom/r_end","custom/padd"],
+	"modules-right": ["custom/l_end", "backlight","network",  "custom/pacman", "bluetooth","pulseaudio","pulseaudio#microphone","custom/keybindhint", "clock", "custom/r_end","custom/padd"],
 
 
 // sourced from modules based on config.ctl //
@@ -30,6 +30,18 @@
         "on-click-right": "/home/biowulf21/.config/hyprdots/scripts/logoutlaunch.sh 1",
         "interval" : 86400, // once every day
         "tooltip": true
+    },
+
+
+    "custom/pacman": {
+      "format": "{icon}{}",
+      "return-type": "json",
+      "format-icons": {
+        "pending-updates": " ",
+        "updated": ""
+      },
+      "exec-if": "which waybar-updates",
+      "exec": "waybar-updates"
     },
 
     "custom/cliphist": {
