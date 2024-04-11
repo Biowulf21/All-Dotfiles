@@ -130,7 +130,7 @@
     },
 
     "clock": {
-        "format": "{:%R 󰃭 %d·%m·%y}",
+        "format": "{:%I:%M %p 󰃭 %d·%m·%y}",
         "rotate": 0,
         "format-alt": "{:%I:%M %p}",
         "tooltip-format": "<tt>{calendar}</tt>",
@@ -258,6 +258,11 @@
         // "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C ",
         "format": "{temperatureC}°C "
+    },
+
+    "hyprland/workspaces": {
+        "active_only": true,
+
     },
 
     "pulseaudio": {
