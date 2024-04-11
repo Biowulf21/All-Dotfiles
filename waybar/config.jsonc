@@ -156,7 +156,7 @@
 
     "cpu": {
         "interval": 2,
-        "format": "{}% ",
+        "format": " {}%",
         "max-length": 10
     },
 
@@ -247,7 +247,7 @@
 
     "memory": {
         "interval": 2,
-        "format": "{}% ",
+        "format": " {}%",
         "max-length": 10
     },
 
