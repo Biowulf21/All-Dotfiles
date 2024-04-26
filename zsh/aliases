@@ -118,7 +118,7 @@ alias fba='flutter build apk --flavor "${1:-beta}" --target="${2:-lib/main_beta.
 alias fbi='flutter build ios --flavor "${1:-beta}" --target="${2:-lib/main_beta.dart}" --release'
 
 # ranger
-alias r='ranger'
+alias r='. ranger'
 
 
 # Firebase
