@@ -125,6 +125,7 @@ alias r='. ranger'
 alias est='firebase emulators:start --import=./saved-data --export-on-exit=./saved-data'
 
 #laravel
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 alias lr='php artisan serve'
 alias lrl='php artisan migrate:fresh --seed'
 alias lmss='php artisan migrate:fresh --seed && php artisan optimize && php artisan serve'
