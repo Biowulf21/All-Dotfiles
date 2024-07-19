@@ -4,8 +4,9 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 export PATH="$PATH:/home/biowulf21/fvm/default/bin"
-export PATH="$PATH:/home/$USER/flutter/bin"
-export PATH="$PATH:/home/$USER/flutter/cache/dart-sdk/bin"
+# export PATH="$PATH:/home/$USER/flutter/bin"
+# export PATH="$PATH:/home/$USER/flutter/cache/dart-sdk/bin"
+export PATH="/usr/bin/flutter/bin:$PATH"
 
 # Path to powerlevel10k theme
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
