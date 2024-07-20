@@ -86,7 +86,7 @@ return {
 				enable = true,
 				additional_vim_regex_highlighting = { "ruby" },
 			},
-			indent = { enable = true, disable = { "ruby", "gdscript" } },
+			indent = { enable = true, disable = { "ruby", "gdscript", "lua" } },
 		},
 		config = function(_, opts)
 			-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
