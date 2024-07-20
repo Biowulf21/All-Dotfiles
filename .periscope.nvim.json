@@ -1,0 +1,1 @@
+{"task_id": 1, "tasks": [], "task": {"id": 1, "files": [{"path": "custom-apps.txt", "usage": 86}, {"path": "nvim/init.lua", "usage": 88}, {"path": "nvim/lua/plugins/spectre.lua", "usage": 94}, {"path": "nvim/lua/plugins/periscope.lua", "usage": 100}], "name": "Program"}, "last_file": "nvim/lua/plugins/periscope.lua"}
