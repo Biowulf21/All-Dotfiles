@@ -11,6 +11,20 @@ export PATH="/usr/bin/flutter/bin:$PATH"
 # Path to powerlevel10k theme
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
+# ZSH Configuration
+HISTSIZE=5000
+SAVEHIST=$HISTSIZE
+HISTFILE=~/.zsh_history
+HISTDUP=erase
+setopt appendhistory sharehistory hist_ignore_space hist_ignore_all_dups
+setopt hist_ignore_dups hist_save_no_dups hist_find_no_dups
+
+# Keybinds
+bindkey -e 
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+
+
 # List of plugins used
 plugins=(git sudo zsh-256color zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
