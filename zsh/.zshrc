@@ -8,8 +8,6 @@ export PATH="$PATH:/home/biowulf21/fvm/default/bin"
 # export PATH="$PATH:/home/$USER/flutter/cache/dart-sdk/bin"
 export PATH="/usr/bin/flutter/bin:$PATH"
 
-# Path to powerlevel10k theme
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # ZSH Configuration
 HISTSIZE=5000
@@ -91,11 +89,14 @@ cdir (){
 # Always mkdir a path (this doesn't inhibit functionality to make a single dir)
 alias mkdir='mkdir -p'
 
-# Fixes "Error opening terminal: xterm-kitty" when using the default kitty term to open some programs through ssh
-# alias ssh='kitten ssh'
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Init oh-my-posh
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/base.toml)"
+
+# Only run oh-my-posh if the terminal is not default Apple Terminal
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(oh-my-posh init zsh)"
+fi
 
 #Display Pokemon
 pokemon-colorscripts --no-title -r 1,3,6
