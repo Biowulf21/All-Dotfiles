@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
+export NOTES=$HOME/Notes/
 export EDITOR=nvim
 export VISUAL=nvim
 
