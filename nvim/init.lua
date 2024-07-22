@@ -174,6 +174,7 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
+require("workflows")
 
 local gdproject = io.open(vim.fn.getcwd() .. "/project.godot", "r")
 if gdproject then
