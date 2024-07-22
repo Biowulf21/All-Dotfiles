@@ -56,6 +56,11 @@ return {
 			},
 			{ "<leader>fb", "<cmd>FlutterRun --flavor beta --target lib/main_beta.dart<CR>", desc = "Launch beta" },
 			{
+				"<leader>fbr",
+				"<cmd>FlutterRun --release --flavor beta --target lib/main_beta.dart<CR>",
+				desc = "Launch beta Release",
+			},
+			{
 				"<leader>fp",
 				"<cmd>FlutterRun --flavor production --target lib/main_production.dart<CR>",
 				desc = "Launch production",
