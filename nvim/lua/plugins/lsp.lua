@@ -68,6 +68,37 @@ return {
 			"stevearc/dressing.nvim", -- optional for vim.ui.select
 		},
 		config = function()
+			-- .nvim.lua
+			-- If you have more than one setup configured you will be prompted when you run
+			-- your app to select which one you want to use
+			require("flutter-tools").setup_project({
+				{
+					name = "Development",
+					flavor = "development",
+					target = "lib/main_development.dart",
+				},
+				{
+					name = "Beta",
+					flavor = "beta",
+					target = "lib/main_beta.dart",
+				},
+
+				{
+					name = "Regular",
+					target = "lib/main.dart",
+				},
+
+				{
+					name = "Staging",
+					flavor = "staging",
+					target = "lib/main_staging.dart",
+				},
+				{
+					name = "Production",
+					flavor = "production",
+					target = "lib/main_production.dart",
+				},
+			})
 			require("flutter-tools").setup({
 				dev_tools = {
 					autostart = false, -- autostart devtools server if not detected
