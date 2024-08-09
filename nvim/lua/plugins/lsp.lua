@@ -13,10 +13,9 @@ return {
 
 			window = {
 				layout = "float",
-				relative = "cursor",
-				width = 1,
-				height = 0.4,
-				row = 1,
+				relative = "editor",
+				width = 0.5,
+				height = 0.5,
 			},
 			mappings = {
 				complete = {
