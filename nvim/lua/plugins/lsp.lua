@@ -153,6 +153,14 @@ return {
 						}
 					end,
 				},
+				dev_log = {
+					enabled = true,
+					filter = nil,
+					notify_errors = true,
+				},
+				widget_guides = {
+					enabled = true,
+				},
 				dev_tools = {
 					autostart = false, -- autostart devtools server if not detected
 					auto_open_browser = false, -- Automatically opens devtools in the browser
