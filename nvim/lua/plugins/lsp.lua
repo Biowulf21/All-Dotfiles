@@ -15,7 +15,8 @@ return {
 				layout = "float",
 				relative = "editor",
 				width = 0.5,
-				height = 0.5,
+				height = 0.8,
+				border = "rounded",
 			},
 			mappings = {
 				complete = {
@@ -65,11 +66,9 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"stevearc/dressing.nvim", -- optional for vim.ui.select
+			"mfussenegger/nvim-dap",
 		},
 		config = function()
-			-- .nvim.lua
-			-- If you have more than one setup configured you will be prompted when you run
-			-- your app to select which one you want to use
 			require("flutter-tools").setup_project({
 				{
 					name = "Development",
@@ -99,45 +98,112 @@ return {
 				},
 			})
 			require("flutter-tools").setup({
+				flutter_path = "/Users/jamespatrickjilhaney/flutter/bin/flutter",
+				debugger = {
+					enabled = true,
+					run_via_dap = true,
+					exception_breakpoints = {},
+
+					register_configurations = function(_)
+						local dap = require("dap")
+						-- Dart CLI adapter (recommended)
+						--
+						dap.adapters.dart = {
+							type = "executable",
+							command = "dart",
+							args = { "debug_adapter" },
+							-- windows users will need to set 'detached' to false
+							-- options = {
+							-- 	detached = false,
+							-- },
+						}
+						dap.adapters.flutter = {
+							type = "executable",
+							command = "flutter",
+							args = { "debug_adapter" },
+							-- -- windows users will need to set 'detached' to false
+							-- options = {
+							-- 	detached = false,
+							-- },
+						}
+
+						require("dap").configurations.dart = {
+							{
+								type = "dart",
+								request = "launch",
+								name = "Launch dart",
+								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
+								program = "${workspaceFolder}/lib/main.dart", -- ensure this is correct
+								cwd = "${workspaceFolder}",
+							},
+							{
+								type = "flutter",
+								request = "launch",
+								name = "Launch flutter",
+								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
+								program = "${workspaceFolder}/lib/main.dart", -- ensure this is correct
+								cwd = "${workspaceFolder}",
+							},
+							{
+								type = "flutter",
+								request = "launch",
+								name = "Launch flutter (Development)",
+								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
+								program = "${workspaceFolder}/lib/main_development.dart", -- ensure this is correct
+								cwd = "${workspaceFolder}",
+								toolArgs = { "-t", "lib/main_development.dart", "--flavor", "development" },
+							},
+							{
+								type = "flutter",
+								request = "launch",
+								name = "Launch flutter (Beta)",
+								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
+								program = "${workspaceFolder}/lib/main_beta.dart", -- ensure this is correct
+								cwd = "${workspaceFolder}",
+								toolArgs = { "-t", "lib/main_beta.dart", "--flavor", "beta" },
+							},
+							{
+								type = "flutter",
+								request = "launch",
+								name = "Launch flutter (Staging)",
+								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
+								program = "${workspaceFolder}/lib/main_staging.dart", -- ensure this is correct
+								cwd = "${workspaceFolder}",
+								toolArgs = { "-t", "lib/main_staging.dart", "--flavor", "staging" },
+							},
+							{
+								type = "flutter",
+								request = "launch",
+								name = "Launch flutter (Production)",
+								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
+								program = "${workspaceFolder}/lib/main_production.dart", -- ensure this is correct
+								cwd = "${workspaceFolder}",
+								toolArgs = { "-t", "lib/main_production.dart", "--flavor", "production" },
+							},
+						}
+					end,
+				},
 				dev_tools = {
 					autostart = false, -- autostart devtools server if not detected
 					auto_open_browser = false, -- Automatically opens devtools in the browser
 				},
 				decorations = {
 					statusline = {
-						-- set to true to be able use the 'flutter_tools_decorations.app_version' in your statusline
-						-- this will show the current version of the flutter app from the pubspec.yaml file
-						app_version = false,
-						-- set to true to be able use the 'flutter_tools_decorations.device' in your statusline
-						-- this will show the currently running device if an application was started with a specific
-						-- device
-						device = false,
-						-- set to true to be able use the 'flutter_tools_decorations.project_config' in your statusline
-						-- this will show the currently selected project configuration
-						project_config = false,
+						app_version = true,
+						device = true,
+						project_config = true,
 					},
 				},
 			})
 		end,
 		keys = {
-
 			{ "<leader>frr", "<cmd>FlutterRun<CR>", desc = "[F]lutter [R]un" },
-			{
-				"<leader>fd",
-				"<cmd>FlutterRun --flavor development --target lib/main_development.dart<CR>",
-				desc = "Launch development",
-			},
-			{ "<leader>fb", "<cmd>FlutterRun --flavor beta --target lib/main_beta.dart<CR>", desc = "Launch beta" },
-			{
-				"<leader>fbr",
-				"<cmd>FlutterRun --release --flavor beta --target lib/main_beta.dart<CR>",
-				desc = "Launch beta Release",
-			},
-			{
-				"<leader>fp",
-				"<cmd>FlutterRun --flavor production --target lib/main_production.dart<CR>",
-				desc = "Launch production",
-			},
 			{ "<leader>flr", "<cmd>FLutterLspRestart<CR>", desc = "[F]lutter [L]SP [R]estart" },
 			{ "<leader>fla", "<cmd>FlutterReanalyze<CR>", desc = "[F]lutter [L]SP [A]nalyze" },
 			{ "<leader>fq", "<cmd>FlutterQuit<CR>", desc = "[F]lutter [Q]uit" },
@@ -149,8 +215,6 @@ return {
 			{ "<leader>fdt", "<cmd>FlutterDevTools<CR>", desc = "[F]lutter [D]ev [T]ools Start" },
 			{ "<leader>fda", "<cmd>FlutterDevToolsActivate<CR>", desc = "[F]lutter [D]ev Tools [A]ctivate" },
 			{ "<leader>flc", "<cmd>FlutterLogClear<CR>", desc = "[F]lutter [L]og [C]lear" },
-			-- {"<leader>fls", "<cmd>FlutterLogShow<CR>", desc = "[F]lutter [L]og [S]how"},
-			-- {"<leader>flh", "<cmd>FlutterLogHide<CR>", desc = "[F]lutter [L]og [H]ide"},
 		},
 	},
 	{ -- Highlight, edit, and navigate code
