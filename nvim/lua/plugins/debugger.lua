@@ -28,6 +28,8 @@ return {
 				end,
 			})
 
+			ui.setup()
+
 			-- Dart CLI adapter (recommended)
 			dap.adapters.dart = {
 				type = "executable",

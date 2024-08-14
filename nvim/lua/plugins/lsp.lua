@@ -129,27 +129,9 @@ return {
 
 						require("dap").configurations.dart = {
 							{
-								type = "dart",
-								request = "launch",
-								name = "Launch dart",
-								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
-								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
-								program = "${workspaceFolder}/lib/main.dart", -- ensure this is correct
-								cwd = "${workspaceFolder}",
-							},
-							{
 								type = "flutter",
 								request = "launch",
-								name = "Launch flutter",
-								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
-								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
-								program = "${workspaceFolder}/lib/main.dart", -- ensure this is correct
-								cwd = "${workspaceFolder}",
-							},
-							{
-								type = "flutter",
-								request = "launch",
-								name = "Launch flutter (Development)",
+								name = "Development",
 								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
 								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
 								program = "${workspaceFolder}/lib/main_development.dart", -- ensure this is correct
@@ -159,7 +141,7 @@ return {
 							{
 								type = "flutter",
 								request = "launch",
-								name = "Launch flutter (Beta)",
+								name = "Beta",
 								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
 								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
 								program = "${workspaceFolder}/lib/main_beta.dart", -- ensure this is correct
@@ -169,7 +151,7 @@ return {
 							{
 								type = "flutter",
 								request = "launch",
-								name = "Launch flutter (Staging)",
+								name = "Staging",
 								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
 								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
 								program = "${workspaceFolder}/lib/main_staging.dart", -- ensure this is correct
@@ -179,12 +161,22 @@ return {
 							{
 								type = "flutter",
 								request = "launch",
-								name = "Launch flutter (Production)",
+								name = "Production",
 								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
 								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
 								program = "${workspaceFolder}/lib/main_production.dart", -- ensure this is correct
 								cwd = "${workspaceFolder}",
 								toolArgs = { "-t", "lib/main_production.dart", "--flavor", "production" },
+							},
+
+							{
+								type = "flutter",
+								request = "launch",
+								name = "Regular",
+								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
+								program = "${workspaceFolder}/lib/main.dart", -- ensure this is correct
+								cwd = "${workspaceFolder}",
 							},
 						}
 					end,
@@ -279,7 +271,7 @@ return {
 					--    See the README about individual language/framework/plugin snippets:
 					--    https://github.com/rafamadriz/friendly-snippets
 					-- {
-					--   'rafamadriz/friendly-snippets',
+					--   '',
 					--   config = function()
 					--     require('luasnip.loaders.from_vscode').lazy_load()
 					--   end,
