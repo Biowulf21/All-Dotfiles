@@ -69,34 +69,6 @@ return {
 			"mfussenegger/nvim-dap",
 		},
 		config = function()
-			require("flutter-tools").setup_project({
-				{
-					name = "Development",
-					flavor = "development",
-					target = "lib/main_development.dart",
-				},
-				{
-					name = "Beta",
-					flavor = "beta",
-					target = "lib/main_beta.dart",
-				},
-
-				{
-					name = "Regular",
-					target = "lib/main.dart",
-				},
-
-				{
-					name = "Staging",
-					flavor = "staging",
-					target = "lib/main_staging.dart",
-				},
-				{
-					name = "Production",
-					flavor = "production",
-					target = "lib/main_production.dart",
-				},
-			})
 			require("flutter-tools").setup({
 				flutter_path = "/Users/jamespatrickjilhaney/flutter/bin/flutter",
 				debugger = {
