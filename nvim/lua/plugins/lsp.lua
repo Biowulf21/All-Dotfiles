@@ -175,7 +175,7 @@ return {
 			})
 		end,
 		keys = {
-			{ "<leader>frr", "<cmd>FlutterRun<CR>", desc = "[F]lutter [R]un" },
+			{ "<leader>fr", "<cmd>FlutterRun<CR>", desc = "[F]lutter [R]un" },
 			{ "<leader>flr", "<cmd>FLutterLspRestart<CR>", desc = "[F]lutter [L]SP [R]estart" },
 			{ "<leader>fla", "<cmd>FlutterReanalyze<CR>", desc = "[F]lutter [L]SP [A]nalyze" },
 			{ "<leader>fq", "<cmd>FlutterQuit<CR>", desc = "[F]lutter [Q]uit" },
@@ -524,66 +524,48 @@ return {
 	},
 	{
 		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		cmd = { "Trouble" },
 		opts = {
-			icons = {
-				indent = {
-					middle = " ",
-					last = " ",
-					top = " ",
-					ws = "│  ",
-				},
-			},
 			modes = {
-				diagnostics = {
-					groups = {
-						{ "filename", format = "{file_icon} {basename:Title} {count}" },
-					},
-					-- cascade = {
-					-- 	mode = "diagnostics", -- inherit from diagnostics mode
-					-- 	filter = function(items)
-					-- 		local severity = vim.diagnostic.severity.HINT
-					-- 		for _, item in ipairs(items) do
-					-- 			severity = math.min(severity, item.severity)
-					-- 		end
-					-- 		return vim.tbl_filter(function(item)
-					-- 			return item.severity == severity
-					-- 		end, items)
-					-- 	end,
-					-- },
+				lsp = {
+					win = { position = "right" },
 				},
 			},
 		},
 		keys = {
+			{ "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
+			{ "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
+			{ "<leader>cs", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols (Trouble)" },
+			{ "<leader>cS", "<cmd>Trouble lsp toggle<cr>", desc = "LSP references/definitions/... (Trouble)" },
+			{ "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
+			{ "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
 			{
-				"<leader>tt",
-				"<cmd>Trouble diagnostics toggle<cr>",
-				desc = "Diagnostics (Trouble)",
+				"[q",
+				function()
+					if require("trouble").is_open() then
+						require("trouble").prev({ skip_groups = true, jump = true })
+					else
+						local ok, err = pcall(vim.cmd.cprev)
+						if not ok then
+							vim.notify(err, vim.log.levels.ERROR)
+						end
+					end
+				end,
+				desc = "Previous Trouble/Quickfix Item",
 			},
 			{
-				"<leader>tT",
-				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-				desc = "Buffer Diagnostics (Trouble)",
-			},
-			{
-				"<leader>cs",
-				"<cmd>Trouble symbols toggle focus=false<cr>",
-				desc = "Symbols (Trouble)",
-			},
-			{
-				"<leader>cl",
-				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-				desc = "LSP Definitions / references / ... (Trouble)",
-			},
-			{
-				"<leader>xL",
-				"<cmd>Trouble loclist toggle<cr>",
-				desc = "Location List (Trouble)",
-			},
-			{
-				"<leader>xQ",
-				"<cmd>Trouble qflist toggle<cr>",
-				desc = "Quickfix List (Trouble)",
+				"]q",
+				function()
+					if require("trouble").is_open() then
+						require("trouble").next({ skip_groups = true, jump = true })
+					else
+						local ok, err = pcall(vim.cmd.cnext)
+						if not ok then
+							vim.notify(err, vim.log.levels.ERROR)
+						end
+					end
+				end,
+				desc = "Next Trouble/Quickfix Item",
 			},
 		},
 	},
