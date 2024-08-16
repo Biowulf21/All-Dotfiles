@@ -1,5 +1,6 @@
 zoxide
 lazygit
+lazysql
 stow
 firefox
 tmux
@@ -8,6 +9,13 @@ oh-my-posh-bin
 sed
 man
 neofetch
-
+bat
+bluetoothctl
+bluez-utils
+bluez
+blueman
+bluez-deprecated-tools
+base-devel
+tldr
 
 
