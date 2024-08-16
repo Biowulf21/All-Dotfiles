@@ -1,5 +1,13 @@
 zoxide
 lazygit
 stow
+firefox
+tmux
+ripgrep
+oh-my-posh-bin
+sed
+man
+neofetch
+
 
 
