@@ -1,5 +1,12 @@
 return {
-	{ "github/copilot.vim" }, -- GitHub Copilot integrations
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({})
+		end,
+	},
 	{
 
 		"CopilotC-Nvim/CopilotChat.nvim",
