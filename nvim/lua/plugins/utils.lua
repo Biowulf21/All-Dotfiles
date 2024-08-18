@@ -34,4 +34,6 @@ return {
 			{ "<leader>ft", "<cmd>FloatermToggle<CR>", desc = "[F]loat [T]erm" },
 		},
 	},
+	-- "gc" to comment visual regions/lines
+	{ "numToStr/Comment.nvim", opts = {} },
 }
