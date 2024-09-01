@@ -1,0 +1,40 @@
+include ./theme.conf
+# Basic config
+font_size 10
+
+# Navigate through windows
+# map ctrl+shift+n new_window
+# map alt+h  previous_window
+# map alt+l next_window
+# map alt+t close_window
+# map ctrl+shift+h move_tab_backward
+# map ctrl+shift+l move_tab_forward
+# # map ctrl+h previous_tab
+# # map ctrl+l next_tab 
+# map ctrl+. set_tab_title
+#
+# # Resize windows
+# map ctrl+n resize_window narrower
+# map ctrl+m resize_window wider
+#
+# # Move the active window in the indicated direction
+# map alt+shift+k move_window up
+# map alt+shift+h move_window left
+# map alt+shift+l move_window right
+# map alt+shift+j move_window down
+
+
+# reset all windows in the tab to default sizes
+map ctrl+home resize_window reset
+
+# layout
+enabled_layouts tall
+
+# BEGIN_KITTY_THEME
+# Alucard
+include current-theme.conf
+# END_KITTY_THEME
+font_family      JetBrainsMono Nerd Font
+# bold_font        auto
+# italic_font      auto
+# bold_italic_font auto
