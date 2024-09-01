@@ -7,9 +7,11 @@ blueman
 bluez-deprecated-tools
 bluez-utils
 brightnessctl
+btop
 cliphist
 cmatrix
 code
+dolphin
 dunst
 efibootmgr
 epiphany
@@ -17,7 +19,6 @@ evince
 eza
 fastfetch
 ffmpegthumbs
-firefox
 gdm
 gedit
 git
@@ -60,10 +61,12 @@ gvfs-nfs
 gvfs-onedrive
 gvfs-smb
 gvfs-wsdd
+handlr-regex
 htop
 hyprland
 intel-ucode
 jq
+jre11-openjdk
 kde-cli-tools
 kitty
 kvantum
@@ -88,6 +91,7 @@ nvidia
 nvidia-settings
 nvidia-utils
 nwg-look
+obs-studio
 orca
 pacman-contrib
 pamixer
@@ -122,6 +126,7 @@ tmux
 totem
 tracker3-miners
 udiskie
+unrar
 vim
 waybar
 wget
