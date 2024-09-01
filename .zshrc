@@ -77,7 +77,7 @@ function in {
     fi
 }
 
-source ~/All-Dotfiles/zsh/aliases
+source ~/aliases
 
 
 cdir (){
