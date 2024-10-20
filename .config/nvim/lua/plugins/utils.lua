@@ -22,7 +22,10 @@ return {
 	{ -- Statusline for Neovim
 		"nvim-lualine/lualine.nvim",
 		config = function()
-			require("lualine").setup({--[[ your config ]]
+			require("lualine").setup({
+				options = {
+					globalstatus = true,
+				},
 			})
 		end,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
