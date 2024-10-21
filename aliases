@@ -113,7 +113,8 @@ alias vgs='flutter run --flavor staging --target lib/main_staging.dart'
 alias vgp='flutter run --flavor production --target lib/main_production.dart'
 
 # for flutter building in android
-alias fba='flutter build apk --flavor "${1:-beta}" --target="${2:-lib/main_beta.dart}" --release'
+alias fbapb='flutter build appbundle --flavor production --target=lib/main_production.dart --release'
+alias fbapk='flutter build apk --flavor "${1:-beta}" --target="${2:-lib/main_beta.dart}" --release'
 
 # for flutter building in ios
 alias fbi='flutter build ios --flavor "${1:-beta}" --target="${2:-lib/main_beta.dart}" --release'
