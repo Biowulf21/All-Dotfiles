@@ -26,6 +26,9 @@ vim.opt.colorcolumn = "80"
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
 
+-- Kitty transparent color adjustments
+vim.o.termguicolors = true -- Enable true color support
+--
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
@@ -172,9 +175,9 @@ if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
-
 require("lazy").setup("plugins")
 require("workflows")
+require("flutter-code-actions")
 
 local gdproject = io.open(vim.fn.getcwd() .. "/project.godot", "r")
 if gdproject then
