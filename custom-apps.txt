@@ -1,5 +1,0 @@
-zoxide
-lazygit
-stow
-
-

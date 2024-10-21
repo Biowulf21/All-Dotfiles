@@ -77,7 +77,7 @@ function in {
     fi
 }
 
-source ~/All-Dotfiles/zsh/aliases
+source ~/aliases
 
 
 cdir (){
@@ -92,7 +92,7 @@ alias mkdir='mkdir -p'
 
 
 # Init oh-my-posh
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/base.toml)"
+eval "$(oh-my-posh init zsh --config $HOME/All-Dotfiles/ohmyposh/base.toml)"
 
 # Only run oh-my-posh if the terminal is not default Apple Terminal
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then

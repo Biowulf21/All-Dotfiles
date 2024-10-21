@@ -33,6 +33,7 @@ alias h='history'
 alias b='cd ..'
 alias tree='tree --dirsfirst -F'
 alias cssh='cat ~/.ssh/id_rsa.pub | xclip -sel clip'
+alias cat='bat'
 
 cl() {
 	cd $@
