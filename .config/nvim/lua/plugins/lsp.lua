@@ -93,7 +93,7 @@ return {
 					end,
 				},
 				dev_log = {
-					enabled = true,
+					enabled = false,
 					filter = nil,
 					notify_errors = true,
 				},
@@ -101,7 +101,7 @@ return {
 					enabled = true,
 				},
 				dev_tools = {
-					autostart = false, -- autostart devtools server if not detected
+					autostart = true, -- autostart devtools server if not detected
 					auto_open_browser = false, -- Automatically opens devtools in the browser
 				},
 				decorations = {
