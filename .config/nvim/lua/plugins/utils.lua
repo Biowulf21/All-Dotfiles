@@ -42,4 +42,11 @@ return {
 	},
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },
+
+	{
+		"nvimtools/none-ls.nvim",
+		config = function()
+			require("null-ls").setup({})
+		end,
+	},
 }
