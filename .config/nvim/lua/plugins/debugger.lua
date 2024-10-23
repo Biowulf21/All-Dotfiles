@@ -56,7 +56,9 @@ return {
 			-- <leader>gb: Run to Cursor
 			vim.keymap.set("n", "<space>gb", dap.run_to_cursor, { desc = "Run to Cursor" })
 			-- <leader>bt: Toggle Debugger UI
-			vim.keymap.set("n", "<space>bt", ui.toggle, { desc = "Toggle Debugger UI" })
+			vim.keymap.set("n", "<space>bt", function()
+				ui.toggle({ reset = true })
+			end, { desc = "Toggle Debugger UI" })
 			-- <leader>?: Evaluate variable under cursor
 			vim.keymap.set("n", "<space>?", function()
 				require("dapui").eval(nil, { enter = true })
