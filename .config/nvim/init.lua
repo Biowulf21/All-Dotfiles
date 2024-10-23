@@ -109,6 +109,9 @@ vim.filetype.add({
 -- map('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 -- map('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
+-- Dismiss Noice Notifications
+vim.api.nvim_set_keymap("n", "<leader>nd", ':lua require("notify").dismiss()<CR>', { noremap = true, silent = true })
+
 -- Navigate between neovim and tmux splits
 map("n", "<c-h>", ":wincmd h<CR>", { desc = "Go to left window", remap = true })
 map("n", "<c-j>", ":wincmd j<CR>", { desc = "Go to lower window", remap = true })
