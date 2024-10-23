@@ -179,7 +179,6 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
-require("workflows")
 require("flutter-code-actions")
 
 local gdproject = io.open(vim.fn.getcwd() .. "/project.godot", "r")
