@@ -1,4 +1,14 @@
 return {
+	{
+		"petertriho/nvim-scrollbar",
+		config = function()
+			require("scrollbar").setup({
+				handle = {
+					color = "grey",
+				},
+			})
+		end,
+	},
 	{ -- Git Blame in Neovim
 		"f-person/git-blame.nvim",
 		opts = {
