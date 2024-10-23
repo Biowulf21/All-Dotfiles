@@ -128,6 +128,25 @@ return {
 			{ "<leader>flc", "<cmd>FlutterLogClear<CR>", desc = "[F]lutter [L]og [C]lear" },
 		},
 	},
+	{
+		"wa11breaker/flutter-bloc.nvim",
+		config = function()
+			require("flutter-bloc").setup({
+				vim.keymap.set(
+					"n",
+					"<Leader>cfb",
+					"<cmd>lua require('flutter-bloc').create_bloc()<cr>",
+					{ desc = "[C]reate [F]lutter [B]loc" }
+				),
+				vim.keymap.set(
+					"n",
+					"<Leader>cfc",
+					"<cmd>lua require('flutter-bloc').create_cubit()<cr>",
+					{ desc = "[C]reate [F]lutter [C]ubit" }
+				),
+			})
+		end,
+	},
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -156,7 +175,11 @@ return {
 			{ "<leader>e", ":NvimTreeFindFileToggle<CR>", desc = "[N]vim [T]ree [F]ind [F]ile" },
 		},
 		config = function()
-			require("nvim-tree").setup({})
+			require("nvim-tree").setup({
+				view = {
+					side = "right",
+				},
+			})
 		end,
 		opts = {
 			view = {
