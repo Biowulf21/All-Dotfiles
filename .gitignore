@@ -1,3 +1,4 @@
 .config/flutter
 .config/github-copilot
 .config/valet
+.config/lazysql
