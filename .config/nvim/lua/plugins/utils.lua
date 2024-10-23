@@ -35,9 +35,9 @@ return {
 	},
 
 	{
-		"voldikss/vim-floaterm",
+		"numToStr/FTerm.nvim",
 		keys = {
-			{ "<leader>ft", "<cmd>FloatermToggle<CR>", desc = "[F]loat [T]erm" },
+			{ "<leader>ft", "<cmd>lua require('FTerm').toggle()<CR>", mode = { "n", "t" }, desc = "[F]loat [T]erm" },
 		},
 	},
 	-- "gc" to comment visual regions/lines
