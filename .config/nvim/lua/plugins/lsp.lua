@@ -246,21 +246,18 @@ return {
 				-- chosen, you will need to read `:help ins-completion`
 				--
 				-- No, but seriously. Please read `:help ins-completion`, it is really good!
+				--
 				mapping = cmp.mapping.preset.insert({
 					-- Select the [n]ext item
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
-							cmp.select_next_item()
-						elseif require("luasnip").expand_or_jumpable() then
-							vim.fn.feedkeys(
-								vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
-								""
-							)
-						elseif vim.b._copilot_suggestion ~= nil then
-							vim.fn.feedkeys(
-								vim.api.nvim_replace_termcodes(vim.fn["copilot#Accept"](), true, true, true),
-								""
-							)
+							cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+						elseif require("copilot.suggestion").is_visible() then
+							require("copilot.suggestion").accept()
+						elseif luasnip.expandable() then
+							luasnip.expand()
+						elseif has_words_before() then
+							cmp.complete()
 						else
 							fallback()
 						end
