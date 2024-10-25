@@ -79,12 +79,26 @@ BlocListener<${1:Cubit}, ${2:State}>(
 ]],
 }
 
+local function is_node_function(current_node)
+	local parent_node = current_node:parent()
+	local type = parent_node:type()
+
+	if type == "local_function_declaration" or type == "function_declaration" then
+		return true
+	end
+
+	return false
+end
+
 -- Determines if the current node in treesitter is a widget, therefore, a
 -- a bloc widget can be wrapped around it
-local function is_node_widget(node, params)
+local function is_node_widget(node)
+	local type = node:type()
 	local identifier = "identifier"
+	-- This is for SizedBoxes
+	local type_indentifier = "type_identifier"
 
-	if node == nil or node:type() ~= identifier then
+	if node == nil or (type ~= identifier and type ~= type_indentifier) or is_node_function(node) then
 		return false
 	end
 
@@ -147,7 +161,7 @@ null_ls.register({
 			local out = {}
 			local node = vim.treesitter.get_node()
 
-			if is_node_widget(node, params) then
+			if is_node_widget(node) then
 				table.insert(out, {
 					title = "Wrap with BlocBuilder",
 					action = function()
