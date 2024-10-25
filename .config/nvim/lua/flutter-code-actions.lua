@@ -16,7 +16,7 @@ ls.snippets = {
 			t({ ">(" }),
 			t({ "  builder: (context, state) {", "    return " }),
 			i(3),
-			t({ ";", "  },", ")," }),
+			t({ ";", "  },", ")" }),
 		}),
 		s("bloc_provider", {
 			t("BlocProvider<"),
@@ -26,7 +26,7 @@ ls.snippets = {
 			i(2, "Cubit"),
 			t({ ",", "child: " }),
 			i(3),
-			t({ ";", ")," }),
+			t({ ";", ")" }),
 		}),
 		s("repository_provider", {
 			t("RepositoryProvider<"),
@@ -36,7 +36,7 @@ ls.snippets = {
 			i(2, "Repository"),
 			t({ ",", "child: " }),
 			i(3),
-			t({ ";", ")," }),
+			t({ ";", ")" }),
 		}),
 		s("bloc_listener", {
 			t("BlocListener<"),
@@ -45,7 +45,7 @@ ls.snippets = {
 			i(2, "State"),
 			t({ ">(", "  listener: (context, state) {" }),
 			t({ "    /// Add Code Here" }),
-			t({ "  },", ")," }),
+			t({ "  },", ")" }),
 		}),
 	},
 }
@@ -56,7 +56,8 @@ BlocBuilder<${1:Cubit}, ${2:State}>(
   builder: (context, state) {
     return %s;
   },
-);]],
+)
+]],
 	["bloc_provider"] = [[
 BlocProvider<${1:Cubit}>(
 create: (_) => ${2:Cubit},
@@ -74,7 +75,8 @@ BlocListener<${1:Cubit}, ${2:State}>(
   listener: (context, state) {
 	  /// Add Code Here
   },
-);]],
+)
+]],
 }
 
 -- Determines if the current node in treesitter is a widget, therefore, a
@@ -99,36 +101,39 @@ local function get_selector_node(node)
 	return nil
 end
 
+local function is_return_statement(node)
+	while node do
+		if node:type() == "return_statement" then
+			return true
+		end
+		node = node:parent()
+	end
+	return false
+end
+
 local function wrap_with_bloc_component(node, key, snippet_val)
-	-- The identifier node is the "text" of the widget, not including its
-	-- arguments, children, etc.
-	-- e.g Text
 	local identifier_node = node
-	-- The selector node is a sibling node to the identifier_node which
-	-- selects the rest of its signature (arguments, children, etc)
 	local selector_node = get_selector_node(node)
 	if not identifier_node or not selector_node then
 		print("No identifier or selector node found")
 		return
 	end
 
-	-- Find the start and end positions from identifier to selector
 	local start_row, start_col = identifier_node:start()
 	local end_row, end_col = selector_node:end_()
 
-	-- Extract the widget code from identifier to selector
 	local widget_code = vim.api.nvim_buf_get_text(0, start_row, start_col, end_row, end_col, {})
-
-	-- Combine the widget code
 	local combined_code = table.concat(widget_code, "\n")
 
-	-- Create the BlocBuilder snippet
-	local snippet = ls.parser.parse_snippet(key, string.format(snippet_val, combined_code))
+	local context_snippet_val = snippet_val
+	local parent_node = node:parent()
+	if is_return_statement(parent_node) then
+		context_snippet_val = context_snippet_val:gsub(";", ",")
+	end
 
-	-- Remove the original widget
+	local snippet = ls.parser.parse_snippet(key, string.format(context_snippet_val, combined_code))
+
 	vim.api.nvim_buf_set_text(0, start_row, start_col, end_row, end_col, {})
-
-	-- Insert the BlocBuilder snippet
 	vim.api.nvim_win_set_cursor(0, { start_row + 1, start_col })
 	ls.snip_expand(snippet)
 end
@@ -140,7 +145,6 @@ null_ls.register({
 	generator = {
 		fn = function(params)
 			local out = {}
-
 			local node = vim.treesitter.get_node()
 
 			if is_node_widget(node, params) then
