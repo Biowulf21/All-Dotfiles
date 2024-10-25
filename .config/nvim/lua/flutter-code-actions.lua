@@ -50,6 +50,37 @@ ls.snippets = {
 	},
 }
 
+local repository_providers = [[
+RepositoryProvider<Repo1>(
+  create: (_) => Repo1(),
+),
+RepositoryProvider<Repo2>(
+  create: (_) => Repo2(),
+)
+]]
+
+local bloc_providers = [[
+    BlocProvider<BlocA>(
+      create: (BuildContext context) => BlocA(),
+    ),
+    BlocProvider<BlocB>(
+      create: (BuildContext context) => BlocB(),
+    ),
+]]
+
+local listeners = [[
+    BlocListener<BlocA, BlocAState>(
+      listener: (context, state) {
+	/// Add Code Here
+      },
+    ),
+    BlocListener<BlocB, BlocBState>(
+      listener: (context, state) {
+	/// Add Code Here
+      },
+    ),
+]]
+
 local snippet_map = {
 	["bloc_builder"] = [[
 BlocBuilder<${1:Cubit}, ${2:State}>(
@@ -75,6 +106,32 @@ BlocListener<${1:Cubit}, ${2:State}>(
   listener: (context, state) {
 	  /// Add Code Here
   },
+)
+]],
+	["multi_repository_provider"] = [[
+MultiRepositoryProvider(
+  providers: [
+    %s
+  ],
+  child: ${1:ChildWidget},
+)
+]],
+
+	["multi_bloc_provider"] = [[
+MultiBlocProvider(
+  providers: [
+    %s
+  ],
+  child: ${1:ChildWidget},
+)
+]],
+
+	["multi_bloc_listener"] = [[
+MultiBlocListener(
+  listeners: [
+    %s
+  ],
+  child: ${1:ChildWidget},
 )
 ]],
 }
@@ -103,6 +160,32 @@ local function is_node_widget(node)
 	end
 
 	return true
+end
+
+local function table_contains(table, element)
+	for _, type in ipairs(table) do
+		if type == element then
+			return true
+		end
+	end
+	return false
+end
+
+-- This determines if the current node can be converted to a multiple form
+-- e.g RepositoryProvider -> MultiRepositoryProvider
+local function is_repository_provider(node)
+	local node_text = vim.treesitter.get_node_text(node, 0)
+	return node_text == "RepositoryProvider"
+end
+
+local function is_bloc_provider(node)
+	local node_text = vim.treesitter.get_node_text(node, 0)
+	return node_text == "BlocProvider"
+end
+
+local function is_bloc_listener(node)
+	local node_text = vim.treesitter.get_node_text(node, 0)
+	return node_text == "BlocListener"
 end
 
 local function get_selector_node(node)
@@ -152,51 +235,77 @@ local function wrap_with_bloc_component(node, key, snippet_val)
 	ls.snip_expand(snippet)
 end
 
+local function convert_to_multi_repository_provider(node) end
+local function convert_to_multi_bloc_provider(node) end
+local function convert_to_multi_bloc_listener(node) end
+
+local function convert_to_multiple_form(node, key, snippet)
+	local node_text = vim.treesitter.get_node_text(node, 0)
+
+	if node_text == "RepositoryProvider" then
+		convert_to_multi_repository_provider(node)
+	elseif node_text == "BlocProvider" then
+		convert_to_multi_bloc_provider(node)
+	elseif node_text == "BlocListener" then
+		convert_to_multi_bloc_listener(node)
+	end
+end
+
+-- Adds an action to the code actions list
+local function add_action(out, node, key, title, convert_function)
+	table.insert(out, {
+		title = title,
+		action = function()
+			local snippet = snippet_map[key]
+			convert_function(node, key, snippet)
+		end,
+	})
+end
+
 null_ls.register({
 	name = "flutter-bloc-code-actions",
 	method = null_ls.methods.CODE_ACTION,
 	filetypes = { "dart" },
 	generator = {
-		fn = function(params)
+		fn = function()
 			local out = {}
 			local node = vim.treesitter.get_node()
 
-			if is_node_widget(node) then
-				table.insert(out, {
-					title = "Wrap with BlocBuilder",
-					action = function()
-						local key = "bloc_builder"
-						local snippet = snippet_map[key]
-						wrap_with_bloc_component(node, key, snippet)
-					end,
-				})
+			if node and is_node_widget(node) then
+				if is_bloc_listener(node) then
+					add_action(
+						out,
+						node,
+						"multi_bloc_listener",
+						"Convert to MultiBlocListener",
+						convert_to_multiple_form
+					)
+				end
 
-				table.insert(out, {
-					title = "Wrap with BlocProvider",
-					action = function()
-						local key = "bloc_provider"
-						local snippet = snippet_map[key]
-						wrap_with_bloc_component(node, key, snippet)
-					end,
-				})
+				if is_bloc_provider(node) then
+					add_action(
+						out,
+						node,
+						"multi_bloc_provider",
+						"Convert to MultiBlocProvider",
+						convert_to_multiple_form
+					)
+				end
 
-				table.insert(out, {
-					title = "Wrap with RepositoryProvider",
-					action = function()
-						local key = "repository_provider"
-						local snippet = snippet_map[key]
-						wrap_with_bloc_component(node, key, snippet)
-					end,
-				})
+				if is_repository_provider(node) then
+					add_action(
+						out,
+						node,
+						"multi_repository_provider",
+						"Convert to MultiRepositoryProvider",
+						convert_to_multiple_form
+					)
+				end
 
-				table.insert(out, {
-					title = "Wrap with BlocListener",
-					action = function()
-						local key = "bloc_listener"
-						local snippet = snippet_map[key]
-						wrap_with_bloc_component(node, key, snippet)
-					end,
-				})
+				add_action(out, node, "bloc_builder", "Wrap with BlocBuilder", wrap_with_bloc_component)
+				add_action(out, node, "bloc_provider", "Wrap with BlocProvider", wrap_with_bloc_component)
+				add_action(out, node, "repository_provider", "Wrap with RepositoryProvider", wrap_with_bloc_component)
+				add_action(out, node, "bloc_listener", "Wrap with BlocListener", wrap_with_bloc_component)
 			end
 
 			return out
