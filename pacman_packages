@@ -1,4 +1,6 @@
+alsa-utils
 ark
+audacity
 baobab
 base
 base-devel
@@ -11,6 +13,8 @@ btop
 cliphist
 cmatrix
 code
+ddrescue
+discord
 dolphin
 dunst
 efibootmgr
@@ -48,6 +52,7 @@ gnome-tour
 gnome-user-docs
 gnome-user-share
 gnome-weather
+gparted
 grilo-plugins
 grub
 gvfs
@@ -64,6 +69,7 @@ gvfs-wsdd
 handlr-regex
 htop
 hyprland
+hyprpicker
 intel-ucode
 jq
 jre11-openjdk
@@ -77,6 +83,7 @@ lightdm
 linux
 linux-firmware
 linux-headers
+localsearch
 loupe
 ly
 malcontent
@@ -92,6 +99,7 @@ nvidia-settings
 nvidia-utils
 nwg-look
 obs-studio
+obsidian
 orca
 pacman-contrib
 pamixer
@@ -100,6 +108,7 @@ pavucontrol
 pipewire-alsa
 pipewire-jack
 polkit-gnome
+power-profiles-daemon
 qt5-graphicaleffects
 qt5-imageformats
 qt5-quickcontrols
@@ -113,6 +122,7 @@ rygel
 sddm
 simple-scan
 slurp
+smartmontools
 snapshot
 sof-firmware
 steam
@@ -121,10 +131,10 @@ sushi
 swappy
 swww
 tecla
+testdisk
 tldr
 tmux
 totem
-tracker3-miners
 udiskie
 unrar
 vim
