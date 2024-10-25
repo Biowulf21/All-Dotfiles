@@ -254,17 +254,12 @@ return {
 							cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
 						elseif require("copilot.suggestion").is_visible() then
 							require("copilot.suggestion").accept()
-						elseif luasnip.expandable() then
-							luasnip.expand()
-						elseif has_words_before() then
-							cmp.complete()
+						elseif luasnip.expand_or_jumpable() then
+							luasnip.expand_or_jump()
 						else
 							fallback()
 						end
-					end, {
-						"i",
-						"s",
-					}),
+					end, { "i", "s" }),
 					-- Select the [p]revious item
 					["<S-Tab>"] = cmp.mapping.select_prev_item({
 						behavior = cmp.SelectBehavior.Insert,
