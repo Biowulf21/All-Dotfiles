@@ -87,12 +87,9 @@ return {
 		"danielfalk/smart-open.nvim",
 		branch = "0.2.x",
 		config = function()
-			local ts = require("telescope")
-			ts.load_extension("smart_open")
-
-			vim.keymap.set("n", "<leader>sf", function()
-				vim.cmd("Telescope smart_open")
-			end, { desc = "[S]earch [F]iles" })
+			vim.keymap.set("n", "<leader><leader>", function()
+				require("telescope").extensions.smart_open.smart_open()
+			end, { desc = "Search Files", noremap = true, silent = true })
 		end,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
