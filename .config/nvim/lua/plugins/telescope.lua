@@ -88,7 +88,9 @@ return {
 		branch = "0.2.x",
 		config = function()
 			vim.keymap.set("n", "<leader>sf", function()
-				require("telescope").extensions.smart_open.smart_open()
+				require("telescope").extensions.smart_open.smart_open({
+					cwd_only = true,
+				})
 			end, { desc = "Search Files", noremap = true, silent = true })
 		end,
 		dependencies = {
