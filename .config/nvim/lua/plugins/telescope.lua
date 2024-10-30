@@ -87,7 +87,7 @@ return {
 		"danielfalk/smart-open.nvim",
 		branch = "0.2.x",
 		config = function()
-			vim.keymap.set("n", "<leader><leader>", function()
+			vim.keymap.set("n", "<leader>sf", function()
 				require("telescope").extensions.smart_open.smart_open()
 			end, { desc = "Search Files", noremap = true, silent = true })
 		end,
