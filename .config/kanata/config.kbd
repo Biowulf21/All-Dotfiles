@@ -14,14 +14,14 @@
 (defalias
   escctrl (tap-hold 100 100 esc lctl)
   caps esc  ;; Remap Caps Lock to Escape
-  a (tap-hold $tap-time $hold-time a lmet)
+  a (tap-hold $tap-time $hold-time a lctl)
   s (tap-hold $tap-time $hold-time s lalt)
   d (tap-hold $tap-time $hold-time d lsft)
-  f (tap-hold $tap-time $hold-time f lctl)
-  j (tap-hold $tap-time $hold-time j rctl)
+  f (tap-hold $tap-time $hold-time f lmet)
+  j (tap-hold $tap-time $hold-time j rmet)
   k (tap-hold $tap-time $hold-time k rsft)
   l (tap-hold $tap-time $hold-time l ralt)
-  ; (tap-hold $tap-time $hold-time ; rmet)
+  ; (tap-hold $tap-time $hold-time ; rctl)
 )
 
 (deflayer base
