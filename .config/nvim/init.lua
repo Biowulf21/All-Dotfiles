@@ -113,10 +113,10 @@ vim.filetype.add({
 vim.api.nvim_set_keymap("n", "<leader>nd", ':lua require("notify").dismiss()<CR>', { noremap = true, silent = true })
 
 -- Navigate between neovim and tmux splits
-map("n", "<c-h>", ":wincmd h<CR>", { desc = "Go to left window", remap = true })
-map("n", "<c-j>", ":wincmd j<CR>", { desc = "Go to lower window", remap = true })
-map("n", "<c-k>", ":wincmd k<CR>", { desc = "Go to upper window", remap = true })
-map("n", "<c-l>", ":wincmd l<CR>", { desc = "Go to right window", remap = true })
+map("n", "<c-j>", ":wincmd h<CR>", { desc = "Go to left window", remap = true })
+map("n", "<c-k>", ":wincmd j<CR>", { desc = "Go to lower window", remap = true })
+map("n", "<c-l>", ":wincmd k<CR>", { desc = "Go to upper window", remap = true })
+map("n", "<c-;>", ":wincmd l<CR>", { desc = "Go to right window", remap = true })
 
 -- windows
 map("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
