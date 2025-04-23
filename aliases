@@ -117,7 +117,7 @@ alias fbapb='flutter build appbundle --flavor production --target=lib/main_produ
 alias fbapk='flutter build apk --flavor "${1:-beta}" --target="${2:-lib/main_beta.dart}" --release'
 
 # for flutter building in ios
-alias fbi='flutter build ios --flavor "${1:-beta}" --target="${2:-lib/main_beta.dart}" --release'
+alias fbi='flutter build ipa -t lib/main_beta.dart --flavor beta --export-method=development --release'
 
 # ranger
 alias r='. ranger'
@@ -141,3 +141,5 @@ function rezip() {
 }
 
 alias lrp='grep -E "^\[.*]" /etc/yum.repos.d/*'
+
+alias kn='sudo kanata --cfg $HOME/All-Dotfiles/kanata.kbd'

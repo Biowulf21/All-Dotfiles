@@ -9,7 +9,7 @@ return {
 		},
 		config = function()
 			require("flutter-tools").setup({
-				flutter_path = "/Users/jamespatrickjilhaney/flutter/bin/flutter",
+				flutter_path = "/Users/biowulf21/flutter/bin/flutter",
 				debugger = {
 					enabled = true,
 					run_via_dap = true,
@@ -43,8 +43,8 @@ return {
 								type = "flutter",
 								request = "launch",
 								name = "Development",
-								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
-								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
+								dartSdkPath = "/Users/biowulf21/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+								flutterSdkPath = "/Users/biowulf21/flutter/bin/flutter", -- ensure this is correct
 								program = "${workspaceFolder}/lib/main_development.dart", -- ensure this is correct
 								cwd = "${workspaceFolder}",
 								toolArgs = { "-t", "lib/main_development.dart", "--flavor", "development" },
@@ -53,8 +53,8 @@ return {
 								type = "flutter",
 								request = "launch",
 								name = "Beta",
-								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
-								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
+								dartSdkPath = "/Users/biowulf21/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+								flutterSdkPath = "/Users/biowulf21/flutter/bin/flutter", -- ensure this is correct
 								program = "${workspaceFolder}/lib/main_beta.dart", -- ensure this is correct
 								cwd = "${workspaceFolder}",
 								toolArgs = { "-t", "lib/main_beta.dart", "--flavor", "beta" },
@@ -63,8 +63,8 @@ return {
 								type = "flutter",
 								request = "launch",
 								name = "Staging",
-								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
-								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
+								dartSdkPath = "/Users/biowulf21/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+								flutterSdkPath = "/Users/biowulf21/flutter/bin/flutter", -- ensure this is correct
 								program = "${workspaceFolder}/lib/main_staging.dart", -- ensure this is correct
 								cwd = "${workspaceFolder}",
 								toolArgs = { "-t", "lib/main_staging.dart", "--flavor", "staging" },
@@ -73,8 +73,8 @@ return {
 								type = "flutter",
 								request = "launch",
 								name = "Production",
-								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
-								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
+								dartSdkPath = "/Users/biowulf21/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+								flutterSdkPath = "/Users/biowulf21/flutter/bin/flutter", -- ensure this is correct
 								program = "${workspaceFolder}/lib/main_production.dart", -- ensure this is correct
 								cwd = "${workspaceFolder}",
 								toolArgs = { "-t", "lib/main_production.dart", "--flavor", "production" },
@@ -84,8 +84,8 @@ return {
 								type = "flutter",
 								request = "launch",
 								name = "Regular",
-								dartSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
-								flutterSdkPath = "/Users/jamespatrickjilhaney/flutter/bin/flutter", -- ensure this is correct
+								dartSdkPath = "/Users/biowulf21/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+								flutterSdkPath = "/Users/biowulf21/flutter/bin/flutter", -- ensure this is correct
 								program = "${workspaceFolder}/lib/main.dart", -- ensure this is correct
 								cwd = "${workspaceFolder}",
 							},
@@ -158,7 +158,7 @@ return {
 				enable = true,
 				additional_vim_regex_highlighting = { "ruby" },
 			},
-			indent = { enable = true, disable = { "ruby", "gdscript", "lua" } },
+			indent = { enable = true, disable = { "ruby", "lua" } },
 		},
 		config = function(_, opts)
 			-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -413,7 +413,7 @@ return {
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-			require("lspconfig").gdscript.setup(capabilities)
+			-- require("lspconfig").gdscript.setup(capabilities)
 
 			local servers = {
 				lua_ls = {
