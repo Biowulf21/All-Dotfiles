@@ -10,6 +10,7 @@ return {
 		config = function()
 			require("flutter-tools").setup({
 				flutter_path = "/Users/biowulf21/flutter/bin/flutter",
+				fvm = true,
 				debugger = {
 					enabled = true,
 					run_via_dap = true,
