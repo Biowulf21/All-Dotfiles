@@ -15,102 +15,132 @@ return {
 					enabled = true,
 					run_via_dap = true,
 					exception_breakpoints = {},
+				},
+			})
 
-					register_configurations = function(_)
-						local dap = require("dap")
-						-- Dart CLI adapter (recommended)
-						--
-						dap.adapters.dart = {
-							type = "executable",
-							command = "dart",
-							args = { "debug_adapter" },
-							-- windows users will need to set 'detached' to false
-							-- options = {
-							-- 	detached = false,
-							-- },
-						}
-						dap.adapters.flutter = {
-							type = "executable",
-							command = "flutter",
-							args = { "debug_adapter" },
-							-- -- windows users will need to set 'detached' to false
-							-- options = {
-							-- 	detached = false,
-							-- },
-						}
+			-- 		register_configurations = function(_)
+			-- 			local dap = require("dap")
+			-- 			-- Dart CLI adapter (recommended)
+			-- 			--
+			-- 			dap.adapters.dart = {
+			-- 				type = "executable",
+			-- 				command = "dart",
+			-- 				args = { "debug_adapter" },
+			-- 				-- windows users will need to set 'detached' to false
+			-- 				-- options = {
+			-- 				-- 	detached = false,
+			-- 				-- },
+			-- 			}
+			-- 			dap.adapters.flutter = {
+			-- 				type = "executable",
+			-- 				command = "flutter",
+			-- 				args = { "debug_adapter" },
+			-- 				-- -- windows users will need to set 'detached' to false
+			-- 				-- options = {
+			-- 				-- 	detached = false,
+			-- 				-- },
+			-- 			}
+			--
+			-- 			require("dap").configurations.dart = {
+			-- 				{
+			-- 					type = "flutter",
+			-- 					request = "launch",
+			-- 					name = "Development",
+			-- 					dartSdkPath = "/Users/biowulf21/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+			-- 					flutterSdkPath = "/Users/biowulf21/flutter/bin/flutter", -- ensure this is correct
+			-- 					program = "${workspaceFolder}/lib/main_development.dart", -- ensure this is correct
+			-- 					cwd = "${workspaceFolder}",
+			-- 					toolArgs = { "-t", "lib/main_development.dart", "--flavor", "development" },
+			-- 				},
+			-- 				{
+			-- 					type = "flutter",
+			-- 					request = "launch",
+			-- 					name = "Beta",
+			-- 					dartSdkPath = "/Users/biowulf21/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+			-- 					flutterSdkPath = "/Users/biowulf21/flutter/bin/flutter", -- ensure this is correct
+			-- 					program = "${workspaceFolder}/lib/main_beta.dart", -- ensure this is correct
+			-- 					cwd = "${workspaceFolder}",
+			-- 					toolArgs = { "-t", "lib/main_beta.dart", "--flavor", "beta" },
+			-- 				},
+			-- 				{
+			-- 					type = "flutter",
+			-- 					request = "launch",
+			-- 					name = "Staging",
+			-- 					dartSdkPath = "/Users/biowulf21/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+			-- 					flutterSdkPath = "/Users/biowulf21/flutter/bin/flutter", -- ensure this is correct
+			-- 					program = "${workspaceFolder}/lib/main_staging.dart", -- ensure this is correct
+			-- 					cwd = "${workspaceFolder}",
+			-- 					toolArgs = { "-t", "lib/main_staging.dart", "--flavor", "staging" },
+			-- 				},
+			-- 				{
+			-- 					type = "flutter",
+			-- 					request = "launch",
+			-- 					name = "Production",
+			-- 					dartSdkPath = "/Users/biowulf21/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+			-- 					flutterSdkPath = "/Users/biowulf21/flutter/bin/flutter", -- ensure this is correct
+			-- 					program = "${workspaceFolder}/lib/main_production.dart", -- ensure this is correct
+			-- 					cwd = "${workspaceFolder}",
+			-- 					toolArgs = { "-t", "lib/main_production.dart", "--flavor", "production" },
+			-- 				},
+			--
+			-- 				{
+			-- 					type = "flutter",
+			-- 					request = "launch",
+			-- 					name = "Regular",
+			-- 					dartSdkPath = "/Users/biowulf21/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
+			-- 					flutterSdkPath = "/Users/biowulf21/flutter/bin/flutter", -- ensure this is correct
+			-- 					program = "${workspaceFolder}/lib/main.dart", -- ensure this is correct
+			-- 					cwd = "${workspaceFolder}",
+			-- 				},
+			-- 			}
+			-- 		end,
+			-- 	},
+			-- 	dev_log = {
+			-- 		enabled = false,
+			-- 		filter = nil,
+			-- 		notify_errors = true,
+			-- 	},
+			-- 	widget_guides = {
+			-- 		enabled = true,
+			-- 	},
+			-- 	dev_tools = {
+			-- 		autostart = true, -- autostart devtools server if not detected
+			-- 		auto_open_browser = false, -- Automatically opens devtools in the browser
+			-- 	},
+			-- 	decorations = {
+			-- 		statusline = {
+			-- 			app_version = true,
+			-- 			device = true,
+			-- 			project_config = true,
+			-- 		},
+			-- 	},
+			-- })
 
-						require("dap").configurations.dart = {
-							{
-								type = "flutter",
-								request = "launch",
-								name = "Development",
-								dartSdkPath = "/Users/biowulf21/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
-								flutterSdkPath = "/Users/biowulf21/flutter/bin/flutter", -- ensure this is correct
-								program = "${workspaceFolder}/lib/main_development.dart", -- ensure this is correct
-								cwd = "${workspaceFolder}",
-								toolArgs = { "-t", "lib/main_development.dart", "--flavor", "development" },
-							},
-							{
-								type = "flutter",
-								request = "launch",
-								name = "Beta",
-								dartSdkPath = "/Users/biowulf21/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
-								flutterSdkPath = "/Users/biowulf21/flutter/bin/flutter", -- ensure this is correct
-								program = "${workspaceFolder}/lib/main_beta.dart", -- ensure this is correct
-								cwd = "${workspaceFolder}",
-								toolArgs = { "-t", "lib/main_beta.dart", "--flavor", "beta" },
-							},
-							{
-								type = "flutter",
-								request = "launch",
-								name = "Staging",
-								dartSdkPath = "/Users/biowulf21/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
-								flutterSdkPath = "/Users/biowulf21/flutter/bin/flutter", -- ensure this is correct
-								program = "${workspaceFolder}/lib/main_staging.dart", -- ensure this is correct
-								cwd = "${workspaceFolder}",
-								toolArgs = { "-t", "lib/main_staging.dart", "--flavor", "staging" },
-							},
-							{
-								type = "flutter",
-								request = "launch",
-								name = "Production",
-								dartSdkPath = "/Users/biowulf21/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
-								flutterSdkPath = "/Users/biowulf21/flutter/bin/flutter", -- ensure this is correct
-								program = "${workspaceFolder}/lib/main_production.dart", -- ensure this is correct
-								cwd = "${workspaceFolder}",
-								toolArgs = { "-t", "lib/main_production.dart", "--flavor", "production" },
-							},
-
-							{
-								type = "flutter",
-								request = "launch",
-								name = "Regular",
-								dartSdkPath = "/Users/biowulf21/flutter/bin/cache/dart-sdk/bin/dart", -- ensure this is correct
-								flutterSdkPath = "/Users/biowulf21/flutter/bin/flutter", -- ensure this is correct
-								program = "${workspaceFolder}/lib/main.dart", -- ensure this is correct
-								cwd = "${workspaceFolder}",
-							},
-						}
-					end,
+			require("flutter-tools").setup_project({
+				{
+					name = "Development",
+					flavor = "development",
+					target = "lib/main_development.dart",
 				},
-				dev_log = {
-					enabled = false,
-					filter = nil,
-					notify_errors = true,
+				{
+					name = "Beta",
+					flavor = "beta",
+					target = "lib/main_beta.dart",
 				},
-				widget_guides = {
-					enabled = true,
+				{
+					name = "Staging",
+					flavor = "staging",
+					target = "lib/main_staging.dart",
 				},
-				dev_tools = {
-					autostart = true, -- autostart devtools server if not detected
-					auto_open_browser = false, -- Automatically opens devtools in the browser
+				{
+					name = "Production",
+					flavor = "production",
+					target = "lib/main_production.dart",
 				},
-				decorations = {
-					statusline = {
-						app_version = true,
-						device = true,
-						project_config = true,
-					},
+				{
+					name = "Regular",
+					target = "lib/main.dart",
+					dart_define_from_file = "config.json",
 				},
 			})
 		end,
@@ -434,7 +464,7 @@ return {
 			-- for you, so that they are available from within Neovim.
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
-				"stylua", -- Used to format Lua code
+				"stylua", -- Used to how do I temporarily disable auto format on save flutterformat Lua code
 				"gopls", -- used to format gopls
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
@@ -461,7 +491,7 @@ return {
 				-- Disable "format_on_save lsp_fallback" for languages that don't
 				-- have a well standardized coding style. You can add additional
 				-- languages here or re-enable it for the disabled ones.
-				local disable_filetypes = { c = true, cpp = true }
+				local disable_filetypes = { c = true, cpp = true, dart = true }
 				return {
 					timeout_ms = 500,
 					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
