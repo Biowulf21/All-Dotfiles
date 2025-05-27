@@ -15,6 +15,25 @@ return {
 					enabled = true,
 					run_via_dap = true,
 					exception_breakpoints = {},
+					dev_log = {
+						enabled = false,
+						filter = nil,
+						notify_errors = true,
+					},
+					widget_guides = {
+						enabled = true,
+					},
+					dev_tools = {
+						autostart = true, -- autostart devtools server if not detected
+						auto_open_browser = false, -- Automatically opens devtools in the browser
+					},
+					decorations = {
+						statusline = {
+							app_version = true,
+							device = true,
+							project_config = true,
+						},
+					},
 				},
 			})
 
@@ -94,25 +113,6 @@ return {
 			-- 				},
 			-- 			}
 			-- 		end,
-			-- 	},
-			-- 	dev_log = {
-			-- 		enabled = false,
-			-- 		filter = nil,
-			-- 		notify_errors = true,
-			-- 	},
-			-- 	widget_guides = {
-			-- 		enabled = true,
-			-- 	},
-			-- 	dev_tools = {
-			-- 		autostart = true, -- autostart devtools server if not detected
-			-- 		auto_open_browser = false, -- Automatically opens devtools in the browser
-			-- 	},
-			-- 	decorations = {
-			-- 		statusline = {
-			-- 			app_version = true,
-			-- 			device = true,
-			-- 			project_config = true,
-			-- 		},
 			-- 	},
 			-- })
 
