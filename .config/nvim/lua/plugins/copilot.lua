@@ -2,31 +2,32 @@ return {
 	"yetone/avante.nvim",
 	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
 	-- ⚠️ must add this setting! ! !
-	build = function()
-		-- conditionally use the correct build system for the current OS
-		if vim.fn.has("win32") == 1 then
-			return "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-		else
-			return "make"
-		end
-	end,
+	build = "make BUILD_FROM_SOURCE=true",
 	event = "VeryLazy",
 	version = false, -- Never set this value to "*"! Never!
 	---@module 'avante'
 	---@type avante.Config
 	opts = {
+		web_search_engine = {
+			provider = "google", -- tavily, serpapi, google, kagi, brave, or searxng
+			proxy = nil, -- proxy support, e.g., http://127.0.0.1:7890
+		},
 		provider = "copilot",
 		auto_suggestions_provider = "copilot",
-		copilot = {
-			model = "claude-4-sonnet",
-		},
-		openai = {
-			endpoint = "https://api.githubcopilot.com",
-			model = "", -- your desired model (or use gpt-4o, etc.)
-			timeout = 30000, -- timeout in milliseconds
-			temperature = 0, -- adjust if needed
-			max_tokens = 4096,
-			-- reasoning_effort = "high" -- only supported for reasoning models (o1, etc.)
+		providers = {
+			copilot = {
+				model = "claude-sonnet-4",
+			},
+			openai = {
+				endpoint = "https://api.githubcopilot.com",
+				model = "", -- your desired model (or use gpt-4o, etc.)
+				timeout = 30000, -- timeout in milliseconds
+				max_tokens = 4096,
+				extra_request_body = {
+					temperature = 0, -- adjust if needed
+				},
+				-- reasoning_effort = "high" -- only supported for reasoning models (o1, etc.)
+			},
 		},
 	},
 	dependencies = {
