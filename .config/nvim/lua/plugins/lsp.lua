@@ -9,31 +9,32 @@ return {
 		},
 		config = function()
 			require("flutter-tools").setup({
-				flutter_path = "/Users/biowulf21/flutter/bin/flutter",
+				-- flutter_path = "/Users/biowulf21/flutter/bin/flutter",
+				-- flutter_lookup_cmd = "dirname $(which flutter)",
 				fvm = true,
+				dev_log = {
+					enabled = false,
+					filter = nil,
+					notify_errors = true,
+				},
+				widget_guides = {
+					enabled = true,
+				},
+				dev_tools = {
+					autostart = true, -- autostart devtools server if not detected
+					auto_open_browser = false, -- Automatically opens devtools in the browser
+				},
+				decorations = {
+					statusline = {
+						app_version = true,
+						device = true,
+						project_config = true,
+					},
+				},
 				debugger = {
 					enabled = true,
 					run_via_dap = true,
 					exception_breakpoints = {},
-					dev_log = {
-						enabled = false,
-						filter = nil,
-						notify_errors = true,
-					},
-					widget_guides = {
-						enabled = true,
-					},
-					dev_tools = {
-						autostart = true, -- autostart devtools server if not detected
-						auto_open_browser = false, -- Automatically opens devtools in the browser
-					},
-					decorations = {
-						statusline = {
-							app_version = true,
-							device = true,
-							project_config = true,
-						},
-					},
 				},
 			})
 
@@ -122,6 +123,15 @@ return {
 					flavor = "development",
 					target = "lib/main_development.dart",
 				},
+
+				{
+					name = "Dev",
+					flavor = "dev",
+					target = "lib/main.dart",
+					additional_args = {
+						"--dart-define=FLAVOR=dev",
+					},
+				},
 				{
 					name = "Beta",
 					flavor = "beta",
@@ -138,9 +148,17 @@ return {
 					target = "lib/main_production.dart",
 				},
 				{
+					name = "Prod",
+					flavor = "prod",
+					target = "lib/main.dart",
+					device = "chrome",
+					additional_args = {
+						"--dart-define=FLAVOR=prod",
+					},
+				},
+				{
 					name = "Regular",
 					target = "lib/main.dart",
-					dart_define_from_file = "config.json",
 				},
 			})
 		end,
@@ -372,6 +390,8 @@ return {
 						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
+					local client = vim.lsp.get_client_by_id(event.data.client_id)
+
 					-- Jump to the definition of the word under your cursor.
 					--  This is where a variable was first declared, or where a function is defined, etc.
 					--  To jump back, press <C-t>.
@@ -434,6 +454,15 @@ return {
 							callback = vim.lsp.buf.clear_references,
 						})
 					end
+
+					-- if client and client.supports_method("textDocument/formatting") then
+					-- 	vim.api.nvim_create_autocmd("BufWritePre", {
+					-- 		buffer = event.buf,
+					-- 		callback = function()
+					-- 			vim.lsp.buf.format({ buffer = event.buf, id = client.id })
+					-- 		end,
+					-- 	})
+					-- end
 				end,
 			})
 
@@ -491,7 +520,7 @@ return {
 				-- Disable "format_on_save lsp_fallback" for languages that don't
 				-- have a well standardized coding style. You can add additional
 				-- languages here or re-enable it for the disabled ones.
-				local disable_filetypes = { c = true, cpp = true, dart = true }
+				local disable_filetypes = { c = true, cpp = true, tsx = true }
 				return {
 					timeout_ms = 500,
 					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
